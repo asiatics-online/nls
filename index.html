@@ -440,9 +440,55 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-<!-- Elfsight Back to Top | Untitled Back to Top -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-194ff359-c171-426d-abb1-d5f9843a3675" data-elfsight-app-lazy></div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Cria o elemento do botão
+    const button = document.createElement('button');
+    button.id = 'scroll-to-top-btn';
+    button.title = 'Ir para o Topo';
+    button.innerHTML = '&uarr;'; // Seta a seta para cima como conteúdo do botão
+
+    // Adiciona os estilos CSS ao botão
+    button.style.cssText = `
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #3f51b5;
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 24px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, transform 0.3s;
+    `;
+
+    // Adiciona o botão ao corpo do documento
+    document.body.appendChild(button);
+
+    // Lógica para mostrar e esconder o botão
+    window.onscroll = function() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        button.style.display = 'block';
+      } else {
+        button.style.display = 'none';
+      }
+    };
+
+    // Lógica para rolar para o topo
+    button.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
 </body>
 
 </html>
+
