@@ -41,19 +41,21 @@
         /* --- Hero Section --- */
         .hero { text-align: center; padding: 120px 20px 150px; background: radial-gradient(circle at center, #1A253C 0%, var(--bg-dark) 90%); border-bottom: 1px solid rgba(0, 229, 255, 0.1); }
         .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 20px; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; }
-.hero-pillars { 
+        
+        .hero-pillars { 
             font-size: 1.4rem; 
-            font-weight: 600; /* Aumentei levemente a espessura para o degradê brilhar mais */
+            font-weight: 600; 
             margin-bottom: 25px; 
             letter-spacing: 2px; 
             text-transform: uppercase; 
-            /* Aplicando o mesmo degradê do título */
             background: linear-gradient(90deg, var(--primary), var(--secondary)); 
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
         }
 
-/* Insígnia do Topo com Efeito Flutuante */
+        .hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 40px; color: var(--text-muted); }
+
+        /* Insígnia do Topo com Efeito Flutuante */
         .hero-insignia {
             margin-top: 0px;
             margin-bottom: 0px;
@@ -62,10 +64,10 @@
             align-items: center;
         }
         .hero-insignia img {
-            width: 350px; /* Tamanho exato que você pediu */
+            width: 350px; 
             height: auto;
-            filter: drop-shadow(0 15px 25px rgba(255, 215, 0, 0.4)); /* Brilho dourado sofisticado */
-            animation: float-hero 4s ease-in-out infinite; /* Efeito de atenção */
+            filter: drop-shadow(0 15px 25px rgba(255, 215, 0, 0.4)); 
+            animation: float-hero 4s ease-in-out infinite; 
         }
         @keyframes float-hero {
             0% { transform: translateY(0px); }
@@ -90,10 +92,7 @@
         .step-content h4 { font-size: 1.2rem; color: #fff; margin-bottom: 10px; }
         .workflow-video-container { flex: 1; }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.6); border: 3px solid rgba(255, 215, 0, 0.3); background: #000; }
-        .video-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, #141B2D, #0A0F1A); cursor: pointer; transition: all 0.3s; }
-        .video-placeholder:hover { background: rgba(255, 215, 0, 0.1); }
-        .video-placeholder i { font-size: 5rem; margin-bottom: 20px; transition: transform 0.3s; }
-        .video-placeholder:hover i { transform: scale(1.1); color: #fff !important; filter: drop-shadow(0 0 30px rgba(255,215,0,0.8)); }
+        .demo-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
 
         /* --- ARSENAL CLÍNICO --- */
         .arsenal-section { background: #0d1321; border-top: 1px solid rgba(255, 255, 255, 0.05); }
@@ -204,7 +203,7 @@
             position: relative; 
             max-width: 1200px; 
             margin: 0 auto; 
-            padding: 0 45px; /* Abre espaço interno para os botões */
+            padding: 0 45px; 
         }
         
         .carousel-track-wrapper { 
@@ -239,7 +238,7 @@
 
         /* Botões Manuais do Carrossel */
         .carousel-btn { 
-            background: rgba(10, 15, 26, 0.9); /* Fundo escuro para destacar na página */
+            background: rgba(10, 15, 26, 0.9); 
             border: 1px solid var(--secondary); 
             color: var(--secondary); 
             width: 45px; height: 45px; 
@@ -328,8 +327,6 @@
         </div>
     </header>
 
- 
-
     <section id="metodo" class="section-padding metaphor-section">
         <h2 class="section-title">Qual o seu momento atual?</h2>
         <p class="section-subtitle">A tecnologia NLS é como um meio de transporte. Nós temos a ferramenta certa para a velocidade que você deseja alcançar.</p>
@@ -383,11 +380,10 @@
             </div>
             <div class="workflow-video-container">
                 <div class="video-wrapper">
-                    <div class="video-placeholder">
-                        <i class="fas fa-play-circle global-icon-gold"></i>
-                        <h3 style="color: #fff; margin-bottom: 5px;">Assistir Demonstração</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Veja o método em ação</p>
-                    </div>
+                    <video class="demo-video" autoplay loop muted playsinline>
+                        <source src="files-formacao-nls/Video-Formacao.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
                 </div>
             </div>
         </div>
@@ -922,4 +918,3 @@
     </script>
 </body>
 </html>
-
