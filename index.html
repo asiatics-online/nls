@@ -41,7 +41,36 @@
         /* --- Hero Section --- */
         .hero { text-align: center; padding: 120px 20px 150px; background: radial-gradient(circle at center, #1A253C 0%, var(--bg-dark) 90%); border-bottom: 1px solid rgba(0, 229, 255, 0.1); }
         .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 20px; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; }
-        .hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 40px; color: var(--text-muted); }
+.hero-pillars { 
+            font-size: 1.4rem; 
+            font-weight: 600; /* Aumentei levemente a espessura para o degradê brilhar mais */
+            margin-bottom: 25px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            /* Aplicando o mesmo degradê do título */
+            background: linear-gradient(90deg, var(--primary), var(--secondary)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+/* Insígnia do Topo com Efeito Flutuante */
+        .hero-insignia {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-insignia img {
+            width: 150px; /* Tamanho exato que você pediu */
+            height: auto;
+            filter: drop-shadow(0 15px 25px rgba(255, 215, 0, 0.4)); /* Brilho dourado sofisticado */
+            animation: float-hero 4s ease-in-out infinite; /* Efeito de atenção */
+        }
+        @keyframes float-hero {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
 
         /* --- Analogia Section --- */
         .metaphor-section { text-align: center; background: #0d1321; margin-top: -80px; padding-top: 100px; }
@@ -115,7 +144,6 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
         
-        /* Formatação de Texto Espelhada no Bloco de Autoridade (Certificado) */
         .showcase-text { flex: 1; }
         .showcase-text h4 { font-size: 2.2rem; font-weight: 800; margin-bottom: 25px; line-height: 1.2; }
         .showcase-text p { color: var(--text-light); font-size: 1.1rem; margin-bottom: 35px; line-height: 1.8; }
@@ -144,16 +172,15 @@
         .showcase-ia { border-color: rgba(181, 101, 255, 0.2); }
         .showcase-ia .showcase-text h4 { background: linear-gradient(90deg, #d15cff, #8B008B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .showcase-ia .showcase-list li i, .showcase-ia .transform-arrow { color: #d15cff; filter: drop-shadow(0 0 10px rgba(181, 101, 255, 0.5)); }
-        .showcase-ia .img-mockup { border: 2px solid rgba(181, 101, 255, 0.3); aspect-ratio: 1 / 2; /* Proporção Celular/Chat */ }
+        .showcase-ia .img-mockup { border: 2px solid rgba(181, 101, 255, 0.3); aspect-ratio: 1 / 2; }
         .showcase-ia .img-mockup.generated { border-color: #d15cff; box-shadow: 0 0 30px rgba(181, 101, 255, 0.4); transform: scale(1.05); }
 
         /* Variação de Cor: Showcase Documentação */
         .showcase-doc { border-color: rgba(0, 229, 255, 0.2); }
         .showcase-doc .showcase-text h4 { background: linear-gradient(90deg, #00E5FF, #1E90FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .showcase-doc .showcase-list li i, .showcase-doc .transform-arrow { color: #00E5FF; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.5)); }
-        .showcase-doc .img-mockup { border: 2px solid rgba(0, 229, 255, 0.3); aspect-ratio: 1 / 2; /* Alterado para proporção vertical igual ao IA */ }
+        .showcase-doc .img-mockup { border: 2px solid rgba(0, 229, 255, 0.3); aspect-ratio: 1 / 2; }
         .showcase-doc .img-mockup.generated { border-color: #00E5FF; box-shadow: 0 0 30px rgba(0, 229, 255, 0.4); transform: scale(1.05); }
-
 
         /* --- SESSÃO DO CERTIFICADO --- */
         .certificate-section { background: linear-gradient(to bottom, #0d1321, #0A0F1A); border-top: 1px solid rgba(255, 215, 0, 0.1); position: relative; overflow: hidden; }
@@ -169,20 +196,36 @@
         .cert-image-wrapper img:hover { transform: scale(1.02); }
         .cert-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; height: 90%; background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%); filter: blur(40px); z-index: 1; }
 
-/* --- SESSÃO DE DEPOIMENTOS (CARROSSEL) --- */
+        /* --- SESSÃO DE DEPOIMENTOS (CARROSSEL AUTOMÁTICO E MANUAL) --- */
         .testimonials-section { background: #0A0F1A; border-top: 1px solid rgba(255, 255, 255, 0.05); overflow: hidden; }
-        .carousel-container { position: relative; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; }
-        .carousel-track-wrapper { overflow: hidden; width: 100%; padding: 20px 0; }
-        .carousel-track { display: flex; transition: transform 0.5s ease-in-out; gap: 30px; }
+        
+        .carousel-container { 
+            position: relative; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 45px; /* Abre espaço interno para os botões */
+        }
+        
+        .carousel-track-wrapper { 
+            width: 100%; 
+            overflow: hidden; 
+            padding: 20px 0; 
+        }
+        
+        .carousel-track { 
+            display: flex; 
+            gap: 30px; 
+            transition: transform 0.8s ease-in-out; 
+            will-change: transform; 
+        }
         
         .testimonial-card { 
-            min-width: calc(33.333% - 20px); /* 3 cards na tela no PC */
             background: var(--bg-card); 
             padding: 35px 30px; 
             border-radius: 20px; 
             border: 1px solid rgba(255, 255, 255, 0.05); 
             position: relative; 
-            flex-shrink: 0;
+            flex: 0 0 calc((100% - 60px) / 3); 
         }
         
         .stars { color: var(--secondary); font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 15px; }
@@ -193,9 +236,9 @@
         .author-info h5 { color: #fff; margin-bottom: 5px; }
         .author-info p { color: var(--text-muted); font-size: 0.85rem; }
 
-        /* Botões do Carrossel */
+        /* Botões Manuais do Carrossel */
         .carousel-btn { 
-            background: rgba(255, 215, 0, 0.1); 
+            background: rgba(10, 15, 26, 0.9); /* Fundo escuro para destacar na página */
             border: 1px solid var(--secondary); 
             color: var(--secondary); 
             width: 45px; height: 45px; 
@@ -203,12 +246,42 @@
             cursor: pointer; 
             display: flex; align-items: center; justify-content: center; 
             font-size: 1.2rem; 
-            position: absolute; z-index: 10; 
+            position: absolute; 
+            z-index: 10; 
+            top: 50%; 
+            transform: translateY(-50%);
             transition: all 0.3s ease; 
         }
-        .carousel-btn:hover { background: var(--secondary); color: #0A0F1A; transform: scale(1.1); box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
-        .prev-btn { left: -60px; }
-        .next-btn { right: -60px; }
+        .carousel-btn:hover { background: var(--secondary); color: #0A0F1A; box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+        .prev-btn { left: 0px; }
+        .next-btn { right: 0px; }
+
+        /* --- SEÇÃO DE PLANOS --- */
+        .plans-section { background: linear-gradient(to bottom, #0A0F1A, #1A253C); position: relative; z-index: 1; border-top: 1px solid rgba(255, 215, 0, 0.1); padding-top: 120px; }
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; align-items: stretch; }
+        .plan-card { background: var(--bg-card); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 25px; overflow: visible; transition: all 0.3s ease; position: relative; display: flex; flex-direction: column; }
+        .plan-card:hover { transform: translateY(-5px); border-color: rgba(255, 215, 0, 0.8); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .plan-header { padding: 40px 30px 30px; text-align: center; background: rgba(0,0,0,0.2); border-top-left-radius: 25px; border-top-right-radius: 25px; }
+        .plan-title { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; letter-spacing: 1px; }
+        .plan-type.small { font-size: 1rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; margin-bottom: 5px; }
+        .plan-name.large { font-size: 2.2rem; font-weight: 800; color: #fff; line-height: 1.1; }
+        .plan-subtitle { color: var(--text-muted); font-size: 1rem; min-height: 50px; }
+        .plan-body { padding: 30px; flex-grow: 1; }
+        .checklist { list-style: none; }
+        .checklist li { margin-bottom: 15px; color: var(--text-light); display: flex; align-items: flex-start; gap: 12px; font-size: 1rem; }
+        .checklist li i { flex-shrink: 0; margin-top: 5px; }
+        .checklist li i.fa-check { color: var(--primary); }
+        .checklist li i.fa-times { color: rgba(255, 255, 255, 0.2); }
+        .checklist li.disabled { color: rgba(255, 255, 255, 0.4); }
+
+        .plan-card.master { border: 2px solid var(--secondary); background: linear-gradient(160deg, #1A253C, #0d1321); box-shadow: 0 0 50px rgba(255, 215, 0, 0.15); z-index: 10; }
+        .plan-card.master:hover { box-shadow: 0 0 70px rgba(255, 215, 0, 0.3); }
+        .plan-card.master .plan-name.large { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .plan-card.master .plan-type.small { color: var(--secondary); }
+        .plan-card.master .checklist li i.fa-check { color: var(--secondary); }
+        .plan-card.master .plan-header { padding-top: 60px; background: transparent; }
+        .master-image-frame { position: absolute; top: -130px; left: 50%; transform: translateX(-50%); width: 100%; display: flex; justify-content: center; align-items: center; z-index: 11; pointer-events: none; }
+        .master-image-frame img { height: 200px; width: auto; display: block; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8)); }
 
         /* --- FINAL CTA SECTION --- */
         .final-cta-section { text-align: center; background: radial-gradient(circle at center, #1A253C 0%, var(--bg-dark) 100%); border-top: 1px solid rgba(0, 229, 255, 0.2); }
@@ -221,31 +294,40 @@
             .plan-card.master { margin-bottom: 50px; }
             .plan-card { margin-top: 40px; }
             .plan-card.master { margin-top: 80px; }
-            .grid-3-col.testimonials { grid-template-columns: 1fr; max-width: 500px; }
             .module-showcase { padding: 30px; }
             .transform-arrow { transform: none; margin: 0 10px; animation: pulse-arrow 2s infinite; }
-            .testimonial-card { min-width: calc(50% - 15px); } /* 2 cards no Tablet */
-            .carousel-btn { display: none; } /* Oculta as setas em telas pequenas para poder rolar com o dedo */
-            .carousel-track-wrapper { overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 30px; }
-            .carousel-track { gap: 20px; }
-            .testimonial-card { scroll-snap-align: start; }
+            
+            /* Ajuste do Slider para Tablet */
+            .testimonial-card { flex: 0 0 calc((100% - 30px) / 2); }
         }
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .section-title, .module-heading { font-size: 2rem; flex-direction: column; gap: 5px; }
             .metaphor-grid { flex-direction: column; align-items: center; }
             .workflow-container { flex-direction: column-reverse; }
-            .testimonial-card { min-width: 85%; } /* 1 card por vez no celular */
+            .hero-pillars { font-size: 1rem; letter-spacing: 1px; }
+            
+            /* Ajuste do Slider para Celular */
+            .testimonial-card { flex: 0 0 100%; } 
+            
+            /* Ocultar as setas manuais no celular para economizar espaço e o usuário pode esperar ou tocar na tela */
+            .carousel-btn { width: 35px; height: 35px; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
     <header class="hero">
-        <h1>Domine o Equipamento NLS e Eleve sua Prática Clínica</h1>
+        <h1>Formação em NLS</h1>
+        <h2 class="hero-pillars">Expertise, Inteligência, Segurança e Autoridade Clínica.</h2>
         <p>Descubra o ecossistema Asiatics: da operação ágil à maestria clínica com Inteligência Artificial e arsenal terapêutico completo.</p>
-        <button onclick="document.getElementById('metodo').scrollIntoView();" class="cta-btn">Conhecer o Método Asiatics</button>
+        
+        <div class="hero-insignia">
+            <img src="files-formacao-nls/insignia-master.png" alt="Selo Master Asiatics">
+        </div>
     </header>
+
+ 
 
     <section id="metodo" class="section-padding metaphor-section">
         <h2 class="section-title">Qual o seu momento atual?</h2>
@@ -554,7 +636,8 @@
             </div>
         </div>
     </section>
-<section class="section-padding testimonials-section">
+
+    <section class="section-padding testimonials-section">
         <h2 class="section-title">Quem Domina o NLS, Recomenda</h2>
         <p class="section-subtitle">Veja como a metodologia Asiatics está transformando consultórios reais.</p>
         
@@ -614,7 +697,7 @@
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                         <i class="fas fa-quote-left testimonial-quote"></i>
-                        <p class="testimonial-text">"O investimento se pagou no primeiro mês. Os clientes percebem imediatamente o valor da consulta quando entrego o laudo padronizado. Excelente!"</p>
+                        <p class="testimonial-text">"Sempre tive dificuldade em explicar os resultados do NLS. O módulo de documentação profissional mudou completamente a forma como me comunico."</p>
                         <div class="testimonial-author">
                             <div class="author-avatar" style="background: linear-gradient(45deg, #d15cff, #0A0F1A); color: #fff;">C</div>
                             <div class="author-info">
@@ -629,12 +712,27 @@
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                         <i class="fas fa-quote-left testimonial-quote"></i>
-                        <p class="testimonial-text">"A didática é incrível. Mesmo sendo iniciante, consegui implementar o NLS na minha prática em poucas semanas com total segurança."</p>
+                        <p class="testimonial-text">"O suporte e a estrutura do curso são fantásticos. Comecei com o Start e em menos de 2 meses já estava aplicando os conceitos do Master."</p>
                         <div class="testimonial-author">
-                            <div class="author-avatar" style="background: linear-gradient(45deg, #FF3B30, #0A0F1A); color: #fff;">A</div>
+                            <div class="author-avatar" style="background: linear-gradient(45deg, #FF3B30, #0A0F1A); color: #fff;">J</div>
                             <div class="author-info">
-                                <h5>Ana Paula L.</h5>
-                                <p>Nutricionista Holística</p>
+                                <h5>Juliano P.</h5>
+                                <p>Nutricionista Integrativo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <i class="fas fa-quote-left testimonial-quote"></i>
+                        <p class="testimonial-text">"Impressionante a quantidade de material bônus. Só os estudos de casos já valeriam o investimento. Uma verdadeira mina de ouro terapêutica."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" style="background: linear-gradient(45deg, #FFB07C, #0A0F1A); color: #fff;">A</div>
+                            <div class="author-info">
+                                <h5>Amanda G.</h5>
+                                <p>Terapeuta Quântica</p>
                             </div>
                         </div>
                     </div>
@@ -643,6 +741,85 @@
             </div>
             
             <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <section id="planos" class="section-padding plans-section">
+        <h2 class="section-title">Escolha o Seu Nível de Formação</h2>
+        <p class="section-subtitle">Preparamos 3 caminhos para você. Compare e identifique qual é o mais adequado para a sua realidade e do seu modelo de negócio.</p>
+
+        <div class="plans-grid">
+            
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3 class="plan-title">
+                        <span class="plan-type small">Treinamento</span>
+                        <span class="plan-name large">Start</span>
+                    </h3>
+                    <p class="plan-subtitle">Imersão ágil para dominar a máquina e ir direto ao ponto.</p>
+                </div>
+                <div class="plan-body">
+                    <ul class="checklist">
+                        <li><i class="fas fa-check"></i> Foco: Operação Imediata</li>
+                        <li><i class="fas fa-check"></i> 8 Videoaulas Objetivas (3h30)</li>
+                        <li><i class="fas fa-check"></i> Domínio de Frequências e Índices</li>
+                        <li><i class="fas fa-check"></i> Suporte Básico com IA</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Fundamentos da Física Quântica</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Raciocínio Clínico Avançado</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Acervo Clínico e Documentação</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Certificado Master</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3 class="plan-title">
+                        <span class="plan-type small">Treinamento</span>
+                        <span class="plan-name large">Pró</span>
+                    </h3>
+                    <p class="plan-subtitle">Capacitação técnica intensiva para segurança e eficiência clínica.</p>
+                </div>
+                <div class="plan-body">
+                    <ul class="checklist">
+                        <li><i class="fas fa-check"></i> Foco: Segurança Clínica</li>
+                        <li><i class="fas fa-check"></i> 47 Videoaulas (6h30)</li>
+                        <li><i class="fas fa-check"></i> <strong>Inclui todo o conteúdo do Start</strong></li>
+                        <li><i class="fas fa-check"></i> Mód 1: Teoria Quântica</li>
+                        <li><i class="fas fa-check"></i> Mód 2: Hardware e Software</li>
+                        <li><i class="fas fa-check"></i> Mód 3: Prática Clínica</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Prompts Avançados de IA</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Certificado Master</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="plan-card master">
+                
+                <div class="master-image-frame">
+                    <img src="files-formacao-nls/insignia-master.png" alt="Selo Master Certificação">
+                </div>
+
+                <div class="plan-header">
+                    <h3 class="plan-title">
+                        <span class="plan-type small">Certificação</span>
+                        <span class="plan-name large">Master</span>
+                    </h3>
+                    <p class="plan-subtitle" style="color: #E0E6ED;">A referência definitiva. Especialização de alto nível com arsenal completo.</p>
+                </div>
+                <div class="plan-body">
+                    <ul class="checklist">
+                        <li><i class="fas fa-check"></i> <strong>Foco: Autoridade Máxima</strong></li>
+                        <li><i class="fas fa-check"></i> 65 Aulas + Miniecossistema</li>
+                        <li><i class="fas fa-check"></i> <strong>Inclui conteúdo do Start e Pró</strong></li>
+                        <li><i class="fas fa-check"></i> Mód 4: Engenharia de Prompts (IA)</li>
+                        <li><i class="fas fa-check"></i> Mód 5: Pacote de Documentação</li>
+                        <li><i class="fas fa-check"></i> <strong>Certificado Oficial Master</strong></li>
+                        <li><i class="fas fa-gift freq-7"></i> <strong>Pacote de Expansão Premium</strong></li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -658,56 +835,89 @@
     <footer style="text-align: center; padding: 30px; background: #05080f; color: #4a5568; font-size: 0.9rem;">
         <p>&copy; 2026 Asiatics - Formação em Tecnologia NLS. Todos os direitos reservados.</p>
     </footer>
+
     <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const track = document.querySelector('.carousel-track');
-                const cards = Array.from(track.children);
-                const nextButton = document.querySelector('.next-btn');
-                const prevButton = document.querySelector('.prev-btn');
-                
-                let currentIndex = 0;
-    
-                function updateCarousel() {
-                    const cardWidth = cards[0].getBoundingClientRect().width;
-                    const gap = 30; // Correspondente ao gap do CSS
-                    const amountToMove = currentIndex * (cardWidth + gap);
-                    track.style.transform = `translateX(-${amountToMove}px)`;
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.querySelector('.carousel-track');
+            const cards = Array.from(track.children);
+            const container = document.querySelector('.carousel-container');
+            const nextButton = document.querySelector('.next-btn');
+            const prevButton = document.querySelector('.prev-btn');
+            
+            let currentIndex = 0;
+            let carouselInterval;
+
+            function getMaxIndex() {
+                const containerWidth = document.querySelector('.carousel-track-wrapper').getBoundingClientRect().width;
+                const cardWidth = cards[0].getBoundingClientRect().width;
+                const gap = 30; 
+                // Quantos cards cabem na tela
+                const visibleCards = Math.round(containerWidth / (cardWidth + gap)) || 1;
+                // O limite máximo de vezes que podemos "pular" para o lado
+                return cards.length - visibleCards;
+            }
+
+            function updateCarouselPosition() {
+                const cardWidth = cards[0].getBoundingClientRect().width;
+                const gap = 30; 
+                const amountToMove = currentIndex * (cardWidth + gap);
+                track.style.transform = `translateX(-${amountToMove}px)`;
+            }
+
+            function moveNext() {
+                const maxIndex = getMaxIndex();
+                currentIndex++;
+                if (currentIndex > maxIndex) {
+                    currentIndex = 0; // Volta pro começo se chegar no fim
                 }
-    
-                nextButton.addEventListener('click', () => {
-                    const wrapperWidth = document.querySelector('.carousel-track-wrapper').getBoundingClientRect().width;
-                    const cardWidth = cards[0].getBoundingClientRect().width;
-                    const visibleCards = Math.round(wrapperWidth / cardWidth);
-                    const maxIndex = cards.length - visibleCards;
-                    
-                    if (currentIndex < maxIndex) {
-                        currentIndex++;
-                        updateCarousel();
-                    }
-                });
-    
-                prevButton.addEventListener('click', () => {
-                    if (currentIndex > 0) {
-                        currentIndex--;
-                        updateCarousel();
-                    }
-                });
-    
-                // Recalcula se a tela for redimensionada
-                window.addEventListener('resize', () => {
-                    currentIndex = 0;
-                    updateCarousel();
-                });
+                updateCarouselPosition();
+            }
+
+            function movePrev() {
+                const maxIndex = getMaxIndex();
+                currentIndex--;
+                if (currentIndex < 0) {
+                    currentIndex = maxIndex; // Pula pro fim se estiver no começo
+                }
+                updateCarouselPosition();
+            }
+
+            function startCarousel() {
+                // Roda automaticamente a cada 5 segundos
+                carouselInterval = setInterval(moveNext, 5000);
+            }
+
+            function resetCarouselTimer() {
+                // Se o cliente clicar, o tempo reseta para ele não pular duas vezes rápido
+                clearInterval(carouselInterval);
+                startCarousel();
+            }
+
+            // Ativando os botões manuais
+            nextButton.addEventListener('click', () => {
+                moveNext();
+                resetCarouselTimer();
             });
-        </script>
+
+            prevButton.addEventListener('click', () => {
+                movePrev();
+                resetCarouselTimer();
+            });
+
+            // Pausa caso o cliente coloque o mouse ou toque para ler
+            container.addEventListener('mouseenter', () => clearInterval(carouselInterval));
+            container.addEventListener('mouseleave', startCarousel);
+            container.addEventListener('touchstart', () => clearInterval(carouselInterval));
+            container.addEventListener('touchend', startCarousel);
+
+            // Mantém os tamanhos exatos se a janela mudar
+            window.addEventListener('resize', () => {
+                currentIndex = 0;
+                updateCarouselPosition();
+            });
+
+            startCarousel(); // Inicia o motor
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
