@@ -1,494 +1,682 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Hotpage - Miniecossistema NLS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background: linear-gradient(90deg, #004e92, #000428);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header h1 {
-      font-size: 2.2em;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.1em;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-    .product-block {
-      background: #fff;
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 24px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    }
-
-.illustration {
-  width: 100%;
-  height: auto;
-  background: #e9eef6;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-  overflow: hidden; /* Adicione esta linha para criar a "máscara" */
-}
-
-/* Modifique o estilo da imagem para ela preencher o contêiner */
-.illustration img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* A imagem irá preencher a área, sendo cortada se necessário */
-}
-
-    .product-title {
-      margin: 0 0 8px 0;
-      color: #0b3d91;
-      font-size: 24px;
-    }
-    .product-description {
-      margin: 0 0 16px 0;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-    .content-blocks-wrapper {
-      display: block;
-    }
-    .content-block {
-      background: #f8fafc;
-      border: 1px solid #eef2f7;
-      border-radius: 10px;
-      padding: 16px;
-      margin-bottom: 12px;
-    }
-    .content-block h3 {
-      margin: 0 0 8px 0;
-      font-size: 18px;
-      color: #0b3d91;
-    }
-    .content-block ul {
-      margin: 0;
-      padding-left: 18px;
-      line-height: 1.7;
-    }
-    .content-block p {
-      margin: 0;
-      line-height: 1.7;
-    }
-    .last-content-block {
-        margin-bottom: 0;
-    }
-    .cta-section {
-      margin-top: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-    .cta-button-pix {
-      background: linear-gradient(to right, #4CAF50, #1B5E20); /* Degradê de verde claro para verde escuro */
-      color: #fff;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-      text-decoration: none;
-      padding: 12px 18px;
-      border-radius: 8px;
-      font-weight: bold;
-      display: inline-block;
-      font-size: 20px;
-    }
-    .cta-button-card {
-      background: linear-gradient(to right, #FFD700, #DAA520); /* Degradê de verde claro para verde escuro */
-      color: #1A1A1A ;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-      text-decoration: none;
-      padding: 12px 18px;
-      border-radius: 8px;
-      font-weight: bold;
-      display: inline-block;
-      font-size: 20px;
-    }
-    .cta-button-pix:hover {
-      background: linear-gradient(to right, #388E3C, #014022);
-    } 
-    .cta-button-card:hover {
-      background: linear-gradient(to right, #F0C000, #B08800);
-    } 
-
-    .cta-payment-info {
-      font-size: 16px;
-      color: #444;
-      text-align: center;
-      width: 100%;
-      text-decoration: line-through;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    table {
-      width: 100%;
-      max-width: 1200px;
-      margin: 30px auto;
-      padding: 0 20px;
-            border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-        th {
-            background-color: #0077cc;
-            color: white;
-        }
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-        td strong {
-            color: #0077cc;
-        }
-        .icon {
-            font-size: 1.5rem;
-            line-height: 1;
-        }
-        .icon-check {
-            color: #28a745;
-        }
-        .icon-x {
-            color: #dc3545;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formação em NLS | Asiatics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Variáveis de Cores Premium */
+        :root {
+            --bg-dark: #0A0F1A;
+            --bg-card: #141B2D;
+            --primary: #00E5FF;
+            --secondary: #FFD700;
+            --gold-gradient: linear-gradient(to bottom, #FFD700, #B8860B, #FFD700);
+            --text-light: #E0E6ED;
+            --text-muted: #94A3B8;
         }
 
-    footer {
-      background: linear-gradient(90deg, #004e92, #000428);
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 40px;
-    }
-    .footer-logo img {
-      max-width: 120px;
-      margin-bottom: 12px;
-    }
-    .footer-site a {
-      color: white;
-      text-decoration: none;
-      font-size: 15px;
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-    .footer-site a:hover {
-      text-decoration: underline;
-    }
-    .footer-copy {
-      font-size: 13px;
-      opacity: 0.9;
-    }
-  </style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
+
+        /* --- Componentes Globais --- */
+        .section-padding { padding: 80px 20px; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: #fff; font-weight: 700; }
+        .section-subtitle { text-align: center; color: var(--text-muted); max-width: 800px; margin: 0 auto 50px; font-size: 1.1rem; }
+        
+        .cta-btn { display: inline-block; background: var(--primary); color: var(--bg-dark); padding: 16px 35px; font-size: 1.1rem; font-weight: 800; text-decoration: none; border-radius: 50px; text-transform: uppercase; box-shadow: 0 0 20px rgba(0, 229, 255, 0.3); transition: all 0.3s ease; border: none; cursor: pointer; text-align: center; }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(0, 229, 255, 0.6); }
+        .cta-btn.gold { background: var(--gold-gradient); color: #2a1c00; box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+        .cta-btn.gold:hover { box-shadow: 0 0 40px rgba(255, 215, 0, 0.7); }
+
+        /* Ícones Globais Padronizados (Dourado com Glow) */
+        .global-icon-gold {
+            color: var(--secondary) !important;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+        }
+
+        /* --- Hero Section --- */
+        .hero { text-align: center; padding: 120px 20px 150px; background: radial-gradient(circle at center, #1A253C 0%, var(--bg-dark) 90%); border-bottom: 1px solid rgba(0, 229, 255, 0.1); }
+        .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 20px; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; }
+        .hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 40px; color: var(--text-muted); }
+
+        /* --- Analogia Section --- */
+        .metaphor-section { text-align: center; background: #0d1321; margin-top: -80px; padding-top: 100px; }
+        .metaphor-grid { display: flex; justify-content: center; gap: 30px; margin-top: 40px; flex-wrap: wrap; }
+        .metaphor-card { background: var(--bg-card); padding: 40px 30px; border-radius: 15px; width: 300px; border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .metaphor-card:hover { transform: translateY(-10px); border-color: var(--secondary); }
+        .metaphor-card i { font-size: 3rem; margin-bottom: 20px; }
+
+        /* --- Workflow Section --- */
+        .workflow-section { max-width: 1200px; margin: 0 auto; background: linear-gradient(to bottom, var(--bg-dark), #141B2D); }
+        .workflow-container { display: flex; align-items: center; gap: 50px; margin-top: 40px; }
+        .workflow-steps { flex: 1; display: flex; flex-direction: column; gap: 30px; }
+        .step-item { display: flex; gap: 20px; background: rgba(255,255,255,0.02); padding: 25px; border-radius: 15px; border: 1px solid rgba(255, 215, 0, 0.1); transition: all 0.3s ease; }
+        .step-item:hover { background: rgba(255, 215, 0, 0.05); border-color: var(--secondary); transform: translateX(10px); }
+        .step-icon { font-size: 2.2rem; min-width: 50px; text-align: center; }
+        .step-content h4 { font-size: 1.2rem; color: #fff; margin-bottom: 10px; }
+        .workflow-video-container { flex: 1; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.6); border: 3px solid rgba(255, 215, 0, 0.3); background: #000; }
+        .video-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, #141B2D, #0A0F1A); cursor: pointer; transition: all 0.3s; }
+        .video-placeholder:hover { background: rgba(255, 215, 0, 0.1); }
+        .video-placeholder i { font-size: 5rem; margin-bottom: 20px; transition: transform 0.3s; }
+        .video-placeholder:hover i { transform: scale(1.1); color: #fff !important; filter: drop-shadow(0 0 30px rgba(255,215,0,0.8)); }
+
+        /* --- ARSENAL CLÍNICO --- */
+        .arsenal-section { background: #0d1321; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+        .arsenal-module { margin-bottom: 80px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .arsenal-module:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        
+        .module-heading { font-size: 2rem; color: #fff; text-align: center; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 15px; }
+        .glow-green { color: #34C759; text-shadow: 0 0 20px rgba(52, 199, 89, 0.8), 0 0 40px rgba(52, 199, 89, 0.4); }
+        .glow-purple { color: #d15cff; text-shadow: 0 0 20px rgba(181, 101, 255, 0.8); }
+        .glow-blue { color: #00e5ff; text-shadow: 0 0 20px rgba(0, 229, 255, 0.8); }
+        .glow-gold { color: #ffd700; text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+
+        .module-desc { text-align: center; color: var(--text-muted); max-width: 900px; margin: 0 auto 40px; font-size: 1.05rem; }
+        
+        .grid-4-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+        .grid-3-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        
+        /* Cards do Arsenal */
+        .feature-card { background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.05); padding: 35px 25px; border-radius: 20px; transition: all 0.4s ease; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; position: relative; }
+        .feature-icon { font-size: 2.8rem; margin-bottom: 20px; transition: all 0.3s ease; }
+        .feature-card h4 { font-size: 1.15rem; color: #fff; margin-bottom: 12px; }
+        .feature-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+        .bonus-tag { position: absolute; top: 15px; right: 15px; background: rgba(255, 215, 0, 0.15); color: var(--secondary); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 4px 10px; border-radius: 50px; border: 1px solid var(--secondary); box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); }
+
+        /* NEON DINÂMICO */
+        .green-theme .feature-card:hover { transform: translateY(-10px); border-color: #34C759; box-shadow: 0 10px 30px rgba(52, 199, 89, 0.2), inset 0 0 15px rgba(52, 199, 89, 0.1); }
+        .purple-theme .feature-card:hover { transform: translateY(-10px); border-color: #AF52DE; box-shadow: 0 10px 30px rgba(175, 82, 222, 0.2), inset 0 0 15px rgba(175, 82, 222, 0.1); }
+        .blue-theme .feature-card:hover { transform: translateY(-10px); border-color: #00E5FF; box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2), inset 0 0 15px rgba(0, 229, 255, 0.1); }
+        .gold-theme .feature-card:hover { transform: translateY(-10px); border-color: var(--secondary); box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2), inset 0 0 15px rgba(255, 215, 0, 0.1); }
+
+        /* Degradês de Ícones */
+        .ana-col-1 .feature-icon i { color: #A8E6CF; } .ana-col-2 .feature-icon i { color: #32CD32; } .ana-col-3 .feature-icon i { color: #228B22; } .ana-col-4 .feature-icon i { color: #006400; }
+        .ia-col-1 .feature-icon i { color: #E0B0FF; } .ia-col-2 .feature-icon i { color: #DDA0DD; } .ia-col-3 .feature-icon i { color: #BA55D3; } .ia-col-4 .feature-icon i { color: #8B008B; }
+        .doc-col-1 .feature-icon i { color: #87CEFA; } .doc-col-2 .feature-icon i { color: #1E90FF; } .doc-col-3 .feature-icon i { color: #0000CD; }
+        .bon-col-1 .feature-icon i { color: #F0E68C; } .bon-col-2 .feature-icon i { color: #FFD700; } .bon-col-3 .feature-icon i { color: #B8860B; }
+
+        /* --- SHOWCASES DE MÓDULOS (IA e DOCUMENTAÇÃO) --- */
+        .module-showcase {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(10, 15, 26, 0.8));
+            border-radius: 25px;
+            padding: 50px;
+            margin: 60px auto 0;
+            max-width: 1200px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        /* Formatação de Texto Espelhada no Bloco de Autoridade (Certificado) */
+        .showcase-text { flex: 1; }
+        .showcase-text h4 { font-size: 2.2rem; font-weight: 800; margin-bottom: 25px; line-height: 1.2; }
+        .showcase-text p { color: var(--text-light); font-size: 1.1rem; margin-bottom: 35px; line-height: 1.8; }
+        .showcase-list { list-style: none; padding: 0; }
+        .showcase-list li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; font-size: 1.05rem; color: #E0E6ED; line-height: 1.5; }
+        .showcase-list li i { margin-top: 4px; font-size: 1.2rem; min-width: 25px; }
+
+        .showcase-visual { flex: 1.2; display: flex; align-items: center; justify-content: center; gap: 20px; }
+        
+        .img-mockup { 
+            width: 45%; 
+            background: rgba(0,0,0,0.5); 
+            border-radius: 8px; 
+            overflow: hidden; 
+            position: relative; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5); 
+            display: flex; align-items: center; justify-content: center; 
+            transition: transform 0.3s ease; 
+        }
+        .img-mockup img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .transform-arrow { font-size: 2.5rem; animation: pulse-arrow 2s infinite; }
+        @keyframes pulse-arrow { 0% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1) translateX(5px); opacity: 1; } 100% { transform: scale(1); opacity: 0.8; } }
+
+        /* Variação de Cor: Showcase IA */
+        .showcase-ia { border-color: rgba(181, 101, 255, 0.2); }
+        .showcase-ia .showcase-text h4 { background: linear-gradient(90deg, #d15cff, #8B008B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .showcase-ia .showcase-list li i, .showcase-ia .transform-arrow { color: #d15cff; filter: drop-shadow(0 0 10px rgba(181, 101, 255, 0.5)); }
+        .showcase-ia .img-mockup { border: 2px solid rgba(181, 101, 255, 0.3); aspect-ratio: 1 / 2; /* Proporção Celular/Chat */ }
+        .showcase-ia .img-mockup.generated { border-color: #d15cff; box-shadow: 0 0 30px rgba(181, 101, 255, 0.4); transform: scale(1.05); }
+
+        /* Variação de Cor: Showcase Documentação */
+        .showcase-doc { border-color: rgba(0, 229, 255, 0.2); }
+        .showcase-doc .showcase-text h4 { background: linear-gradient(90deg, #00E5FF, #1E90FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .showcase-doc .showcase-list li i, .showcase-doc .transform-arrow { color: #00E5FF; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.5)); }
+        .showcase-doc .img-mockup { border: 2px solid rgba(0, 229, 255, 0.3); aspect-ratio: 1 / 1.414; /* Proporção Folha A4 */ }
+        .showcase-doc .img-mockup.generated { border-color: #00E5FF; box-shadow: 0 0 30px rgba(0, 229, 255, 0.4); transform: scale(1.05); }
+
+
+        /* --- SESSÃO DO CERTIFICADO --- */
+        .certificate-section { background: linear-gradient(to bottom, #0d1321, #0A0F1A); border-top: 1px solid rgba(255, 215, 0, 0.1); position: relative; overflow: hidden; }
+        .cert-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 60px; }
+        .cert-content { flex: 1; z-index: 2; }
+        .cert-content h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 25px; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; }
+        .cert-content p { color: var(--text-light); font-size: 1.1rem; margin-bottom: 35px; line-height: 1.8; }
+        .cert-list { list-style: none; padding: 0; }
+        .cert-list li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; font-size: 1.05rem; color: #E0E6ED; line-height: 1.5; }
+        .cert-list li i { color: var(--secondary); margin-top: 4px; font-size: 1.2rem; min-width: 25px; }
+        .cert-image-wrapper { flex: 1; position: relative; z-index: 2; text-align: center; }
+        .cert-image-wrapper img { width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); transition: transform 0.4s ease; }
+        .cert-image-wrapper img:hover { transform: scale(1.02); }
+        .cert-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; height: 90%; background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%); filter: blur(40px); z-index: 1; }
+
+        /* --- SESSÃO DE DEPOIMENTOS --- */
+        .testimonials-section { background: #0A0F1A; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+        .testimonial-card { background: var(--bg-card); padding: 30px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); position: relative; }
+        .testimonial-quote { font-size: 1.5rem; color: var(--secondary); opacity: 0.5; margin-bottom: 15px; }
+        .testimonial-text { font-size: 0.95rem; color: var(--text-light); font-style: italic; margin-bottom: 25px; line-height: 1.6; }
+        .testimonial-author { display: flex; align-items: center; gap: 15px; }
+        .author-avatar { width: 50px; height: 50px; background: linear-gradient(45deg, var(--secondary), #B8860B); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0A0F1A; font-weight: 700; font-size: 1.2rem; }
+        .author-info h5 { color: #fff; margin-bottom: 5px; }
+        .author-info p { color: var(--text-muted); font-size: 0.85rem; }
+
+        /* --- SEÇÃO DE PLANOS --- */
+        .plans-section { background: linear-gradient(to bottom, #0A0F1A, #1A253C); position: relative; z-index: 1; border-top: 1px solid rgba(255, 215, 0, 0.1); padding-top: 120px; }
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; align-items: stretch; }
+        .plan-card { background: var(--bg-card); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 25px; overflow: visible; transition: all 0.3s ease; position: relative; display: flex; flex-direction: column; }
+        .plan-card:hover { transform: translateY(-5px); border-color: rgba(255, 215, 0, 0.8); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .plan-header { padding: 40px 30px 30px; text-align: center; background: rgba(0,0,0,0.2); border-top-left-radius: 25px; border-top-right-radius: 25px; }
+        .plan-title { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; letter-spacing: 1px; }
+        .plan-type.small { font-size: 1rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; margin-bottom: 5px; }
+        .plan-name.large { font-size: 2.2rem; font-weight: 800; color: #fff; line-height: 1.1; }
+        .plan-subtitle { color: var(--text-muted); font-size: 1rem; min-height: 50px; }
+        .plan-body { padding: 30px; flex-grow: 1; }
+        .checklist { list-style: none; }
+        .checklist li { margin-bottom: 15px; color: var(--text-light); display: flex; align-items: flex-start; gap: 12px; font-size: 1rem; }
+        .checklist li i { flex-shrink: 0; margin-top: 5px; }
+        .checklist li i.fa-check { color: var(--primary); }
+        .checklist li i.fa-times { color: rgba(255, 255, 255, 0.2); }
+        .checklist li.disabled { color: rgba(255, 255, 255, 0.4); }
+
+        .plan-card.master { border: 2px solid var(--secondary); background: linear-gradient(160deg, #1A253C, #0d1321); box-shadow: 0 0 50px rgba(255, 215, 0, 0.15); z-index: 10; }
+        .plan-card.master:hover { box-shadow: 0 0 70px rgba(255, 215, 0, 0.3); }
+        .plan-card.master .plan-name.large { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .plan-card.master .plan-type.small { color: var(--secondary); }
+        .plan-card.master .checklist li i.fa-check { color: var(--secondary); }
+        .plan-card.master .plan-header { padding-top: 60px; background: transparent; }
+        .master-image-frame { position: absolute; top: -85px; left: 50%; transform: translateX(-50%); width: 100%; display: flex; justify-content: center; align-items: center; z-index: 11; pointer-events: none; }
+        .master-image-frame img { height: 170px; width: auto; display: block; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8)); }
+
+        /* --- FINAL CTA SECTION --- */
+        .final-cta-section { text-align: center; background: radial-gradient(circle at center, #1A253C 0%, var(--bg-dark) 100%); border-top: 1px solid rgba(0, 229, 255, 0.2); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1024px) { 
+            .cert-container, .module-showcase { flex-direction: column; text-align: center; }
+            .cert-content ul li, .showcase-list li { text-align: left; }
+            .plans-grid { grid-template-columns: 1fr; max-width: 500px; }
+            .plan-card.master { order: -1; margin-bottom: 50px; } 
+            .plan-card { margin-top: 40px; }
+            .plan-card.master { margin-top: 80px; }
+            .grid-3-col.testimonials { grid-template-columns: 1fr; max-width: 500px; }
+            .module-showcase { padding: 30px; }
+            .transform-arrow { transform: rotate(90deg); margin: 15px 0; animation: none; } 
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title, .module-heading { font-size: 2rem; flex-direction: column; gap: 5px; }
+            .metaphor-grid { flex-direction: column; align-items: center; }
+            .workflow-container { flex-direction: column-reverse; }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>Miniecossistema NLS</h1>
-    <p>Treinamento exclusivo para profissionais da área de saúde e bem-estar</p>
-  </header>
+    <header class="hero">
+        <h1>Domine o Equipamento NLS e Eleve sua Prática Clínica</h1>
+        <p>Descubra o ecossistema Asiatics: da operação ágil à maestria clínica com Inteligência Artificial e arsenal terapêutico completo.</p>
+        <button onclick="document.getElementById('metodo').scrollIntoView();" class="cta-btn">Conhecer o Método Asiatics</button>
+    </header>
 
-  <div class="container">
-
-    <section class="product-block">
-<div class="illustration";">
-  <img src="https://cdn.awsli.com.br/697/697071/arquivos/cursocompleto.jpg" alt="Texto alternativo para a imagem">
-</div>
-
-      <h2 class="product-title">Curso Versão Completa</h2>
-      <p class="product-description">Aprendizado profundo e estruturado para dominar definitivamente a prática com NLS com máxima eficiência e segurança clínica.</p>
-
-      <div class="content-blocks-wrapper">
-        <div class="content-block">
-          <h3>Vídeo‑aulas</h3>
-          <ul>
-            <li>Guia prático de utilização do material.</li>
-            <li>Demonstração de sessão completa com NLS e BlackBox em consultório.</li>
-            <li>Uso de IA para suporte clínico e geração automática de protocolos integrativos.</li>
-            <li>Estratégia de publicidade aplicada ao NLS.</li>
-          </ul>
+    <section id="metodo" class="section-padding metaphor-section">
+        <h2 class="section-title">Qual o seu momento atual?</h2>
+        <p class="section-subtitle">A tecnologia NLS é como um meio de transporte. Nós temos a ferramenta certa para a velocidade que você deseja alcançar.</p>
+        
+        <div class="metaphor-grid">
+            <div class="metaphor-card bike">
+                <i class="fas fa-bicycle global-icon-gold"></i>
+                <h3>Bicicleta (Start)</h3>
+                <p>Para quem quer destravar a máquina. Simples, intuitivo e focado em começar a rodar agora.</p>
+            </div>
+            <div class="metaphor-card car">
+                <i class="fas fa-car global-icon-gold"></i>
+                <h3>Carro (Pró)</h3>
+                <p>Para quem quer atender com segurança. Exige domínio técnico e base clínica sólida.</p>
+            </div>
+            <div class="metaphor-card plane">
+                <i class="fas fa-plane-departure global-icon-gold"></i>
+                <h3>Avião (Master)</h3>
+                <p>Para quem quer autoridade máxima. Exige treinamento rigoroso para pilotar a excelência com IA.</p>
+            </div>
         </div>
-        <div class="content-block">
-          <h3>Material didático</h3>
-          <ul>
-            <li>Documentação completa, cobrindo todos os aspectos da tecnologia NLS.</li>
-            <li>Tabelas de índices, indicadores e marcadores (prontas para impressão).</li>
-            <li>Sistemas detalhados dos softwares NLS 18D e Hunter 4025 (referência e aplicação).</li>
-            <li>Fluxogramas dos principais casos de uso para entendimento da lógica operacional.</li>
-            <li>Formulários de anamnese integrativa e holística (editáveis).</li>
-            <li>Documentos clínicos editáveis e prontos para impressão.</li>
-            <li>Bônus: materiais complementares em PDF.</li>
-          </ul>
-        </div>
-        <div class="content-block last-content-block">
-          <h3>Para quem é indicado?</h3>
-          <p>Profissionais que desejam aprofundar os estudos, aumentar a curva de aprendizado e reduzir o tempo de estudo, com um roteiro completo de prática clínica.</p>
-        </div>
-      </div>
-
-      <div class="cta-section">
-        <span class="cta-payment-info">De R$ 5.290,00</span> 
-        <a href="#pagar-versao-completa" class="cta-button-pix">R$ 2.619,00 no Pix</a>
-        <a href="#pagar-versao-completa" class="cta-button-card">12x de R$ 297,00 no Cartão</a>        
-      </div>
-
     </section>
 
-    <section class="product-block">
-
-<div class="illustration";">
-  <img src="https://cdn.awsli.com.br/697/697071/arquivos/cursobasico.jpg" alt="Versão simplificada">
-</div>
-
-      <h2 class="product-title">Curso Versão Simplificada</h2>
-      <p class="product-description">Conteúdo essencial e objetivo para começar a utilizar os sistemas NLS com agilidade e segurança.</p>
-
-      <div class="content-blocks-wrapper">
-        <div class="content-block">
-          <h3>Vídeo‑aulas</h3>
-          <ul>
-            <li>Demonstração completa de sessão em consultório (passo a passo).</li>
-          </ul>
+    <section class="section-padding workflow-section">
+        <h2 class="section-title">A Jornada do Atendimento Perfeito</h2>
+        <p class="section-subtitle">Entenda como nossa metodologia transforma dados brutos em resultados clínicos encantadores.</p>
+        
+        <div class="workflow-container">
+            <div class="workflow-steps">
+                <div class="step-item">
+                    <div class="step-icon"><i class="fas fa-database global-icon-gold"></i></div>
+                    <div class="step-content">
+                        <h4>1. Coleta de Dados</h4>
+                        <p>Aprenda a coletar dados de anamnese, integrativos, holísticos e de NLS com precisão.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon"><i class="fas fa-chart-line global-icon-gold"></i></div>
+                    <div class="step-content">
+                        <h4>2. Estudo dos Dados</h4>
+                        <p>Domine a arte de analisar os dados coletados e converter informações técnicas em relatórios sofisticados que geram entendimento e confiança imediata.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon"><i class="fas fa-robot global-icon-gold"></i></div>
+                    <div class="step-content">
+                        <h4>3. Suporte Terapêutico com IA</h4>
+                        <p>Aprenda a utilizar prompts pré-programados para gerar informação valiosa para suas decisões terapêuticas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="workflow-video-container">
+                <div class="video-wrapper">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle global-icon-gold"></i>
+                        <h3 style="color: #fff; margin-bottom: 5px;">Assistir Demonstração</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Veja o método em ação</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="content-block">
-          <h3>Material didático</h3>
-          <ul>
-            <li>Sistemas detalhados NLS 18D e Hunter 4025 para consulta rápida.</li>
-            <li>Principais índices e referências práticas para uso clínico do NLS.</li>
-          </ul>
-        </div>
-        <div class="content-block last-content-block">
-          <h3>Ideal para</h3>
-          <p>Quem precisa compreender rapidamente os fundamentos e iniciar a prática com foco na objetividade.</p>
-        </div>
-      </div>
-
-      <div class="cta-section">
-        <span class="cta-payment-info">De R$ 3.310,00</span> 
-        <a href="#pagar-versao-completa" class="cta-button-pix">R$ 1.629,70 no Pix</a>
-        <a href="#pagar-versao-completa" class="cta-button-card">12x de R$ 187,00 no Cartão</a>        
-      </div>
-
     </section>
 
-    <section class="product-block">
-<div class="illustration";">
-  <img src="https://cdn.awsli.com.br/697/697071/arquivos/aulao.jpg" alt="Aulão de 5 horas">
-</div>
+    <section class="section-padding arsenal-section">
+        <h2 class="section-title">O Arsenal do Terapeuta</h2>
+        <p class="section-subtitle">Vá direto para a prática com ferramentas focadas em resultados. Você receberá materiais prontos para baixar, imprimir e usar imediatamente na sua clínica.</p>
+        
+        <div class="arsenal-module green-theme">
+            <h3 class="module-heading"><i class="fas fa-clipboard-list glow-green"></i> Kit de Anamnese Integrativa e Holística</h3>
+            <p class="module-desc">Fichas e formulários editáveis e imprimíveis, para mapear o cliente de forma sistêmica, permitindo o cruzamento de dados da máquina com sabedorias milenares de saúde.</p>
+            
+            <div class="grid-4-col">
+                <div class="feature-card ana-col-1">
+                    <div class="feature-icon"><i class="fas fa-file-medical"></i></div>
+                    <h4>Formulários Básicos</h4>
+                    <p>Estrutura de formulários para coleta e registro de dados básicos do cliente.</p>
+                </div>
+                <div class="feature-card ana-col-2">
+                    <div class="feature-icon"><i class="fas fa-tint"></i></div>
+                    <h4>Tipo Sanguíneo</h4>
+                    <p>Correlação de alimentação e predisposições através do perfil sanguíneo do cliente.</p>
+                </div>
+                <div class="feature-card ana-col-3">
+                    <div class="feature-icon"><i class="fas fa-eye"></i></div>
+                    <h4>Iridologia Integrativa</h4>
+                    <p>Fichas de apoio para mapeamento e análise comportamental pela íris.</p>
+                </div>
+                <div class="feature-card ana-col-4">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <h4>Avaliação Ayurvédica</h4>
+                    <p>Identificação do Dosha predominante para harmonização do tratamento.</p>
+                </div>
+                <div class="feature-card ana-col-1">
+                    <div class="feature-icon"><i class="fas fa-star"></i></div>
+                    <h4>Zodíaco & Saúde</h4>
+                    <p>Site especializado na elaboração de mapa astral para a compreensão das influências astrais nas tendências físicas do cliente.</p>
+                </div>
+                <div class="feature-card ana-col-2">
+                    <div class="feature-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h4>Perfil MBTI</h4>
+                    <p>Ferramenta profunda de análise de personalidade e saúde mental.</p>
+                </div>
+                <div class="feature-card ana-col-3">
+                    <div class="feature-icon"><i class="fas fa-om"></i></div>
+                    <h4>Eneagrama</h4>
+                    <p>Análise de traços essenciais de personalidade e saúde emocional.</p>
+                </div>
+                <div class="feature-card ana-col-4">
+                    <div class="feature-icon"><i class="fas fa-infinity"></i></div>
+                    <h4>Numerologia</h4>
+                    <p>Leitura de padrões e perfis arquetípicos do cliente para maior conexão.</p>
+                </div>
+            </div>
+        </div>
 
-      <h2 class="product-title">Aulão NLS – Duração total: 5 horas</h2>
-      <p class="product-description">Treinamento intensivo, direto ao ponto, com foco em domínio prático dos fluxos e decisões clínicas.</p>
+        <div class="arsenal-module purple-theme">
+            <h3 class="module-heading"><i class="fas fa-microchip glow-purple"></i> Suporte Clínico ao NLS com Inteligência Artificial</h3>
+            <p class="module-desc">Comandos (prompts) prontos e testados para você inserir na IA e obter direcionamentos de altíssima precisão clínica.</p>
+            
+            <div class="grid-4-col">
+                <div class="feature-card ia-col-1">
+                    <div class="feature-icon"><i class="fas fa-search"></i></div>
+                    <h4>Investigação com IA</h4>
+                    <p>Comandos para cruzar sintomas e encontrar as raízes ocultas do desequilíbrio.</p>
+                </div>
+                <div class="feature-card ia-col-2">
+                    <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h4>Análise com IA</h4>
+                    <p>Tradução avançada das informações complexas geradas pelo equipamento NLS.</p>
+                </div>
+                <div class="feature-card ia-col-3">
+                    <div class="feature-icon"><i class="fas fa-capsules"></i></div>
+                    <h4>Tratamento com IA</h4>
+                    <p>Modelo para convertermos dados correlacionados do cliente em uma sugestão de plano de tratamento.</p>
+                </div>
+                <div class="feature-card ia-col-4">
+                    <div class="feature-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h4>Protocolos com IA</h4>
+                    <p>Ferramenta avançada para a criação de modelos de protocolos personalizados.</p>
+                </div>
+            </div>
 
-      <div class="content-blocks-wrapper">
-        <div class="content-block">
-          <h3>1) Fundamentos do NLS — 30 min</h3>
-          <ul>
-            <li>Princípios de biorressonância, etalons e entropia.</li>
-            <li>Visão geral de hardware (probes, fones, BlackBox) e cuidados de uso.</li>
-            <li>Configuração inicial de softwares (NLS 18D, Hunter 4025) e padrões.</li>
-          </ul>
+            <div class="module-showcase showcase-ia">
+                <div class="showcase-text">
+                    <h4>O Poder de um Prompt Bem Estruturado</h4>
+                    <p>Esqueça os textos genéricos. Nossos comandos foram engenherados para forçar a IA a agir como um verdadeiro conselho médico integrativo.</p>
+                    <ul class="showcase-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Economia de Tempo:</strong> O que levava horas de estudo, a IA consolida em segundos.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Precisão Cirúrgica:</strong> Cruzamento de dezenas de patologias e sintomas de uma só vez.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Alto Valor Percebido:</strong> Gere relatórios e protocolos sofisticados que justificam o valor do seu atendimento.</span></li>
+                    </ul>
+                </div>
+                
+                <div class="showcase-visual">
+                    <div class="img-mockup">
+                        <img src="https://via.placeholder.com/300x600/141B2D/00E5FF?text=Print+do+Prompt" alt="Editor de Prompt">
+                    </div>
+                    
+                    <div class="transform-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+
+                    <div class="img-mockup generated">
+                        <img src="https://via.placeholder.com/300x600/141B2D/d15cff?text=Protocolo+Pronto" alt="Protocolo Personalizado">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="content-block">
-          <h3>2) Anamnese — 30 min</h3>
-          <ul>
-            <li>Roteiro integrativo: queixas principais, histórico, hábitos e objetivos.</li>
-            <li>Integração com formulários editáveis e checklist pré‑sessão.</li>
-            <li>Critérios de inclusão/exclusão e limites éticos.</li>
-          </ul>
+
+        <div class="arsenal-module blue-theme">
+            <h3 class="module-heading"><i class="fas fa-file-signature glow-blue"></i> Documentação Profissional</h3>
+            <p class="module-desc">Todo o respaldo técnico, ético, legal e de apresentação que uma clínica de alto padrão exige. Formulários de documentos pré-configurados, totalmente editáveis para você inserir a sua logomarca e personalizar informações conforme suas necessidades para salvar em PDF e imprimir.</p>
+            
+            <div class="grid-3-col">
+                <div class="feature-card doc-col-1">
+                    <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+                    <h4>Relatórios Profissionais</h4>
+                    <p>Geração de relatórios elegantes e fáceis de ler para entregar ao cliente.</p>
+                </div>
+                <div class="feature-card doc-col-2">
+                    <div class="feature-icon"><i class="fas fa-list-ol"></i></div>
+                    <h4>Plano de Tratamento</h4>
+                    <p>Estruturação de cronogramas e plano de execução, aumentando o engajamento do cliente.</p>
+                </div>
+                <div class="feature-card doc-col-3">
+                    <div class="feature-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h4>Padronização da Sessão</h4>
+                    <p>Roteiro passo a passo (checklist) para uma sessão NLS com captura de dados quânticos mais precisos.</p>
+                </div>
+                <div class="feature-card doc-col-1">
+                    <div class="feature-icon"><i class="fas fa-laptop-medical"></i></div>
+                    <h4>Apresentação ao Cliente</h4>
+                    <p>Material de apoio para apresentar a tecnologia NLS ao cliente e facilitar o fechamento do negócio.</p>
+                </div>
+                <div class="feature-card doc-col-2">
+                    <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                    <h4>Contrato NLS</h4>
+                    <p>Modelo jurídico para garantir a segurança dos seus serviços terapêuticos.</p>
+                </div>
+                <div class="feature-card doc-col-3">
+                    <div class="feature-icon"><i class="fas fa-receipt"></i></div>
+                    <h4>Recibo NLS</h4>
+                    <p>Padronização corporativa para as transações financeiras e auxílio contábil da sua clínica.</p>
+                </div>
+            </div>
+
+            <div class="module-showcase showcase-doc">
+                <div class="showcase-text">
+                    <h4>O Valor do Seu Diagnóstico em Suas Mãos</h4>
+                    <p>Converta os dados técnicos complexos gerados pela máquina NLS em laudos profissionais bem elaborados. Um documento de fácil leitura para o seu cliente e extremamente útil como referência para o seu acompanhamento clínico.</p>
+                    <ul class="showcase-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Tradução Visual:</strong> Transforme gráficos técnicos confusos em diagnósticos claros e objetivos.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Padrão Ouro:</strong> Layouts corporativos elegantes que tangibilizam o alto valor da sua consulta.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>100% Editável:</strong> Estruturas prontas para você inserir facilmente sua logomarca e dados do cliente.</span></li>
+                    </ul>
+                </div>
+                
+                <div class="showcase-visual">
+                    <div class="img-mockup">
+                        <img src="https://via.placeholder.com/300x424/141B2D/FF3B30?text=Dados+Brutos+NLS" alt="Gráficos NLS">
+                    </div>
+                    
+                    <div class="transform-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+
+                    <div class="img-mockup generated">
+                        <img src="https://via.placeholder.com/300x424/141B2D/00E5FF?text=Laudo+Elegante" alt="Relatório Profissional">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="content-block">
-          <h3>3) Investigação — 30 min</h3>
-          <ul>
-            <li>Seleção de etalons e protocolos por caso clínico.</li>
-            <li>Boas práticas de coleta de sinais e controle de artefatos.</li>
-            <li>Organização de pastas e marcadores para consultas futuras.</li>
-          </ul>
+
+        <div class="arsenal-module gold-theme" style="margin-top: 80px;">
+            <h3 class="module-heading"><i class="fas fa-gift glow-gold"></i> Pacote de Expansão Premium</h3>
+            <p class="module-desc">Materiais complementares de alto nível para maximizar o seu capital intelectual terapêutico.</p>
+            
+            <div class="grid-3-col">
+                <div class="feature-card bon-col-1">
+                    <span class="bonus-tag">Bônus Premium</span>
+                    <div class="feature-icon"><i class="fas fa-book-medical"></i></div>
+                    <h4>Estudos de Casos NLS</h4>
+                    <p>Artigos russos, traduzidos para o português com estatísticas NLS.</p>
+                </div>
+                <div class="feature-card bon-col-2">
+                    <span class="bonus-tag">Bônus Premium</span>
+                    <div class="feature-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h4>Dados Clínicos X NLS</h4>
+                    <p>Coletânea de imagens comparativas entre os exames tradicionais com o NLS.</p>
+                </div>
+                <div class="feature-card bon-col-3">
+                    <span class="bonus-tag">Bônus Premium</span>
+                    <div class="feature-icon"><i class="fas fa-spa"></i></div>
+                    <h4>Estudos Aura Chakras</h4>
+                    <p>Cursos detalhados sobre o sistema energético universal.</p>
+                </div>
+                <div class="feature-card bon-col-1">
+                    <span class="bonus-tag">Bônus Premium</span>
+                    <div class="feature-icon"><i class="fas fa-eye"></i></div>
+                    <h4>Curso de Iridologia Orgânica</h4>
+                    <p>Fundamentos práticos e aplicados da iridologia clínica orgânica.</p>
+                </div>
+                <div class="feature-card bon-col-2">
+                    <span class="bonus-tag">Bônus Premium</span>
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Proteção Energética</h4>
+                    <p>Técnicas essenciais de blindagem para o terapeuta e o ambiente de trabalho.</p>
+                </div>
+                <div class="feature-card bon-col-3">
+                    <span class="bonus-tag">Bônus Premium</span>
+                    <div class="feature-icon"><i class="fas fa-infinity"></i></div>
+                    <h4>Numerologia Desvendada</h4>
+                    <p>Leitura avançada de padrões e perfis comportamentais e arquetípicos.</p>
+                </div>
+            </div>
         </div>
-        <div class="content-block">
-          <h3>4) Análises — 2 horas</h3>
-          <ul>
-            <li>Leitura de índices, indicadores e marcadores (inclui E‑Value).</li>
-            <li>Mapeamento de sistemas/orgãos, nidus e prioridades de intervenção.</li>
-            <li>Interpretação de relatórios e validação cruzada de achados.</li>
-            <li>Construção de fluxogramas de decisão clínica.</li>
-          </ul>
-        </div>
-        <div class="content-block">
-          <h3>5) Testes — 1 hora</h3>
-          <ul>
-            <li>Testes comparativos de etalons, suplementos e interferências.</li>
-            <li>Critérios para reprodutibilidade e registro de resultados.</li>
-            <li>Casos práticos: ajustes em tempo real e controle de variáveis.</li>
-          </ul>
-        </div>
-        <div class="content-block last-content-block">
-          <h3>6) Tratamentos — 30 min</h3>
-          <ul>
-            <li>Protocolos integrativos e metaterapia com segurança.</li>
-            <li>Uso do BlackBox e recomendações de acompanhamento.</li>
-            <li>Entrega de plano ao paciente e follow‑up.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="cta-section">
-        <span class="cta-payment-info">De R$ 2.230,00</span> 
-        <a href="#pagar-versao-completa" class="cta-button-pix">R$ 1.120,30 no Pix</a>
-        <a href="#pagar-versao-completa" class="cta-button-card">12x de R$ 127,00 no Cartão</a>        
-      </div>
     </section>
 
-  </div>
-  <div id="tabela">
-    <div id="h1-table">
-       <h1>Tabela Comparativa de Conteúdo</h1>
-    </div>
-    <table>
-        <thead>
-            <tr>
-                <th>Recurso</th>
-                <th>Curso Versão Completa</th>
-                <th>Curso Versão Simplificada</th>
-                <th>Aulão</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Módulo 1 – Conceitos Teóricos</td>
-                <td><span class="icon icon-check">✔</span></td>
-                <td><span class="icon icon-check">✔</span></td>
-                <td><span class="icon icon-x">✖</span></td>
-            </tr>
-            <tr>
-                <td>Módulo 2 – Sistema NLS</td>
-                <td><span class="icon icon-check">✔</span></td>
-                <td><span class="icon icon-check">✔</span></td>
-                <td><span class="icon icon-check">✔</span></td>
-            </tr>
-            <tr>
-                <td>Módulo 3 – Conceitos Práticos</td>
-                <td><span class="icon icon-check">✔</span></td>
-                <td><span class="icon icon-check">✔</span></td>
-                <td><span class="icon icon-x">✖</span></td>
-            </tr>
-            <tr>
-                <td>Módulo 4 – Protocolos com IA</td>
-                <td><span class="icon icon-check">✔</span></td>
-                <td><span class="icon icon-x">✖</span></td>
-                <td><span class="icon icon-x">✖</span></td>
-            </tr>
-            <tr>
-                <td>Módulo 5 - Documentação</td>
-                <td><span class="icon icon-check">✔</span></td>
-                <td><span class="icon icon-x">✖</span></td>
-                <td><span class="icon icon-x">✖</span></td>
-            </tr>
-            <tr>
-                <td>Módulo 6 - Bônus</td>
-                <td><span class="icon icon-check">✔</span></td>
-                <td><span class="icon icon-x">✖</span></td>
-                <td><span class="icon icon-x">✖</span></td>
-            </tr>
-            <tr>
-                <td>Mentoria - 1 Mês para dúvidas</td>
-                <td><span class="icon icon-check">✔</span></td>
-                <td><span class="icon icon-check">✔</span></td>
-                <td><span class="icon icon-check">✔</span></td>
-            </tr>
-        </tbody>
-    </table>
+    <section class="section-padding certificate-section">
+        <div class="cert-container">
+            <div class="cert-content">
+                <h2>O Selo Definitivo de Autoridade</h2>
+                <p>
+                    Muito mais que um treinamento prático, nós entregamos um posicionamento de mercado. A Certificação Asiatics fornece competência técnica e clínica para você e seus clientes, elevando instantaneamente a percepção de valor da sua consulta.
+                </p>
+                <ul class="cert-list">
+                    <li>
+                        <i class="fas fa-award"></i> 
+                        <span><strong>Certificação Master Oficial</strong> validando seu conhecimento avançado.</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-shield-alt"></i> 
+                        <span><strong>Chancela Asiatics</strong>, sinônimo de excelência e inovação integrativa.</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i> 
+                        <span>Válido em todo território nacional como curso livre de especialização.</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="cert-image-wrapper">
+                <div class="cert-glow"></div>
+                <img src="https://cdn.awsli.com.br/697/697071/arquivos/certificado-draft.png" alt="Certificado Oficial Asiatics">
+            </div>
+        </div>
+    </section>
 
+    <section class="section-padding testimonials-section">
+        <h2 class="section-title">Quem Domina o NLS, Recomenda</h2>
+        <p class="section-subtitle">Veja como a metodologia Asiatics está transformando consultórios reais.</p>
+        
+        <div class="grid-3-col testimonials">
+            <div class="testimonial-card">
+                <i class="fas fa-quote-left testimonial-quote"></i>
+                <p class="testimonial-text">"Eu tinha o equipamento parado no consultório porque achava muito complexo. A metodologia Asiatics destravou minha prática. Hoje, a assertividade dos meus diagnósticos triplicou."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">M</div>
+                    <div class="author-info">
+                        <h5>Marcos S.</h5>
+                        <p>Terapeuta Integrativo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-quote-left testimonial-quote"></i>
+                <p class="testimonial-text">"O uso da Inteligência Artificial em conjunto com o NLS me colocou em outro patamar de mercado. Meus clientes ficam encantados com os relatórios gerados."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar" style="background: linear-gradient(45deg, #00E5FF, #0A0F1A); color: #fff;">L</div>
+                    <div class="author-info">
+                        <h5>Luciana T.</h5>
+                        <p>Especialista em Biorressonância</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-quote-left testimonial-quote"></i>
+                <p class="testimonial-text">"O curso não ensina apenas a apertar botões, ensina a pensar clinicamente. A documentação editável e os fluxogramas salvaram horas do meu dia a dia no consultório."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar" style="background: linear-gradient(45deg, #34C759, #0A0F1A); color: #fff;">R</div>
+                    <div class="author-info">
+                        <h5>Roberto F.</h5>
+                        <p>Médico Quântico</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</div>  <footer>
-    <div class="footer-logo">
-    <img src="https://cdn.awsli.com.br/697/697071/arquivos/logo-asiatics---v2.png" alt="Texto alternativo para a imagem" >
-    </div>
-    <div class="footer-site">
-      <a href="https://www.asiatics.com.br" target="_blank">www.asiatics.com.br</a>
-    </div>
-    <div class="footer-copy">
-      © <span id="year"></span> Miniecossistema NLS — Todos os direitos reservados.
-    </div>
-  </footer>
+    <section id="planos" class="section-padding plans-section">
+        <h2 class="section-title">Escolha o Seu Nível de Formação</h2>
+        <p class="section-subtitle">Preparamos 3 caminhos para você. Compare e identifique qual é o mais adequado para a sua realidade e do seu modelo de negócio.</p>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Cria o elemento do botão
-    const button = document.createElement('button');
-    button.id = 'scroll-to-top-btn';
-    button.title = 'Ir para o Topo';
-    button.innerHTML = '&uarr;'; // Seta a seta para cima como conteúdo do botão
+        <div class="plans-grid">
+            
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3 class="plan-title">
+                        <span class="plan-type small">Treinamento</span>
+                        <span class="plan-name large">Start</span>
+                    </h3>
+                    <p class="plan-subtitle">Imersão ágil para dominar a máquina e ir direto ao ponto.</p>
+                </div>
+                <div class="plan-body">
+                    <ul class="checklist">
+                        <li><i class="fas fa-check"></i> Foco: Operação Imediata</li>
+                        <li><i class="fas fa-check"></i> 8 Videoaulas Objetivas (3h30)</li>
+                        <li><i class="fas fa-check"></i> Domínio de Frequências e Índices</li>
+                        <li><i class="fas fa-check"></i> Suporte Básico com IA</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Fundamentos da Física Quântica</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Raciocínio Clínico Avançado</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Acervo Clínico e Documentação</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Certificado Master</li>
+                    </ul>
+                </div>
+            </div>
 
-    // Adiciona os estilos CSS ao botão
-    button.style.cssText = `
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99;
-      border: none;
-      outline: none;
-      background-color: #3f51b5;
-      color: white;
-      cursor: pointer;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 24px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s, transform 0.3s;
-    `;
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3 class="plan-title">
+                        <span class="plan-type small">Treinamento</span>
+                        <span class="plan-name large">Pró</span>
+                    </h3>
+                    <p class="plan-subtitle">Capacitação técnica intensiva para segurança e eficiência clínica.</p>
+                </div>
+                <div class="plan-body">
+                    <ul class="checklist">
+                        <li><i class="fas fa-check"></i> Foco: Segurança Clínica</li>
+                        <li><i class="fas fa-check"></i> 47 Videoaulas (6h30)</li>
+                        <li><i class="fas fa-check"></i> <strong>Inclui todo o conteúdo do Start</strong></li>
+                        <li><i class="fas fa-check"></i> Mód 1: Teoria Quântica</li>
+                        <li><i class="fas fa-check"></i> Mód 2: Hardware e Software</li>
+                        <li><i class="fas fa-check"></i> Mód 3: Prática Clínica</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Prompts Avançados de IA</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Certificado Master</li>
+                    </ul>
+                </div>
+            </div>
 
-    // Adiciona o botão ao corpo do documento
-    document.body.appendChild(button);
+            <div class="plan-card master">
+                
+                <div class="master-image-frame">
+                    <img src="/files-formacao-nls/insignia-master.png" alt="Selo Master Certificação">
+                </div>
 
-    // Lógica para mostrar e esconder o botão
-    window.onscroll = function() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        button.style.display = 'block';
-      } else {
-        button.style.display = 'none';
-      }
-    };
+                <div class="plan-header">
+                    <h3 class="plan-title">
+                        <span class="plan-type small">Certificação</span>
+                        <span class="plan-name large">Master</span>
+                    </h3>
+                    <p class="plan-subtitle" style="color: #E0E6ED;">A referência definitiva. Especialização de alto nível com arsenal completo.</p>
+                </div>
+                <div class="plan-body">
+                    <ul class="checklist">
+                        <li><i class="fas fa-check"></i> <strong>Foco: Autoridade Máxima</strong></li>
+                        <li><i class="fas fa-check"></i> 65 Aulas + Miniecossistema</li>
+                        <li><i class="fas fa-check"></i> <strong>Inclui conteúdo do Start e Pró</strong></li>
+                        <li><i class="fas fa-check"></i> Mód 4: Engenharia de Prompts (IA)</li>
+                        <li><i class="fas fa-check"></i> Mód 5: Pacote de Documentação</li>
+                        <li><i class="fas fa-check"></i> <strong>Certificado Oficial Master</strong></li>
+                        <li><i class="fas fa-gift freq-7"></i> <strong>Pacote de Expansão Premium</strong></li>
+                    </ul>
+                </div>
+            </div>
 
-    // Lógica para rolar para o topo
-    button.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  });
-</script>
+        </div>
+    </section>
+
+    <section class="section-padding final-cta-section">
+        <h2 class="section-title">Pronto para dar o próximo passo?</h2>
+        <p class="section-subtitle">Preencha nosso formulário e manifeste seu interesse que manifestaremos essa realidade em sua vida!</p>
+        
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeM7-bavYqgEdgcgRGVEULE_0oLKyhJGco4MkbHxbpqiwvCQw/viewform" target="_blank" rel="noopener noreferrer" class="cta-btn gold" style="font-size: 1.2rem; padding: 20px 50px; display: inline-block;">
+            <i class="fas fa-file-alt" style="margin-right: 10px;"></i> TENHO INTERESSE
+        </a>
+    </section>
+
+    <footer style="text-align: center; padding: 30px; background: #05080f; color: #4a5568; font-size: 0.9rem;">
+        <p>&copy; 2026 Asiatics - Formação em Tecnologia NLS. Todos os direitos reservados.</p>
+    </footer>
+
 </body>
-
 </html>
-
