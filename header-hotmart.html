@@ -1,1 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    /* Fundo Escuro Profundo e Tipografia */
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+        /* Gradiente radial escuro (Efeito holofote) */
+        background: radial-gradient(circle at center, #1a1a24 0%, #0a0a0f 100%);
+        color: #ffffff;
+    }
 
+    /* Container Principal */
+    .header-container {
+        width: 100%;
+        max-width: 800px;
+        max-height: 500px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 30px 20px;
+        box-sizing: border-box;
+    }
+
+    /* Animação: Flutuação e Glow da Insígnia (Mantido e Realçado para Fundo Escuro) */
+    .insignia-animada {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 160px;
+        display: block;
+        margin: 0 auto 20px auto;
+        animation: floatAndGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes floatAndGlow {
+        0% { transform: translateY(0px); filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.4)); }
+        50% { transform: translateY(-10px); filter: drop-shadow(0 0 25px rgba(218, 165, 32, 1)); }
+        100% { transform: translateY(0px); filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.4)); }
+    }
+
+    /* Título com Degradê Dourado Quântico */
+    .titulo-master {
+        font-size: 32px;
+        margin-bottom: 5px;
+        /* Letras Coloridas: Gradiente Dourado/Amarelo */
+        background: linear-gradient(90deg, #F9D423 0%, #FF4E50 100%);
+        background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        line-height: 1.2;
+        filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.8));
+    }
+
+    /* Subtítulo Tecnológico */
+    .subtitulo-master {
+        font-size: 18px;
+        color: #E0E0E0;
+        margin-top: 5px;
+        margin-bottom: 35px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    
+    .subtitulo-master span {
+        color: #DAA520;
+        font-weight: bold;
+    }
+
+    /* Logo Asiatics Inferior */
+    .logo-asiatics {
+        width: auto;
+        max-height: 90px;
+        display: block;
+        margin: 0 auto 10px auto;
+        filter: drop-shadow(0px 2px 10px rgba(0,0,0,0.8));
+    }
+
+    .copyright {
+        color: #888888;
+        margin-top: 0px;
+        margin-bottom: 30px;
+        font-size: 13px;
+        letter-spacing: 1px;
+    }
+
+    /* Linha Divisória Estilo Feixe de Luz */
+    .linha-luz {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(218, 165, 32, 0.8), rgba(0, 0, 0, 0));
+        width: 80%;
+        margin: 0 auto 30px auto;
+    }
+
+    /* Caixa de Acesso (Glassmorphism Premium) */
+    .caixa-acesso {
+        background: rgba(20, 20, 25, 0.6);
+        backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+        -webkit-backdrop-filter: blur(10px);
+        padding: 20px 30px;
+        border-radius: 12px;
+        border: 1px solid rgba(218, 165, 32, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(218,165,32,0.05);
+        max-width: 600px;
+        margin: 0 auto;
+        transition: all 0.3s ease;
+    }
+    
+    .caixa-acesso:hover {
+        border: 1px solid rgba(218, 165, 32, 0.5);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(218,165,32,0.1);
+    }
+
+    .texto-acesso {
+        font-size: 15px;
+        color: #CCCCCC;
+        margin: 0;
+        line-height: 1.6;
+        text-align: center;
+    }
+    
+    .texto-acesso strong {
+        color: #DAA520;
+        letter-spacing: 0.5px;
+    }
+
+    /* Adaptação para Celulares */
+    @media (max-width: 600px) {
+        .titulo-master { font-size: 26px; }
+        .subtitulo-master { font-size: 14px; }
+        .header-container { max-height: none; padding: 20px 15px; }
+    }
+</style>
+</head>
+<body>
+    <div class="header-container">
+        <img class="insignia-animada" src="https://api-club-file.cb.hotmart.com/public/v5/files/02b95a8a-8082-4219-81d6-45d91ec7089d" alt="Insígnia Master">
+        
+        <h2 class="titulo-master">🥇 Certificação Master em <br> Biorressonância Quântica</h2>
+        <p class="subtitulo-master"><span>NLS</span> - Non Linear System</p>
+        
+        <img class="logo-asiatics" src="https://api-club-file.cb.hotmart.com/public/v5/files/f4a04510-d984-41b6-a782-84e8dc424a83" alt="Logo Asiatics">
+        <p class="copyright">© 2026 Asiatics - Todos os direitos reservados</p>
+        
+        <hr class="linha-luz">
+        
+        <section class="caixa-acesso">
+            <p class="texto-acesso">
+                🔒 <strong>ACESSO RESTRITO</strong> <br> Para visualizar o conteúdo avançado deste tópico, faça o login na sua conta Google e acesse o link abaixo.
+            </p>
+        </section>
+    </div>
+</body>
+</html>
