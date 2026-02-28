@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
 <style>
-    /* Fundo Quântico Premium */
+    /* Fundo Infinito com Vinheta Azul Profunda nas Extremidades */
     body, html {
         margin: 0;
         padding: 0;
         font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-        background: radial-gradient(circle at center, #010a18 0%, #000000 100%);
+        /* O segredo do visual da foto: Preto no centro, Azul Escuro Quântico nas bordas */
+        background: linear-gradient(to right, #000a24 0%, #000000 15%, #000000 85%, #000a24 100%);
         color: #ffffff;
         height: 100vh; 
         overflow: hidden; 
@@ -20,44 +21,41 @@
         box-sizing: border-box;
     }
 
-    /* Container Principal - A Mágica do Respiro (Padding + Gap) */
+    /* Container Principal - Sem bordas, imersão total no fundo */
     .header-container {
         width: 100%;
-        max-width: 800px;
+        max-width: 850px;
         height: 100%; 
-        /* Barreira de proteção: 40px no topo/base e 20px nas laterais */
         padding: 40px 20px; 
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center; /* Centraliza o bloco inteiro no meio da tela */
-        gap: clamp(10px, 2.5vh, 25px); /* Espaçamento dinâmico e inteligente entre cada item */
+        justify-content: center; 
+        gap: clamp(12px, 2.5vh, 25px); /* Respiro inteligente */
         text-align: center;
     }
 
-    /* Todos os elementos tiveram margens zeradas para o GAP assumir o controle */
-
-    /* Insígnia Animada - Reduzida sutilmente para não brigar com o espaço */
+    /* Insígnia Animada */
     .insignia-animada {
         width: auto;
         max-width: 100%;
         height: auto;
-        max-height: 120px; 
+        max-height: 130px; 
         display: block;
         margin: 0; 
         animation: floatAndGlow 4s ease-in-out infinite;
     }
 
     @keyframes floatAndGlow {
-        0% { transform: translateY(0px); filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.4)); }
-        50% { transform: translateY(-6px); filter: drop-shadow(0 0 25px rgba(218, 165, 32, 1)); }
-        100% { transform: translateY(0px); filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.4)); }
+        0% { transform: translateY(0px); filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.3)); }
+        50% { transform: translateY(-6px); filter: drop-shadow(0 0 25px rgba(218, 165, 32, 0.8)); }
+        100% { transform: translateY(0px); filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.3)); }
     }
 
     /* Título Metálico Premium */
     .titulo-master {
-        font-size: clamp(20px, 4vw, 30px); 
+        font-size: clamp(22px, 4.5vw, 34px); 
         margin: 0; 
         background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7);
         -webkit-background-clip: text;
@@ -69,72 +67,62 @@
 
     /* Subtítulo Tecnológico */
     .subtitulo-master {
-        font-size: clamp(11px, 2vw, 13px);
+        font-size: clamp(11px, 2vw, 14px);
         color: #DAA520; 
         margin: 0; 
         font-weight: 400; 
         letter-spacing: 1.5px;
         text-transform: uppercase;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.85);
     }
 
     /* Logo Asiatics Texto Premium */
     .logo-asiatics {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 800;
+        letter-spacing: 2px;
         color: #ffffff;
         margin: 0; 
-        text-shadow: 0px 4px 10px rgba(0,0,0,0.9);
     }
 
     /* Copyright */
     .copyright {
-        color: #888888; 
+        color: #666666; /* Tom de cinza idêntico ao da imagem */
         margin: 0; 
-        font-size: 12px;
-        letter-spacing: 1px;
+        font-size: 13px;
+        font-weight: 400;
     }
 
-    /* Linha Divisória de Luz */
-    .linha-luz {
-        border: 0;
-        height: 1px;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(218, 165, 32, 0.8), rgba(0, 0, 0, 0));
-        width: 80%;
-        margin: 0;
-        flex-shrink: 0; 
-    }
-
-    /* Caixa de Acesso (Glassmorphism) */
+    /* Caixa de Acesso - Idêntica à Imagem de Referência */
     .caixa-acesso {
-        background: rgba(20, 20, 25, 0.6);
-        backdrop-filter: blur(10px); 
-        -webkit-backdrop-filter: blur(10px);
-        padding: 15px 20px;
-        border-radius: 12px;
-        border: 1px solid rgba(218, 165, 32, 0.2); 
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(218,165,32,0.05);
-
-        margin: 0;
+        background: #060606; /* Fundo quase preto sólido */
+        padding: 18px 30px;
+        border-radius: 10px;
+        border: 1px solid rgba(218, 165, 32, 0.3); /* Borda ouro sutil */
+        max-width: 650px;
+        width: 90%;
+        margin: 5px 0 0 0;
         transition: all 0.3s ease;
     }
     
     .caixa-acesso:hover {
-        border: 1px solid rgba(218, 165, 32, 0.5);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(218,165,32,0.1);
+        border: 1px solid rgba(218, 165, 32, 0.7);
+        box-shadow: 0 0 20px rgba(218, 165, 32, 0.1);
+    }
+
+    .titulo-acesso {
+        font-size: 14px;
+        color: #DAA520; 
+        margin: 0 0 6px 0;
+        font-weight: 700;
+        letter-spacing: 1px;
     }
 
     .texto-acesso {
         font-size: clamp(12px, 2.5vw, 14px);
-        color: #CCCCCC; 
+        color: #AAAAAA; 
         margin: 0;
         line-height: 1.5;
-        text-align: center;
-    }
-    
-    .texto-acesso strong {
-        color: #DAA520; 
-        letter-spacing: 0.5px;
+        font-weight: 300;
     }
 </style>
 </head>
@@ -144,19 +132,20 @@
         
         <h2 class="titulo-master">Certificação Master em <br> Biorressonância Quântica</h2>
         
-        <p class="subtitulo-master">NLS - NON LINEAR SYSTEM (Sistema Não Linear)</p>
+        <p class="subtitulo-master">NLS - NON LINEAR SYSTEM (SISTEMA NÃO LINEAR)</p>
         
         <p class="logo-asiatics">ASIATICS</p>
         
-        <p class="copyright">© 2026 Asiatics - Todos os direitos reservados</p>
-        
-        <hr class="linha-luz">
+        <p class="copyright">© 2013 - <span id="ano-atual"></span> Asiatics - Todos os direitos reservados</p>
         
         <section class="caixa-acesso">
-            <p class="texto-acesso">
-                🔒 <strong>ACESSO RESTRITO</strong> <br> Faça o login na sua conta Google e acesse o link abaixo.
-            </p>
+            <p class="titulo-acesso">🔒 ACESSO RESTRITO</p>
+            <p class="texto-acesso">Faça o login na sua conta Google e acesse o link abaixo.</p>
         </section>
     </div>
+
+    <script>
+        document.getElementById('ano-atual').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
