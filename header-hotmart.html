@@ -3,55 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
 <style>
-    /* Fundo Escuro Profundo e Tipografia */
+    /* Fundo Azul Ultra Escuro Quântico Profundo e Tipografia Premium */
     body, html {
         margin: 0;
         padding: 0;
         font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-        /* Gradiente radial escuro (Efeito holofote) */
-        background: radial-gradient(circle at center, #1a1a24 0%, #0a0a0f 100%);
+        /* Gradiente radial azul-preto ultra profundo (Efeito holofote) */
+        background: radial-gradient(circle at center, #010a18 0%, #000000 100%);
         color: #ffffff;
+        height: 100%; /* Garantir que o fundo cubra a altura total */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    /* Container Principal */
+    /* Container Principal com mais respiro e limite de altura solicitado */
     .header-container {
         width: 100%;
         max-width: 800px;
-        max-height: 500px;
+        max-height: 500px; /* Limite de altura solicitado */
         margin: 0 auto;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 30px 20px;
+        padding: 60px 20px; /* Aumentado para 60px verticalmente para mais margem geral */
         box-sizing: border-box;
     }
 
-    /* Animação: Flutuação e Glow da Insígnia (Mantido e Realçado para Fundo Escuro) */
+    /* Animação: Flutuação e Glow da Insígnia (Efeito Premium do Site) */
     .insignia-animada {
         width: auto;
         max-width: 100%;
         height: auto;
         max-height: 160px;
         display: block;
-        margin: 0 auto 20px auto;
+        margin: 0 auto 30px auto; /* Margem inferior aumentada */
+        /* Chama a animação definida abaixo */
         animation: floatAndGlow 4s ease-in-out infinite;
     }
 
     @keyframes floatAndGlow {
-        0% { transform: translateY(0px); filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.4)); }
-        50% { transform: translateY(-10px); filter: drop-shadow(0 0 25px rgba(218, 165, 32, 1)); }
-        100% { transform: translateY(0px); filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.4)); }
+        0% {
+            transform: translateY(0px);
+            filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.4));
+        }
+        50% {
+            transform: translateY(-10px); /* Sobe suavemente */
+            filter: drop-shadow(0 0 25px rgba(218, 165, 32, 1)); /* Brilho dourado intenso */
+        }
+        100% {
+            transform: translateY(0px);
+            filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.4));
+        }
     }
 
-    /* Título com Degradê Dourado Quântico */
+    /* Título com Degradê Dourado Metálico Quântico */
     .titulo-master {
         font-size: 32px;
-        margin-bottom: 5px;
-        /* Letras Coloridas: Gradiente Dourado/Amarelo */
-        background: linear-gradient(90deg, #F9D423 0%, #FF4E50 100%);
+        margin-top: 0;
+        margin-bottom: 20px; /* Margem inferior aumentada para respiro */
+        /* Letras Coloridas: Gradiente Dourado Metálico Quântico (High-Ticket) */
         background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -60,20 +75,16 @@
         filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.8));
     }
 
-    /* Subtítulo Tecnológico */
+    /* Subtítulo Tecnológico Coordenado */
     .subtitulo-master {
         font-size: 18px;
-        color: #E0E0E0;
-        margin-top: 5px;
-        margin-bottom: 35px;
-        font-weight: 300;
+        color: #DAA520; /* Mantendo ouro como ouro */
+        margin-top: 0;
+        margin-bottom: 45px; /* Margem inferior aumentada para respiro */
+        font-weight: 400; /* Peso normal conforme referência de marketing */
         letter-spacing: 2px;
         text-transform: uppercase;
-    }
-    
-    .subtitulo-master span {
-        color: #DAA520;
-        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.85);
     }
 
     /* Logo Asiatics Inferior */
@@ -81,35 +92,36 @@
         width: auto;
         max-height: 90px;
         display: block;
-        margin: 0 auto 10px auto;
+        margin: 0 auto 20px auto; /* Margem inferior aumentada */
         filter: drop-shadow(0px 2px 10px rgba(0,0,0,0.8));
     }
 
     .copyright {
-        color: #888888;
+        color: #888888; /* Cinza claro para não brigar com o ouro */
         margin-top: 0px;
-        margin-bottom: 30px;
+        margin-bottom: 35px; /* Margem inferior aumentada */
         font-size: 13px;
         letter-spacing: 1px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.85);
     }
 
-    /* Linha Divisória Estilo Feixe de Luz */
+    /* Linha Divisória sutil e integrada */
     .linha-luz {
         border: 0;
         height: 1px;
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(218, 165, 32, 0.8), rgba(0, 0, 0, 0));
         width: 80%;
-        margin: 0 auto 30px auto;
+        margin: 0 auto 35px auto; /* Margem inferior aumentada */
     }
 
-    /* Caixa de Acesso (Glassmorphism Premium) */
+    /* Caixa de Acesso (Glassmorphism Premium e Dark - Mantido e Reforçado) */
     .caixa-acesso {
         background: rgba(20, 20, 25, 0.6);
         backdrop-filter: blur(10px); /* Efeito de vidro fosco */
         -webkit-backdrop-filter: blur(10px);
         padding: 20px 30px;
         border-radius: 12px;
-        border: 1px solid rgba(218, 165, 32, 0.2);
+        border: 1px solid rgba(218, 165, 32, 0.2); /* Borda dourada sutil */
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(218,165,32,0.05);
         max-width: 600px;
         margin: 0 auto;
@@ -123,33 +135,37 @@
 
     .texto-acesso {
         font-size: 15px;
-        color: #CCCCCC;
+        color: #CCCCCC; /* Cinza claro para leitura perfeita no tema dark */
         margin: 0;
         line-height: 1.6;
         text-align: center;
     }
     
     .texto-acesso strong {
-        color: #DAA520;
+        color: #DAA520; /* Destaque dourado */
         letter-spacing: 0.5px;
     }
 
-    /* Adaptação para Celulares */
+    /* Adaptação Inteligente para Celulares */
     @media (max-width: 600px) {
         .titulo-master { font-size: 26px; }
-        .subtitulo-master { font-size: 14px; }
-        .header-container { max-height: none; padding: 20px 15px; }
+        .subtitulo-master { font-size: 14px; margin-bottom: 30px; }
+        .header-container { max-height: none; padding: 40px 15px; } /* Ajustado para mobile */
+        .logo-asiatics { max-height: 70px; }
+        .insignia-animada { max-height: 130px; }
     }
 </style>
 </head>
 <body>
     <div class="header-container">
-        <img class="insignia-animada" src="https://api-club-file.cb.hotmart.com/public/v5/files/02b95a8a-8082-4219-81d6-45d91ec7089d" alt="Insígnia Master">
+        <img class="insignia-animada" src="https://api-club-file.cb.hotmart.com/public/v5/files/02b95a8a-8082-4219-81d6-45d91ec7089d" alt="Insígnia Certificação Master NLS">
         
         <h2 class="titulo-master">🥇 Certificação Master em <br> Biorressonância Quântica</h2>
-        <p class="subtitulo-master"><span>NLS</span> - Non Linear System</p>
+        
+        <p class="subtitulo-master">NLS - NON LINEAR SYSTEM</p>
         
         <img class="logo-asiatics" src="https://api-club-file.cb.hotmart.com/public/v5/files/f4a04510-d984-41b6-a782-84e8dc424a83" alt="Logo Asiatics">
+        
         <p class="copyright">© 2026 Asiatics - Todos os direitos reservados</p>
         
         <hr class="linha-luz">
