@@ -5,44 +5,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
 <style>
-    /* Fundo Azul Ultra Escuro Quântico e Bloqueio de Rolagem */
+    /* Fundo Quântico Premium */
     body, html {
         margin: 0;
         padding: 0;
         font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
         background: radial-gradient(circle at center, #010a18 0%, #000000 100%);
         color: #ffffff;
-        height: 100vh; /* Obriga a respeitar 100% da altura do iframe */
-        overflow: hidden; /* Impede que crie barra de rolagem cortando conteúdo */
+        height: 100vh; 
+        overflow: hidden; 
         display: flex;
         align-items: center;
         justify-content: center;
+        box-sizing: border-box;
     }
 
-    /* Container Principal - Altura 100% com distribuição automática (Space-Evenly) */
+    /* Container Principal - A Mágica do Respiro (Padding + Gap) */
     .header-container {
         width: 100%;
         max-width: 800px;
         height: 100%; 
-        max-height: 500px; /* Limite máximo inicial solicitado */
-        margin: 0 auto;
+        /* Barreira de proteção: 40px no topo/base e 20px nas laterais */
+        padding: 40px 20px; 
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly; /* O Segredo: distribui as margens automaticamente */
+        justify-content: center; /* Centraliza o bloco inteiro no meio da tela */
+        gap: clamp(10px, 2.5vh, 25px); /* Espaçamento dinâmico e inteligente entre cada item */
         text-align: center;
-        padding: 15px 20px; 
-        box-sizing: border-box;
     }
 
-    /* Insígnia Animada - Tamanho dinâmico para não estourar telas pequenas */
+    /* Todos os elementos tiveram margens zeradas para o GAP assumir o controle */
+
+    /* Insígnia Animada - Reduzida sutilmente para não brigar com o espaço */
     .insignia-animada {
         width: auto;
         max-width: 100%;
         height: auto;
-        max-height: 18vh; /* Usa porcentagem da tela em vez de pixels fixos */
+        max-height: 120px; 
         display: block;
-        margin: 0; /* Margens zeradas, o flexbox cuida do espaço */
+        margin: 0; 
         animation: floatAndGlow 4s ease-in-out infinite;
     }
 
@@ -52,9 +55,9 @@
         100% { transform: translateY(0px); filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.4)); }
     }
 
-    /* Título com Degradê Metálico Premium */
+    /* Título Metálico Premium */
     .titulo-master {
-        font-size: clamp(20px, 4vw, 30px); /* Texto encolhe se a tela for pequena */
+        font-size: clamp(20px, 4vw, 30px); 
         margin: 0; 
         background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7);
         -webkit-background-clip: text;
@@ -75,15 +78,17 @@
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.85);
     }
 
-    /* Logo em Texto Premium (Substituiu a imagem) */
+    /* Logo Asiatics Texto Premium */
     .logo-asiatics {
         font-size: 16px;
         font-weight: 800;
-         color: #ffffff;
+
+        color: #ffffff;
         margin: 0; 
         text-shadow: 0px 4px 10px rgba(0,0,0,0.9);
     }
 
+    /* Copyright */
     .copyright {
         color: #888888; 
         margin: 0; 
@@ -91,7 +96,7 @@
         letter-spacing: 1px;
     }
 
-    /* Linha Divisória - flex-shrink 0 garante que ela não desapareça ao encolher */
+    /* Linha Divisória de Luz */
     .linha-luz {
         border: 0;
         height: 1px;
@@ -101,7 +106,7 @@
         flex-shrink: 0; 
     }
 
-    /* Caixa de Acesso (Glassmorphism Premium) */
+    /* Caixa de Acesso (Glassmorphism) */
     .caixa-acesso {
         background: rgba(20, 20, 25, 0.6);
         backdrop-filter: blur(10px); 
