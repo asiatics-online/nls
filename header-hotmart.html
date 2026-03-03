@@ -35,12 +35,12 @@
         text-align: center;
     }
 
-    /* Insígnia Animada - Matemática Corrigida (Min, Ideal, Max) */
+    /* Insígnia Animada - O SEGREDO DO COMPUTADOR (Limite máximo subiu para 260px) */
     .insignia-animada {
         width: auto;
         max-width: 100%;
         height: auto;
-        max-height: clamp(60px, 15vh, 130px); 
+        max-height: clamp(80px, 30vh, 260px); 
         display: block;
         margin: 0; 
         animation: floatAndGlow 4s ease-in-out infinite;
@@ -87,15 +87,15 @@
 
     /* ========================================================
        A REGRA DE OURO PARA CELULARES (MEDIA QUERY)
-       Quando a tela for menor que 600px, isso é ativado
        ======================================================== */
     @media (max-width: 600px), (max-height: 550px) {
         .header-container {
             padding: 10px 15px; 
-            gap: 8px; 
+            gap: 12px; 
         }
         .insignia-animada {
-            max-height: 65px; 
+            /* O SEGREDO DO CELULAR: Trava a imagem num tamanho seguro para não cortar */
+            max-height: 80px; 
         }
         .caixa-acesso {
             padding: 12px 15px;
