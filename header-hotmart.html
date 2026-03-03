@@ -5,26 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
 <style>
-    /* Fundo Quântico e Bloqueio de Rolagem */
+    /* Fundo Quântico SEM Guilhotina (Proteção Mobile Ativada) */
     body, html {
         margin: 0;
         padding: 0;
         font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
         background: radial-gradient(circle at center, #010a18 0%, #000000 100%);
         color: #ffffff;
-        height: 100vh;
-        overflow: hidden;
+        min-height: 100vh; /* Permite que a tela estique no celular */
         display: flex;
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
     }
 
-    /* Container Principal - Equilíbrio de Margens (Padding + Gap) */
+    /* Container Principal */
     .header-container {
         width: 100%;
         max-width: 800px;
-        height: 100%;
+        min-height: 100vh; /* Acompanha o fundo */
         padding: clamp(20px, 6vh, 60px) 20px;
         box-sizing: border-box;
         display: flex;
@@ -35,7 +34,7 @@
         text-align: center;
     }
 
-    /* Insígnia Animada - Com o Glow PRECISO que acompanha a imagem */
+    /* Insígnia Animada - Com o Glow de Contorno Preciso */
     .insignia-animada {
         width: auto;
         max-width: 100%;
@@ -43,23 +42,19 @@
         max-height: clamp(80px, 20vh, 180px);
         display: block;
         margin: 0;
-        /* O SEGREDO: filter: drop-shadow() para o glow acompanhar a imagem */
-        /* Iniciando com um glow sutil */
         filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.5));
         animation: floatAndImageGlow 4s ease-in-out infinite;
-        flex-shrink: 0;
+        flex-shrink: 0; /* Proíbe o navegador de amassar a logo */
     }
 
     /* Animação que combina a flutuação e a pulsação do glow preciso */
     @keyframes floatAndImageGlow {
         0% {
             transform: translateY(0px);
-            /* Brilho Dourado DAA520 */
             filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.5));
         }
         50% {
             transform: translateY(-8px);
-            /* Brilho intenso pulsando */
             filter: drop-shadow(0 0 25px rgba(218, 165, 32, 1));
         }
         100% {
@@ -81,7 +76,7 @@
         width: 90%;
         margin: 0;
         transition: all 0.3s ease;
-        flex-shrink: 0;
+        flex-shrink: 0; /* Protege a caixa de ser esmagada */
     }
 
     .caixa-acesso:hover {
@@ -106,7 +101,7 @@
     }
 
     /* Regra para Mobile Inteligente */
-    @media (max-width: 600px), (max-height: 550px) {
+    @media (max-width: 600px) {
         .header-container {
             padding: 30px 15px;
             gap: 20px;
