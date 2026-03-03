@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
 <style>
-    /* Fundo Quântico SEM Guilhotina (Proteção Mobile Ativada) */
+    /* Fundo Infinito e Bloqueio de Rolagem */
     body, html {
         margin: 0;
         padding: 0;
         font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-        background: radial-gradient(circle at center, #010a18 0%, #000000 100%);
+        background: linear-gradient(to right, #000a24 0%, #000000 15%, #000000 85%, #000a24 100%);
         color: #ffffff;
-        min-height: 100vh; /* Permite que a tela estique no celular */
+        height: 100vh; 
+        overflow: hidden; 
         display: flex;
         align-items: center;
         justify-content: center;
@@ -22,110 +23,95 @@
     /* Container Principal */
     .header-container {
         width: 100%;
-        max-width: 800px;
-        min-height: 100vh; /* Acompanha o fundo */
-        padding: clamp(20px, 6vh, 60px) 20px;
+        max-width: 850px;
+        height: 100%; 
+        padding: clamp(15px, 4vh, 40px) 20px; 
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: clamp(15px, 4vh, 35px);
+        justify-content: center; 
+        gap: clamp(8px, 2.5vh, 25px); 
         text-align: center;
     }
 
-    /* Insígnia Animada - Com o Glow de Contorno Preciso */
+    /* Insígnia Animada - Matemática Corrigida (Min, Ideal, Max) */
     .insignia-animada {
         width: auto;
         max-width: 100%;
         height: auto;
-        max-height: clamp(80px, 20vh, 180px);
+        max-height: clamp(60px, 15vh, 130px); 
         display: block;
-        margin: 0;
-        filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.5));
-        animation: floatAndImageGlow 4s ease-in-out infinite;
-        flex-shrink: 0; /* Proíbe o navegador de amassar a logo */
+        margin: 0; 
+        animation: floatAndGlow 4s ease-in-out infinite;
     }
 
-    /* Animação que combina a flutuação e a pulsação do glow preciso */
-    @keyframes floatAndImageGlow {
-        0% {
-            transform: translateY(0px);
-            filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.5));
-        }
-        50% {
-            transform: translateY(-8px);
-            filter: drop-shadow(0 0 25px rgba(218, 165, 32, 1));
-        }
-        100% {
-            transform: translateY(0px);
-            filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.5));
-        }
+    @keyframes floatAndGlow {
+        0% { transform: translateY(0px); filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.3)); }
+        50% { transform: translateY(-6px); filter: drop-shadow(0 0 25px rgba(218, 165, 32, 0.8)); }
+        100% { transform: translateY(0px); filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.3)); }
     }
 
-    /* Caixa de Acesso (Glassmorphism Premium) */
+    /* Caixa de Acesso */
     .caixa-acesso {
-        background: rgba(20, 20, 25, 0.6);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        padding: clamp(15px, 3vh, 22px) 30px;
-        border-radius: 12px;
-        border: 1px solid rgba(218, 165, 32, 0.2);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(218,165,32,0.05);
+        background: #060606; 
+        padding: clamp(10px, 2vh, 18px) 30px;
+        border-radius: 10px;
+        border: 1px solid rgba(218, 165, 32, 0.3); 
         max-width: 650px;
         width: 90%;
         margin: 0;
         transition: all 0.3s ease;
-        flex-shrink: 0; /* Protege a caixa de ser esmagada */
     }
-
+    
     .caixa-acesso:hover {
-        border: 1px solid rgba(218, 165, 32, 0.5);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(218,165,32,0.1);
+        border: 1px solid rgba(218, 165, 32, 0.7);
+        box-shadow: 0 0 20px rgba(218, 165, 32, 0.1);
     }
 
     .titulo-acesso {
-        font-size: clamp(12px, 2.5vw, 16px);
-        color: #DAA520;
-        margin: 0 0 8px 0;
+        font-size: clamp(11px, 2vw, 14px);
+        color: #DAA520; 
+        margin: 0 0 4px 0;
         font-weight: 700;
         letter-spacing: 1px;
     }
 
     .texto-acesso {
-        font-size: clamp(11px, 2vw, 15px);
-        color: #CCCCCC;
+        font-size: clamp(10px, 2vw, 14px);
+        color: #AAAAAA; 
         margin: 0;
-        line-height: 1.6;
+        line-height: 1.5;
         font-weight: 300;
     }
 
-    /* Regra para Mobile Inteligente */
-    @media (max-width: 600px) {
+    /* ========================================================
+       A REGRA DE OURO PARA CELULARES (MEDIA QUERY)
+       Quando a tela for menor que 600px, isso é ativado
+       ======================================================== */
+    @media (max-width: 600px), (max-height: 550px) {
         .header-container {
-            padding: 30px 15px;
-            gap: 20px;
+            padding: 10px 15px; 
+            gap: 8px; 
         }
         .insignia-animada {
-            max-height: 100px;
+            max-height: 65px; 
         }
         .caixa-acesso {
-            padding: 18px 20px;
-            width: 95%;
+            padding: 12px 15px;
+            width: 95%; 
         }
     }
 </style>
 </head>
 <body>
     <div class="header-container">
-
         <img class="insignia-animada" src="https://api-club-file.cb.hotmart.com/public/v5/files/02b95a8a-8082-4219-81d6-45d91ec7089d" alt="Insígnia Certificação Master NLS">
 
         <section class="caixa-acesso">
             <p class="titulo-acesso">🔒 ACESSO RESTRITO</p>
             <p class="texto-acesso">Faça o login na sua conta Google para acessar os Materiais.</p>
         </section>
-
     </div>
 </body>
 </html>
