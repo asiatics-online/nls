@@ -20,7 +20,7 @@
         box-sizing: border-box;
     }
 
-    /* Container Principal */
+    /* Container Principal (Proporções exatas mantidas) */
     .header-container {
         width: 100%;
         max-width: 850px;
@@ -35,63 +35,54 @@
         text-align: center;
     }
 
-    /* Insígnia Animada - Matemática Corrigida (Min, Ideal, Max) */
+    /* Wrapper criado apenas para ancorar o Glow Compatível */
+    .logo-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        /* A flutuação move a logo e o brilho juntos */
+        animation: flutuar 4s ease-in-out infinite; 
+    }
+
+    /* O Glow Universal (Radial Gradient em vez de Drop-Shadow) */
+    .logo-wrapper::before {
+        content: '';
+        position: absolute;
+        width: 150%; 
+        height: 150%;
+        background: radial-gradient(circle, rgba(218, 165, 32, 0.35) 10%, rgba(218, 165, 32, 0) 65%);
+        border-radius: 50%;
+        z-index: 0;
+        animation: pulsarGlow 4s ease-in-out infinite;
+    }
+
+    /* Insígnia Animada - (Min, Ideal, Max) intocados */
     .insignia-animada {
         width: auto;
         max-width: 100%;
         height: auto;
         max-height: clamp(60px, 15vh, 130px); 
         display: block;
-        margin: 0; 
-        animation: floatAndGlow 4s ease-in-out infinite;
+        position: relative;
+        z-index: 1; /* Mantém a logo à frente do brilho */
     }
 
-    @keyframes floatAndGlow {
-        0% { transform: translateY(0px); filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.3)); }
-        50% { transform: translateY(-6px); filter: drop-shadow(0 0 25px rgba(218, 165, 32, 0.8)); }
-        100% { transform: translateY(0px); filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.3)); }
+    /* Animações separadas para garantir funcionamento em navegadores simples */
+    @keyframes flutuar {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-6px); }
+        100% { transform: translateY(0px); }
     }
 
-    /* Título Metálico Premium */
-    .titulo-master {
-        font-size: clamp(18px, 4vw, 34px); 
-        margin: 0; 
-        background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 800;
-        line-height: 1.2;
-        filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.8));
+    @keyframes pulsarGlow {
+        0% { opacity: 0.6; transform: scale(0.9); }
+        50% { opacity: 1; transform: scale(1.1); }
+        100% { opacity: 0.6; transform: scale(0.9); }
     }
 
-    /* Subtítulo Tecnológico */
-    .subtitulo-master {
-        font-size: clamp(9px, 2vw, 14px);
-        color: #DAA520; 
-        margin: 0; 
-        font-weight: 400; 
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-    }
-
-    /* Logo Asiatics Texto Premium */
-    .logo-asiatics {
-        font-size: clamp(12px, 2vw, 18px);
-        font-weight: 800;
-        letter-spacing: 2px;
-        color: #ffffff;
-        margin: 0; 
-    }
-
-    /* Copyright */
-    .copyright {
-        color: #666666; 
-        margin: 0; 
-        font-size: clamp(9px, 1.5vw, 13px);
-        font-weight: 400;
-    }
-
-    /* Caixa de Acesso */
+    /* Caixa de Acesso (Espaçamentos intocados) */
     .caixa-acesso {
         background: #060606; 
         padding: clamp(10px, 2vh, 18px) 30px;
@@ -124,52 +115,34 @@
         font-weight: 300;
     }
 
-    /* ========================================================
-       A REGRA DE OURO PARA CELULARES (MEDIA QUERY)
-       Quando a tela for menor que 600px, isso é ativado
-       ======================================================== */
+    /* Regra de Ouro para Celulares - Mantidos apenas os itens que sobraram */
     @media (max-width: 600px), (max-height: 550px) {
         .header-container {
-            padding: 10px 15px; /* Reduz o espaço inútil nas bordas */
-            gap: 8px; /* Espreme os elementos para garantir que caibam */
+            padding: 10px 15px; 
+            gap: 8px; 
         }
         .insignia-animada {
-            max-height: 65px; /* Força a logo a ficar pequena */
-        }
-        .titulo-master {
-            font-size: 20px; /* Impede que o título roube toda a tela */
-        }
-        .subtitulo-master {
-            font-size: 9px;
-            letter-spacing: 0.5px;
+            max-height: 65px; 
         }
         .caixa-acesso {
             padding: 12px 15px;
-            width: 95%; /* Aproveita mais a largura do celular */
+            width: 95%; 
         }
     }
 </style>
 </head>
 <body>
     <div class="header-container">
-        <img class="insignia-animada" src="https://api-club-file.cb.hotmart.com/public/v5/files/02b95a8a-8082-4219-81d6-45d91ec7089d" alt="Insígnia Certificação Master NLS">
         
-        <h2 class="titulo-master">k Certificação Master em <br> Biorressonância Quântica</h2>
-        
-        <p class="subtitulo-master">NLS - NON LINEAR SYSTEM (SISTEMA NÃO LINEAR)</p>
-        
-        <p class="logo-asiatics">ASIATICS</p>
-        
-        <p class="copyright">© 2013 - <span id="ano-atual"></span> Asiatics - Todos os direitos reservados</p>
+        <div class="logo-wrapper">
+            <img class="insignia-animada" src="https://api-club-file.cb.hotmart.com/public/v5/files/02b95a8a-8082-4219-81d6-45d91ec7089d" alt="Insígnia Certificação Master NLS">
+        </div>
         
         <section class="caixa-acesso">
             <p class="titulo-acesso">🔒 ACESSO RESTRITO</p>
-            <p class="texto-acesso">Faça o login na sua conta Google e acesse o link abaixo.</p>
+            <p class="texto-acesso">Faça o login na sua conta Google para acessar os Materiais.</p>
         </section>
-    </div>
 
-    <script>
-        document.getElementById('ano-atual').textContent = new Date().getFullYear();
-    </script>
+    </div>
 </body>
 </html>
