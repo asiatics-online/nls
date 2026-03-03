@@ -5,139 +5,127 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
 <style>
-    /* Fundo Infinito e Bloqueio de Rolagem */
+    /* Fundo Quântico e Bloqueio de Rolagem */
     body, html {
         margin: 0;
         padding: 0;
         font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-        background: linear-gradient(to right, #000a24 0%, #000000 15%, #000000 85%, #000a24 100%);
+        background: radial-gradient(circle at center, #010a18 0%, #000000 100%);
         color: #ffffff;
-        height: 100vh; 
-        overflow: hidden; 
+        height: 100vh;
+        overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
     }
 
-    /* Container Principal (Proporções exatas mantidas) */
+    /* Container Principal - Equilíbrio de Margens (Padding + Gap) */
     .header-container {
         width: 100%;
-        max-width: 850px;
-        height: 100%; 
-        padding: clamp(15px, 4vh, 40px) 20px; 
+        max-width: 800px;
+        height: 100%;
+        padding: clamp(20px, 6vh, 60px) 20px;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center; 
-        gap: clamp(8px, 2.5vh, 25px); 
+        justify-content: center;
+        gap: clamp(15px, 4vh, 35px);
         text-align: center;
     }
 
-    /* Wrapper criado apenas para ancorar o Glow Compatível */
-    .logo-wrapper {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        /* A flutuação move a logo e o brilho juntos */
-        animation: flutuar 4s ease-in-out infinite; 
-    }
-
-    /* O Glow Universal (Radial Gradient em vez de Drop-Shadow) */
-    .logo-wrapper::before {
-        content: '';
-        position: absolute;
-        width: 150%; 
-        height: 150%;
-        background: radial-gradient(circle, rgba(218, 165, 32, 0.35) 10%, rgba(218, 165, 32, 0) 65%);
-        border-radius: 50%;
-        z-index: 0;
-        animation: pulsarGlow 4s ease-in-out infinite;
-    }
-
-    /* Insígnia Animada - (Min, Ideal, Max) intocados */
+    /* Insígnia Animada - Com o Glow PRECISO que acompanha a imagem */
     .insignia-animada {
         width: auto;
         max-width: 100%;
         height: auto;
-        max-height: clamp(60px, 15vh, 130px); 
+        max-height: clamp(80px, 20vh, 180px);
         display: block;
-        position: relative;
-        z-index: 1; /* Mantém a logo à frente do brilho */
+        margin: 0;
+        /* O SEGREDO: filter: drop-shadow() para o glow acompanhar a imagem */
+        /* Iniciando com um glow sutil */
+        filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.5));
+        animation: floatAndImageGlow 4s ease-in-out infinite;
+        flex-shrink: 0;
     }
 
-    /* Animações separadas para garantir funcionamento em navegadores simples */
-    @keyframes flutuar {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-6px); }
-        100% { transform: translateY(0px); }
+    /* Animação que combina a flutuação e a pulsação do glow preciso */
+    @keyframes floatAndImageGlow {
+        0% {
+            transform: translateY(0px);
+            /* Brilho Dourado DAA520 */
+            filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.5));
+        }
+        50% {
+            transform: translateY(-8px);
+            /* Brilho intenso pulsando */
+            filter: drop-shadow(0 0 25px rgba(218, 165, 32, 1));
+        }
+        100% {
+            transform: translateY(0px);
+            filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.5));
+        }
     }
 
-    @keyframes pulsarGlow {
-        0% { opacity: 0.6; transform: scale(0.9); }
-        50% { opacity: 1; transform: scale(1.1); }
-        100% { opacity: 0.6; transform: scale(0.9); }
-    }
-
-    /* Caixa de Acesso (Espaçamentos intocados) */
+    /* Caixa de Acesso (Glassmorphism Premium) */
     .caixa-acesso {
-        background: #060606; 
-        padding: clamp(10px, 2vh, 18px) 30px;
-        border-radius: 10px;
-        border: 1px solid rgba(218, 165, 32, 0.3); 
+        background: rgba(20, 20, 25, 0.6);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: clamp(15px, 3vh, 22px) 30px;
+        border-radius: 12px;
+        border: 1px solid rgba(218, 165, 32, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(218,165,32,0.05);
         max-width: 650px;
         width: 90%;
         margin: 0;
         transition: all 0.3s ease;
+        flex-shrink: 0;
     }
-    
+
     .caixa-acesso:hover {
-        border: 1px solid rgba(218, 165, 32, 0.7);
-        box-shadow: 0 0 20px rgba(218, 165, 32, 0.1);
+        border: 1px solid rgba(218, 165, 32, 0.5);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(218,165,32,0.1);
     }
 
     .titulo-acesso {
-        font-size: clamp(11px, 2vw, 14px);
-        color: #DAA520; 
-        margin: 0 0 4px 0;
+        font-size: clamp(12px, 2.5vw, 16px);
+        color: #DAA520;
+        margin: 0 0 8px 0;
         font-weight: 700;
         letter-spacing: 1px;
     }
 
     .texto-acesso {
-        font-size: clamp(10px, 2vw, 14px);
-        color: #AAAAAA; 
+        font-size: clamp(11px, 2vw, 15px);
+        color: #CCCCCC;
         margin: 0;
-        line-height: 1.5;
+        line-height: 1.6;
         font-weight: 300;
     }
 
-    /* Regra de Ouro para Celulares - Mantidos apenas os itens que sobraram */
+    /* Regra para Mobile Inteligente */
     @media (max-width: 600px), (max-height: 550px) {
         .header-container {
-            padding: 10px 15px; 
-            gap: 8px; 
+            padding: 30px 15px;
+            gap: 20px;
         }
         .insignia-animada {
-            max-height: 65px; 
+            max-height: 100px;
         }
         .caixa-acesso {
-            padding: 12px 15px;
-            width: 95%; 
+            padding: 18px 20px;
+            width: 95%;
         }
     }
 </style>
 </head>
 <body>
     <div class="header-container">
-        
-        <div class="logo-wrapper">
-            <img class="insignia-animada" src="https://api-club-file.cb.hotmart.com/public/v5/files/02b95a8a-8082-4219-81d6-45d91ec7089d" alt="Insígnia Certificação Master NLS">
-        </div>
-        
+
+        <img class="insignia-animada" src="https://api-club-file.cb.hotmart.com/public/v5/files/02b95a8a-8082-4219-81d6-45d91ec7089d" alt="Insígnia Certificação Master NLS">
+
         <section class="caixa-acesso">
             <p class="titulo-acesso">🔒 ACESSO RESTRITO</p>
             <p class="texto-acesso">Faça o login na sua conta Google para acessar os Materiais.</p>
