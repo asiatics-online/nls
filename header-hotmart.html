@@ -10,7 +10,6 @@
         margin: 0;
         padding: 0;
         font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-        /* Fundo imersivo Edge-to-Edge */
         background: linear-gradient(to right, #000a24 0%, #000000 15%, #000000 85%, #000a24 100%);
         color: #ffffff;
         height: 100vh; 
@@ -21,30 +20,27 @@
         box-sizing: border-box;
     }
 
-    /* Container Principal - Adaptabilidade Extrema Vertical e Horizontal */
+    /* Container Principal */
     .header-container {
         width: 100%;
         max-width: 850px;
         height: 100%; 
-        /* O Segredo 1: O padding agora encolhe se a altura da tela for pequena */
-        padding: clamp(10px, 4vh, 40px) 20px; 
+        padding: clamp(15px, 4vh, 40px) 20px; 
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center; 
-        /* O Segredo 2: O respiro também se comprime em telas espremidas */
-        gap: clamp(8px, 2vh, 25px); 
+        gap: clamp(8px, 2.5vh, 25px); 
         text-align: center;
     }
 
-    /* Insígnia Animada - Agora ela reduz a altura proporcionalmente ao quadro */
+    /* Insígnia Animada - Matemática Corrigida (Min, Ideal, Max) */
     .insignia-animada {
         width: auto;
         max-width: 100%;
         height: auto;
-        /* O Segredo 3: Se a tela tiver pouca altura, a imagem diminui até 60px para não estourar */
-        max-height: clamp(150px, 16vh, 85px); 
+        max-height: clamp(60px, 15vh, 130px); 
         display: block;
         margin: 0; 
         animation: floatAndGlow 4s ease-in-out infinite;
@@ -58,7 +54,7 @@
 
     /* Título Metálico Premium */
     .titulo-master {
-        font-size: clamp(20px, 4vw, 34px); 
+        font-size: clamp(18px, 4vw, 34px); 
         margin: 0; 
         background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7);
         -webkit-background-clip: text;
@@ -70,7 +66,7 @@
 
     /* Subtítulo Tecnológico */
     .subtitulo-master {
-        font-size: clamp(10px, 2vw, 14px);
+        font-size: clamp(9px, 2vw, 14px);
         color: #DAA520; 
         margin: 0; 
         font-weight: 400; 
@@ -80,7 +76,7 @@
 
     /* Logo Asiatics Texto Premium */
     .logo-asiatics {
-        font-size: clamp(14px, 2vw, 18px);
+        font-size: clamp(12px, 2vw, 18px);
         font-weight: 800;
         letter-spacing: 2px;
         color: #ffffff;
@@ -91,11 +87,11 @@
     .copyright {
         color: #666666; 
         margin: 0; 
-        font-size: clamp(10px, 1.5vw, 13px);
+        font-size: clamp(9px, 1.5vw, 13px);
         font-weight: 400;
     }
 
-    /* Caixa de Acesso - O espaço interno (padding) agora responde à falta de altura */
+    /* Caixa de Acesso */
     .caixa-acesso {
         background: #060606; 
         padding: clamp(10px, 2vh, 18px) 30px;
@@ -113,7 +109,7 @@
     }
 
     .titulo-acesso {
-        font-size: clamp(12px, 2vw, 14px);
+        font-size: clamp(11px, 2vw, 14px);
         color: #DAA520; 
         margin: 0 0 4px 0;
         font-weight: 700;
@@ -121,11 +117,36 @@
     }
 
     .texto-acesso {
-        font-size: clamp(11px, 2vw, 14px);
+        font-size: clamp(10px, 2vw, 14px);
         color: #AAAAAA; 
         margin: 0;
         line-height: 1.5;
         font-weight: 300;
+    }
+
+    /* ========================================================
+       A REGRA DE OURO PARA CELULARES (MEDIA QUERY)
+       Quando a tela for menor que 600px, isso é ativado
+       ======================================================== */
+    @media (max-width: 600px), (max-height: 550px) {
+        .header-container {
+            padding: 10px 15px; /* Reduz o espaço inútil nas bordas */
+            gap: 8px; /* Espreme os elementos para garantir que caibam */
+        }
+        .insignia-animada {
+            max-height: 65px; /* Força a logo a ficar pequena */
+        }
+        .titulo-master {
+            font-size: 20px; /* Impede que o título roube toda a tela */
+        }
+        .subtitulo-master {
+            font-size: 9px;
+            letter-spacing: 0.5px;
+        }
+        .caixa-acesso {
+            padding: 12px 15px;
+            width: 95%; /* Aproveita mais a largura do celular */
+        }
     }
 </style>
 </head>
