@@ -318,7 +318,12 @@
         .plan-type.small { font-size: 1rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; margin-bottom: 5px; }
         .plan-name.large { font-size: 2.2rem; font-weight: 800; color: #fff; line-height: 1.1; }
         .plan-subtitle { color: var(--text-muted); font-size: 1.05rem; min-height: 50px; text-align: center; }
-        .plan-body { padding: 30px; flex-grow: 1; }
+        .plan-body { 
+          padding: 30px; 
+          flex-grow: 1; 
+          display: flex; 
+          flex-direction: column; 
+         }
         .checklist { list-style: none; }
         .checklist li { margin-bottom: 15px; color: var(--text-light); display: flex; align-items: flex-start; gap: 12px; font-size: 1.05rem; }
         .checklist li i { flex-shrink: 0; margin-top: 5px; }
@@ -338,6 +343,88 @@
         /* --- FINAL CTA SECTION & FOOTER --- */
         .final-cta-section { text-align: center; background: radial-gradient(circle at center, #1A253C 0%, var(--bg-dark) 100%); border-top: 1px solid rgba(0, 229, 255, 0.2); }
         footer { text-align: center; padding: 40px 20px; background: #05080f; color: #4a5568; font-size: 0.95rem; line-height: 1.8; }
+
+/* --- PREÇOS E BOTÕES DOS PLANOS --- */
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: auto; /* Empurra a div de preço para o fundo do card perfeitamente */
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .cta-payment-info {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-bottom: -5px;
+        }
+
+        .cta-button-pix {
+            background-color: #00C781; /* Verde Pix de Alta Conversão */
+            color: #ffffff;
+            padding: 14px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 199, 129, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .cta-button-pix:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 199, 129, 0.4);
+            color: #ffffff;
+        }
+
+        .cta-button-card {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .cta-button-card:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* --- Adaptação Exclusiva para o Cartão Master (Dourado) --- */
+        .plan-card.master .cta-section {
+            border-top-color: rgba(255, 215, 0, 0.2);
+        }
+        .plan-card.master .cta-button-pix {
+            background: var(--gold-gradient);
+            color: #0A0F1A;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+        }
+        .plan-card.master .cta-button-pix:hover {
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+            color: #000;
+        }
+        .plan-card.master .cta-button-card:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+            background-color: rgba(255, 215, 0, 0.05);
+        }
+
 
         /* Mobile Adjustments */
         @media (max-width: 1024px) { 
@@ -854,6 +941,16 @@
                         <li><i class="fas fa-check"></i> Material Didático Start</li>
                         <li><i class="fas fa-check"></i> 2 Horas de mentoria</li>
                     </ul>
+                    <div class="cta-section">
+                        <span class="cta-payment-info">De R$ 2.230,00</span> 
+                        <a href="#link-checkout-pix" class="cta-button-pix">
+                            <i class="fab fa-pix"></i> R$ 1.120,30 no Pix
+                        </a>
+                        <a href="#link-checkout-cartao" class="cta-button-card">
+                            <i class="fas fa-credit-card"></i> 12x de R$ 127,00 no Cartão
+                        </a>        
+                    </div>
+
                 </div>
             </div>
 
@@ -879,6 +976,15 @@
                         <li class="disabled"><i class="fas fa-times"></i> Mod 6: Expansão Premium</li>
                         <li class="disabled"><i class="fas fa-times"></i> Certificado Master em NLS</li>
                     </ul>
+                    <div class="cta-section">
+                        <span class="cta-payment-info">De R$ 3.310,00</span> 
+                        <a href="#link-checkout-pix" class="cta-button-pix">
+                            <i class="fab fa-pix"></i> R$ 1.629,70 no Pix
+                        </a>
+                        <a href="#link-checkout-cartao" class="cta-button-card">
+                            <i class="fas fa-credit-card"></i> 12x de R$ 187,00 no Cartão
+                        </a>        
+                    </div>
                 </div>
             </div>
 
@@ -897,7 +1003,7 @@
                 <div class="plan-body">
                     <ul class="checklist">
                         <li><i class="fas fa-check"></i> <strong>Foco: Autoridade Máxima</strong></li>
-                        <li><i class="fas fa-check"></i> 65 Aulas + Miniecossistema</li>
+                        <li><i class="fas fa-check"></i> 65 Aulas + Miniecossistema (7h28)</li>
                         <li><i class="fas fa-check"></i> <strong>Inclui conteúdo do Start e Pro</strong></li>
                         <li><i class="fas fa-check"></i> Mód 1: Teoria e Fundamentos</li>
                         <li><i class="fas fa-check"></i> Mód 2: Hardware e Software</li>
@@ -909,22 +1015,26 @@
                         <li><i class="fas fa-check"></i> <strong>Atualizações Recorrentes</strong></li>
                         <li><i class="fas fa-check"></i> <strong>Certificado Master em NLS</strong></li>
                     </ul>
+                     <div class="cta-section">
+                        <span class="cta-payment-info">De R$ 5.290,00</span> 
+                        <a href="#link-checkout-pix" class="cta-button-pix">
+                            <i class="fab fa-pix"></i> R$ 2.619,00 no Pix
+                        </a>
+                        <a href="#link-checkout-cartao" class="cta-button-card">
+                            <i class="fas fa-credit-card"></i> 12x de R$ 297,00 no Cartão
+                        </a>        
+                    </div>                     
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section class="section-padding final-cta-section">
-        <h2 class="section-title">Pronto para dar o próximo passo?</h2>
-        <p class="section-subtitle">Preencha nosso formulário e manifeste seu interesse que manifestaremos essa realidade em sua vida!</p>
-        
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeM7-bavYqgEdgcgRGVEULE_0oLKyhJGco4MkbHxbpqiwvCQw/viewform" target="_blank" rel="noopener noreferrer" class="cta-btn gold" style="font-size: 1.2rem; padding: 20px 50px; display: inline-block;">
-            <i class="fas fa-file-alt" style="margin-right: 10px;"></i> TENHO INTERESSE
-        </a>
-    </section>
+
 
     <footer>
+        <img src="files-formacao-nls/Logo-Asiatics.png" alt="Logo Asiatics" style="max-width: 180px; height: auto; margin-bottom: 20px; opacity: 0.8;">
+        
         <p>&copy; 2026 Asiatics - Formação em Tecnologia NLS. Todos os direitos reservados.</p>
         <p style="margin-top: 10px; font-size: 0.85rem; color: #718096;">
             ASIATICS NEGÓCIOS DIGITAIS LTDA<br>
