@@ -341,20 +341,37 @@
         .master-image-frame img { height: 200px; width: auto; display: block; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8)); }
 
         /* ---  FOOTER --- */       
-        footer { text-align: center; padding: 40px 20px; background: #05080f; color: #4a5568; font-size: 0.95rem; line-height: 1.8; }
+        footer { 
+            text-align: center; 
+            padding: 40px 20px; 
+            background: #05080f; 
+            color: #4a5568; 
+            font-size: 0.95rem; 
+            line-height: 1.6; 
+        }
+        
+        /* Tira a margem padrão dos textos para eles poderem subir */
+        footer p { 
+            margin: 0 !important; 
+        }
+        
+        /* Aqui está a tesoura que faz o "trim" da imagem */
         .footer-logo {
-            max-width: 90px; /* ALTERADO: de 180px para 90px para ficar com a metade do tamanho */
-            height: auto;
-            margin-bottom: 20px;
+            width: 180px; /* Mantém a largura original do quadrado */
+            height: 110px; /* Faz o corte na altura que você pediu */
+            object-fit: none; /* Força o navegador a cortar em vez de encolher */
+            object-position: center; /* Tira 35px do espaço vazio de cima e 35px de baixo */
+            margin-bottom: 0px; /* Gruda a logo no texto de baixo */
             opacity: 0.8;
             transition: opacity 0.3s ease;
         }
+        
         .footer-logo:hover {
-            opacity: 1; /* A logo "acende" quando passa o mouse */
+            opacity: 1; 
         }
         
         .footer-company-info {
-            margin-top: 10px;
+            margin-top: 8px; /* Dá um espacinho elegante entre os dois textos */
             font-size: 0.85rem;
             color: #718096;
         }
@@ -958,10 +975,10 @@
                     </ul>
                     <div class="cta-section">
                         <span class="cta-payment-info">De R$ 2.230,00</span> 
-                        <a href="#link-checkout-pix" class="cta-button-pix">
+                        <a href="https://api.whatsapp.com/send/?phone=%2B5532999920001" class="cta-button-pix">
                             <i class="fab fa-pix"></i> R$ 1.120,30 no Pix
                         </a>
-                        <a href="#link-checkout-cartao" class="cta-button-card">
+                        <a href="https://api.whatsapp.com/send/?phone=%2B5532999920001" class="cta-button-card">
                             <i class="fas fa-credit-card"></i> 12x de R$ 127,00 no Cartão
                         </a>        
                     </div>
@@ -993,10 +1010,10 @@
                     </ul>
                     <div class="cta-section">
                         <span class="cta-payment-info">De R$ 3.310,00</span> 
-                        <a href="#link-checkout-pix" class="cta-button-pix">
+                        <a href="https://api.whatsapp.com/send/?phone=%2B5532999920001" class="cta-button-pix">
                             <i class="fab fa-pix"></i> R$ 1.629,70 no Pix
                         </a>
-                        <a href="#link-checkout-cartao" class="cta-button-card">
+                        <a href="https://api.whatsapp.com/send/?phone=%2B5532999920001" class="cta-button-card">
                             <i class="fas fa-credit-card"></i> 12x de R$ 187,00 no Cartão
                         </a>        
                     </div>
@@ -1032,10 +1049,10 @@
                     </ul>
                      <div class="cta-section">
                         <span class="cta-payment-info">De R$ 5.290,00</span> 
-                        <a href="#link-checkout-pix" class="cta-button-pix">
+                        <a href="https://api.whatsapp.com/send/?phone=%2B5532999920001" class="cta-button-pix">
                             <i class="fab fa-pix"></i> R$ 2.619,00 no Pix
                         </a>
-                        <a href="#link-checkout-cartao" class="cta-button-card">
+                        <a href="https://api.whatsapp.com/send/?phone=%2B5532999920001" class="cta-button-card">
                             <i class="fas fa-credit-card"></i> 12x de R$ 297,00 no Cartão
                         </a>        
                     </div>                     
