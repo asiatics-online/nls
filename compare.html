@@ -1,1 +1,1326 @@
-https://htmledit.squarefree.com/
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparativo Técnico — Equipamentos NLS Bioressonância</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0d14;
+    --surface: #111520;
+    --border: rgba(100,120,200,0.15);
+    --border-strong: rgba(100,150,255,0.3);
+    --accent-gold: #c9a84c;
+    --accent-teal: #2ed8c3;
+    --nls18: #c9a84c;
+    --hunter: #4a7eff;
+    --meta: #9b6dff;
+    --text-primary: #e8eaf6;
+    --text-secondary: #8892b0;
+    --text-muted: #4a5272;
+    --yes: #2ed8c3;
+    --no: #ff4d6d;
+    --partial: #f9a825;
+    --min-table-width: 900px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-size: 15px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
+
+  .page-wrapper {
+    position: relative; z-index: 1;
+    max-width: 1480px; margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ─── HEADER ─── */
+  .page-header { text-align: center; margin-bottom: 56px; animation: fadeDown 0.8s ease both; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'DM Mono', monospace; font-size: 13px;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--accent-teal); margin-bottom: 20px;
+    padding: 7px 20px; border: 1px solid rgba(46,216,195,0.25);
+    border-radius: 100px; background: rgba(46,216,195,0.05);
+  }
+  .eyebrow::before, .eyebrow::after { content: '◆'; font-size: 8px; }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 5.5vw, 76px);
+    font-weight: 900; line-height: 1.05;
+    background: linear-gradient(135deg, #e8eaf6 30%, var(--accent-gold) 70%, #e8eaf6 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 18px; letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    font-size: 16px; color: var(--text-secondary);
+    max-width: 640px; margin: 0 auto; line-height: 1.7; font-weight: 300;
+  }
+
+  /* ─── LEGEND ─── */
+  .legend-strip {
+    display: flex; justify-content: center; gap: 24px;
+    flex-wrap: wrap; margin: 28px 0 44px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-secondary); }
+  .legend-dot { width: 11px; height: 11px; border-radius: 50%; }
+
+  /* ─── SCROLL WRAPPER ─── */
+  .table-scroll-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ─── PRODUCT HEADER ─── */
+  .products-row {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    min-width: var(--min-table-width);
+  }
+
+  .product-card {
+    padding: 28px 20px 22px; text-align: center;
+    border-radius: 16px 16px 0 0; position: relative; overflow: hidden;
+  }
+  .product-card::before { content: ''; position: absolute; inset: 0; opacity: 0.08; border-radius: inherit; }
+  .product-card.nls18  { background: linear-gradient(160deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04)); border-top: 2px solid var(--nls18); }
+  .product-card.hunter { background: linear-gradient(160deg, rgba(74,126,255,0.12), rgba(74,126,255,0.04)); border-top: 2px solid var(--hunter); }
+  .product-card.meta   { background: linear-gradient(160deg, rgba(155,109,255,0.12), rgba(155,109,255,0.04)); border-top: 2px solid var(--meta); }
+
+  .product-badge {
+    display: inline-block; font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px; margin-bottom: 10px; font-weight: 600;
+  }
+  .nls18  .product-badge { background: rgba(201,168,76,0.15); color: var(--nls18);  border: 1px solid rgba(201,168,76,0.3); }
+  .hunter .product-badge { background: rgba(74,126,255,0.15);  color: var(--hunter); border: 1px solid rgba(74,126,255,0.3); }
+  .meta   .product-badge { background: rgba(155,109,255,0.15); color: var(--meta);   border: 1px solid rgba(155,109,255,0.3); }
+
+  .product-name { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; margin-bottom: 7px; }
+  .nls18  .product-name { color: var(--nls18); }
+  .hunter .product-name { color: var(--hunter); }
+  .meta   .product-name { color: var(--meta); }
+
+  .product-tagline { font-size: 13px; color: #ffffff; font-weight: 400; line-height: 1.6; }
+  /* código do modelo */
+  .product-code {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; letter-spacing: 0.18em;
+    font-weight: 700; text-transform: uppercase;
+    margin-bottom: 4px; margin-top: 2px;
+    opacity: 0.75;
+  }
+  .nls18  .product-code { color: var(--nls18); }
+  .hunter .product-code { color: var(--hunter); }
+  .meta   .product-code { color: var(--meta); }
+
+
+  /* ─── TABLE ─── */
+  .compare-table { width: 100%; border-collapse: collapse; min-width: var(--min-table-width); }
+  .compare-table td { padding: 0; border: none; }
+
+  .section-row td {
+    padding: 15px 20px 10px; background: var(--bg);
+    font-family: 'DM Mono', monospace; font-size: 13px;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent-teal);
+    border-bottom: 1px solid rgba(46,216,195,0.2);
+    border-top: 2px solid rgba(46,216,195,0.1);
+  }
+  .section-row td:first-child { border-left: 3px solid var(--accent-teal); padding-left: 17px; }
+
+  .data-row td {
+    padding: 12px 20px; font-size: 15.5px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle; line-height: 1.55;
+  }
+  .data-row:hover td { background: rgba(255,255,255,0.02); }
+
+  .data-row td:first-child {
+    color: var(--text-secondary); font-weight: 600; font-size: 15px;
+    width: 25%; padding-left: 0; border-right: 1px solid var(--border);
+  }
+  .data-row td:nth-child(2) { border-right: 1px solid var(--border); background: rgba(201,168,76,0.03); }
+  .data-row td:nth-child(3) { border-right: 1px solid var(--border); background: rgba(74,126,255,0.03); }
+  .data-row td:nth-child(4) { background: rgba(155,109,255,0.03); }
+  .data-row:nth-child(even) td              { background: rgba(255,255,255,0.012); }
+  .data-row:nth-child(even) td:nth-child(2) { background: rgba(201,168,76,0.022); }
+  .data-row:nth-child(even) td:nth-child(3) { background: rgba(74,126,255,0.022); }
+  .data-row:nth-child(even) td:nth-child(4) { background: rgba(155,109,255,0.022); }
+
+  /* ─── TOOLTIP LABEL CELL ─── */
+  .tt-wrap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 0 8px 0 16px; cursor: default;
+    position: relative;
+  }
+  .tt-icon {
+    flex-shrink: 0;
+    width: 16px; height: 16px;
+    background: rgba(46,216,195,0.1);
+    border: 1px solid rgba(46,216,195,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; color: var(--accent-teal);
+    font-family: 'DM Mono', monospace; font-weight: 700;
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .tt-wrap:hover .tt-icon,
+  .tt-wrap.active .tt-icon {
+    background: rgba(46,216,195,0.25);
+  }
+
+  /* ─── TOOLTIP BOX ─── */
+  .tooltip {
+    display: none;
+    position: absolute;
+    left: 24px; top: calc(100% + 6px);
+    z-index: 999;
+    background: #1a2035;
+    border: 1px solid rgba(46,216,195,0.35);
+    border-radius: 10px;
+    padding: 15px 18px;
+    width: 400px;
+    max-width: 90vw;
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    pointer-events: none;
+  }
+  .tt-wrap:hover .tooltip,
+  .tt-wrap.active .tooltip {
+    display: block;
+  }
+  /* flip tooltip when near bottom */
+  .tooltip.up {
+    top: auto;
+    bottom: calc(100% + 6px);
+  }
+
+  /* ─── CHIPS ─── */
+  .chip {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 13.5px; font-weight: 500; padding: 3px 11px;
+    border-radius: 100px; font-family: 'DM Mono', monospace; letter-spacing: 0.02em;
+  }
+  .chip-yes     { background: rgba(46,216,195,0.12); color: var(--yes);     border: 1px solid rgba(46,216,195,0.25); }
+  .chip-yes::before  { content: '✓'; font-size: 10px; }
+  .chip-no      { background: rgba(255,77,109,0.10); color: var(--no);      border: 1px solid rgba(255,77,109,0.20); }
+  .chip-no::before   { content: '✕'; font-size: 10px; }
+  .chip-partial { background: rgba(249,168,37,0.10); color: var(--partial); border: 1px solid rgba(249,168,37,0.20); }
+  .chip-partial::before { content: '◑'; font-size: 10px; }
+
+  .highlight-chip {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    padding: 3px 11px; border-radius: 6px;
+    background: rgba(201,168,76,0.15); color: var(--nls18);
+    border: 1px solid rgba(201,168,76,0.3); font-family: 'DM Mono', monospace;
+  }
+
+  /* ─── PLACEHOLDER IMAGEM ─── */
+  .img-placeholder {
+    width: 100%; height: 86px;
+    background: rgba(255,255,255,0.04);
+    border: 1px dashed rgba(255,255,255,0.12);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted); font-size: 11px;
+    font-family: 'DM Mono', monospace; letter-spacing: 0.1em;
+  }
+
+  /* ─── WRAPPERS ─── */
+  .table-wrapper {
+    border: 1px solid var(--border-strong);
+    border-radius: 20px 20px 20px 20px; overflow: hidden;
+    background: var(--surface);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  }
+
+  /* ─── SCROLL HINT ─── */
+  .scroll-hint {
+    display: none; text-align: center; font-size: 12px;
+    color: var(--text-muted); margin-bottom: 10px;
+    font-family: 'DM Mono', monospace; letter-spacing: 0.1em;
+    padding: 6px 12px; background: rgba(46,216,195,0.05);
+    border: 1px solid rgba(46,216,195,0.15); border-radius: 6px;
+    width: fit-content; margin: 0 auto 16px;
+  }
+  @media (max-width: 900px) {
+    .scroll-hint { display: block; }
+    .page-wrapper { padding: 32px 12px 60px; }
+    .compare-table { min-width: var(--min-table-width); }
+    h1 { font-size: clamp(30px, 8vw, 52px); }
+    .data-row td { padding: 10px 14px; font-size: 13px; }
+    .data-row td:first-child { font-size: 13.5px; }
+    .section-row td { font-size: 10px; padding: 13px 14px 8px; }
+    .tooltip { width: 280px; }
+  }
+
+  /* ─── FOOTER ─── */
+  .footer-note {
+    text-align: center; margin-top: 40px;
+    font-size: 12.5px; color: var(--text-muted);
+    font-family: 'DM Mono', monospace; letter-spacing: 0.05em;
+    line-height: 1.9;
+  }
+
+  /* ─── COL HEADER ─── */
+  .col-header-label {
+    font-family: 'DM Mono', monospace; font-size: 13.5px;
+    letter-spacing: 0.2em; color: var(--text-muted); text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeUp   { from { opacity:0; transform:translateY( 20px); } to { opacity:1; transform:translateY(0); } }
+
+  /* ─── THEAD ─── */
+  .compare-table thead tr { border: none; }
+
+  .th-label {
+    padding: 28px 20px 26px 20px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-strong);
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  .th-product {
+    padding: 28px 20px 26px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-strong);
+    vertical-align: top;
+    position: relative;
+  }
+  .th-product::before { content: ''; position: absolute; inset: 0; opacity: 0.08; }
+  .th-product.nls18  { background: linear-gradient(160deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04)); border-top: 2px solid var(--nls18); }
+  .th-product.hunter { background: linear-gradient(160deg, rgba(74,126,255,0.12), rgba(74,126,255,0.04)); border-top: 2px solid var(--hunter); }
+  .th-product.meta   { background: linear-gradient(160deg, rgba(155,109,255,0.12), rgba(155,109,255,0.04)); border-top: 2px solid var(--meta); }
+  .th-product.hunter, .th-product.nls18 { border-right: 1px solid var(--border); }
+
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <header class="page-header">
+    <div class="eyebrow">Análise Técnica Comparativa</div>
+    <h1>Equipamentos NLS<br>Bioressonância</h1>
+    <p class="subtitle">Comparativo técnico detalhado entre os modelos disponíveis em nossa linha — passe o mouse sobre o ícone <strong style="color:var(--accent-teal)">ⓘ</strong> em cada critério para detalhes completos.</p>
+  </header>
+
+  <div class="legend-strip">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--nls18)"></div> NLS 18D (BA18D)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--hunter)"></div> Hunter 4025 (BA18G)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--meta)"></div> Metahunter 4025 (BA18DG)</div>
+    <div class="legend-item"><span class="chip chip-yes">Sim</span></div>
+    <div class="legend-item"><span class="chip chip-no">Não</span></div>
+    <div class="legend-item"><span class="chip chip-partial">Parcial</span></div>
+  </div>
+
+  <p class="scroll-hint">← Deslize para ver todos os modelos →</p>
+
+  <div class="table-scroll-wrapper">
+  <div class="table-wrapper">
+  <table class="compare-table">
+  <colgroup>
+    <col style="width:25%">
+    <col style="width:25%">
+    <col style="width:25%">
+    <col style="width:25%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th class="th-label">
+        <span class="col-header-label">Critério de Comparação</span>
+      </th>
+      <th class="th-product nls18">
+        <div class="product-badge">Entrada Premium</div>
+        <div class="product-code">BA18D</div>
+        <div class="product-name">NLS 18D</div>
+        <div class="product-tagline">Sistema NLS 18D</div>
+      </th>
+      <th class="th-product hunter">
+        <div class="product-badge">Avançado</div>
+        <div class="product-code">BA18G</div>
+        <div class="product-name">Hunter 4025</div>
+        <div class="product-tagline">Sistema Metapathia GR Hunter</div>
+      </th>
+      <th class="th-product meta">
+        <div class="product-badge">Ultra Avançado</div>
+        <div class="product-code">BA18DG</div>
+        <div class="product-name">Metahunter 4025</div>
+        <div class="product-tagline">Sistema Chakras Hunter</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- ═══ ESPECIFICAÇÕES TÉCNICAS ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Especificações Técnicas e de Hardware</td></tr>
+
+    <tr class="data-row">
+      <td><div class="tt-wrap">Hardware<span class="tt-icon">i</span><div class="tooltip">Espaço reservado para imagem do hardware de cada modelo.</div></div></td>
+      <td><div class="img-placeholder">⬡ imagem do hardware</div></td>
+      <td><div class="img-placeholder">⬡ imagem do hardware</div></td>
+      <td><div class="img-placeholder">⬡ imagem do hardware</div></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Software<span class="tt-icon">i</span><div class="tooltip">Nome da plataforma de software associada a cada modelo de equipamento.</div></div></td>
+      <td style="font-weight:600; color:var(--nls18);">NLS 18D</td>
+      <td style="font-weight:600; color:var(--hunter);">Metapathia GR Hunter</td>
+      <td style="font-weight:600; color:var(--meta);">Meta Hunter</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Interface do software<span class="tt-icon">i</span><div class="tooltip">Espaço reservado para imagem da interface de software de cada modelo.</div></div></td>
+      <td><div class="img-placeholder">⬡ imagem do software</div></td>
+      <td><div class="img-placeholder">⬡ imagem do software</div></td>
+      <td><div class="img-placeholder">⬡ imagem do software</div></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Grupos de Etalons (categorias)<span class="tt-icon">i</span><div class="tooltip">A arquitetura do banco de dados varia substancialmente entre as versões. O BA18D possui um catálogo massivo, ultrapassando 900 grupos de etalons, englobando desde módulos veterinários até marcas globais e ciclos metabólicos detalhados. O BA18G apresenta um banco mais enxuto, com aproximadamente 90 grupos, focado quase exclusivamente em matrizes clínicas de patologia, microbiologia, genética e alopatia. O BA18DG atua como um sistema híbrido, superando 90 grupos ao combinar a base clínica estrutural com as bibliotecas holísticas primárias.</div></div></td>
+      <td><span class="highlight-chip">~900+ grupos</span><br><span style="font-size:12px;color:var(--text-muted);display:block;margin-top:5px;line-height:1.5;">Catálogo massivo e expansivo — inclui módulos veterinários, marcas globais, ciclos metabólicos e frequências</span></td>
+      <td>~90 grupos<br><span style="font-size:12px;color:var(--text-muted);display:block;margin-top:5px;line-height:1.5;">Foco restrito em patologia, microbiologia, genética e alopatia</span></td>
+      <td>&gt; 90 grupos<br><span style="font-size:12px;color:var(--text-muted);display:block;margin-top:5px;line-height:1.5;">Base clínica somada aos grupos holísticos primários</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Idioma<span class="tt-icon">i</span><div class="tooltip">A interface de usuário, os menus operacionais e os relatórios gerados pelos três softwares estão integralmente traduzidos e parametrizados para o idioma português, atendendo aos usuários do BA18D, BA18G e BA18DG de forma padronizada.</div></div></td>
+      <td><strong style="color:var(--nls18)">Português</strong></td>
+      <td><strong style="color:var(--hunter)">Português</strong></td>
+      <td><strong style="color:var(--meta)">Português</strong></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Plataforma operacional<span class="tt-icon">i</span><div class="tooltip">A compatibilidade com sistemas operacionais apresenta ligeiras variações. Os modelos BA18D e BA18DG oferecem suporte contínuo para Windows 7, 8, 10 e 11. O software do BA18G é homologado nativamente para Windows 7, 8 e 10, podendo apresentar restrições de arquitetura gráfica em sistemas mais recentes.</div></div></td>
+      <td>Windows 7/8/10/11</td>
+      <td>Windows 7/8/10</td>
+      <td>Windows 7/8/10/11</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Conexão com PC<span class="tt-icon">i</span><div class="tooltip">A comunicação de dados e o fornecimento de energia entre o equipamento físico e o computador ocorrem através de cabeamento USB padrão, sendo este o método de conexão estabelecido para as três plataformas operacionais: BA18D, BA18G e BA18DG.</div></div></td>
+      <td>USB</td><td>USB</td><td>USB</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Headset / Fones de análise<span class="tt-icon">i</span><div class="tooltip">Os biosensores em formato de fones de ouvido (headset), responsáveis pela captação das frequências cerebrais e pelo envio dos estímulos de ressonância, compõem o conjunto de hardware base e acompanham integralmente os modelos BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Câmara de ressonância<span class="tt-icon">i</span><div class="tooltip">O copo ou câmara de ressonância, equipamento periférico essencial para a execução do Vegeto-test (análise de amostras) e para a produção de medicamentos vibracionais (Reprint), é um componente físico de suporte incluído na arquitetura dos sistemas BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Velocidade de varredura por órgão<span class="tt-icon">i</span><div class="tooltip">A capacidade de processamento do hardware define o tempo de leitura dos tecidos. O BA18D realiza a leitura com uma média de 5 segundos por órgão. O BA18G, utilizando algoritmos de varredura tridimensional, reduz esse tempo para menos de 3 segundos. O BA18DG otimiza ainda mais essa arquitetura 3D, atingindo velocidades de aproximadamente 2 segundos por varredura.</div></div></td>
+      <td>~5 seg./órgão</td>
+      <td>&lt; 3 seg. (Varredura 3D)</td>
+      <td>~2 seg. (Varredura 3D Otimizada)</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Precisão geral<span class="tt-icon">i</span><div class="tooltip">Os índices globais de assertividade diagnóstica diferem conforme a evolução do algoritmo. O BA18D apresenta uma precisão média de 85%. O BA18G eleva essa taxa para 90%, enquanto a arquitetura otimizada do BA18DG alcança um índice analítico geral de 92%.</div></div></td>
+      <td>85%</td><td>90%</td><td>92%</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Precisão — Estrutura anatômica<span class="tt-icon">i</span><div class="tooltip">O nível de detalhamento na representação das estruturas anatômicas é de 85% no BA18D. Devido à integração da tecnologia de mapeamento espacial em espiral, as plataformas BA18G e BA18DG elevam essa margem para uma taxa que varia entre 85% e 98%.</div></div></td>
+      <td>85%</td><td>85–98%</td><td>85–98%</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Precisão — Modelos histológicos<span class="tt-icon">i</span><div class="tooltip">A avaliação de tecidos sob o aspecto histológico apresenta uma margem de assertividade entre 80% e 85% no BA18D. O aprimoramento da varredura microestrutural eleva esse índice para 85% a 90% nos softwares do BA18G e BA18DG.</div></div></td>
+      <td>80–85%</td><td>85–90%</td><td>85–90%</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Precisão — Genético / Cromossômico<span class="tt-icon">i</span><div class="tooltip">A indexação precisa de desvios em níveis cromossômicos e genéticos é um recurso avançado. O BA18D não possui automação direcionada para este mapeamento profundo. As plataformas BA18G e BA18DG entregam assertividade de 80% a 90% na avaliação direta destas matrizes ultraestruturais.</div></div></td>
+      <td>—</td><td>80–90%</td><td>80–90%</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Certificação<span class="tt-icon">i</span><div class="tooltip">Os três modelos possuem a certificação CE (Conformidade Europeia), atestando que o BA18D, BA18G e BA18DG cumprem os padrões técnicos e de segurança exigidos para a sua categoria de operação.</div></div></td>
+      <td>CE</td><td>CE</td><td>CE</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Garantia<span class="tt-icon">i</span><div class="tooltip">O suporte físico e a proteção contra defeitos de fabricação dos componentes de hardware (unidade central, fones e cabos) são assegurados por um período de garantia de 1 ano, condição padronizada para os adquirentes dos modelos BA18D, BA18G e BA18DG.</div></div></td>
+      <td>1 ano</td><td>1 ano</td><td>1 ano</td>
+    </tr>
+
+    <!-- ═══ INVESTIGAÇÃO DIAGNÓSTICA ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Investigação Diagnóstica — Sistemas e Órgãos</td></tr>
+
+    <tr class="data-row">
+      <td><div class="tt-wrap">Tipo de Varredura (Scanning)<span class="tt-icon">i</span><div class="tooltip">O mapeamento estrutural no BA18D é executado por varredura linear e planar, resultando em cortes bidimensionais estáticos. As arquiteturas BA18G e BA18DG empregam a tecnologia de varredura em espiral tridimensional, permitindo um aprofundamento contínuo e dinâmico através dos tecidos e estruturas celulares.</div></div></td>
+      <td>Varredura Linear / Planar (Cortes 2D estáticos)</td>
+      <td>Varredura em Espiral 3D (Aprofundamento contínuo)</td>
+      <td>Varredura em Espiral 3D (Aprofundamento contínuo)</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise de órgãos e sistemas<span class="tt-icon">i</span><div class="tooltip">O BA18D organiza sua biblioteca em 19 sistemas abrangendo aproximadamente 1.200 itens explícitos. Os modelos BA18G e BA18DG utilizam uma abordagem de agrupamento topográfico, consolidando cerca de 150 elementos tridimensionais principais que englobam mais de 1.432 itens implícitos em suas microestruturas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span> — 19 sistemas · ~1.200 itens</td>
+      <td><span class="chip chip-yes">Sim</span> — Todos os sistemas · ~1.432 itens</td>
+      <td><span class="chip chip-yes">Sim</span> — Todos os sistemas · 1.432+ itens</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise celular<span class="tt-icon">i</span><div class="tooltip">A investigação anatômica alcança o nível celular e tecidual básico como limite de profundidade no BA18D. As versões BA18G e BA18DG expandem significativamente essa capacidade, oferecendo navegação ultraestrutural que permite a visualização e análise direta de organelas intracelulares durante a varredura.</div></div></td>
+      <td><span class="chip chip-partial">Nível celular básico / tecidual</span></td>
+      <td><span class="chip chip-yes">Sim</span> — Ultraestrutural / Organelas</td>
+      <td><span class="chip chip-yes">Sim</span> — Ultraestrutural / Organelas</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise de cromossomos e DNA<span class="tt-icon">i</span><div class="tooltip">O BA18D realiza o mapeamento no nível cromossômico básico e avalia o campo do DNA em sua totalidade. As plataformas BA18G e BA18DG proporcionam uma investigação microestrutural focada, com capacidade de isolar e avaliar fragmentos específicos da hélice de DNA e suas minúcias estruturais.</div></div></td>
+      <td><span class="chip chip-partial">Nível cromossômico básico / DNA total</span></td>
+      <td><span class="chip chip-yes">Sim</span> — Fragmentos da hélice e ultraestrutura</td>
+      <td><span class="chip chip-yes">Sim</span> — Fragmentos da hélice e ultraestrutura</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise de tecidos / microestruturas<span class="tt-icon">i</span><div class="tooltip">A triagem topográfica no BA18D concentra-se nos níveis tecidual e celular básicos. Os sistemas algorítmicos dos BA18G e BA18DG oferecem varreduras histológicas e citológicas completas, permitindo um detalhamento e aprofundamento investigativo superior em cortes estruturais.</div></div></td>
+      <td><span class="chip chip-partial">Nível tecidual e celular básico</span></td>
+      <td><span class="chip chip-yes">Sim</span> — Cortes histológicos e citológicos completos</td>
+      <td><span class="chip chip-yes">Sim</span> — Cortes histológicos e citológicos completos</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Patomorfologia (morfologia patológica)<span class="tt-icon">i</span><div class="tooltip">A matriz de patomorfologia, desenhada para a identificação de alterações morfológicas nos tecidos que estejam associadas a quadros clínicos ativos ou em desenvolvimento, é um recurso diagnóstico padronizado e plenamente funcional nas três plataformas operacionais: BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Diagnóstico precoce de desequilíbrio energético<span class="tt-icon">i</span><div class="tooltip">O monitoramento analítico com foco na detecção preditiva de desvios vibracionais, captados antes que se manifestem fisicamente como patologias estruturais avançadas, é uma base algorítmica comum e integrada aos softwares do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Identificação de nidus (foco patológico)<span class="tt-icon">i</span><div class="tooltip">A ferramenta algorítmica denominada "nidus", que direciona a varredura e o tratamento automaticamente para o epicentro de maior densidade entrópica (foco patológico), é uma funcionalidade nativa e específica dos sistemas BA18G e BA18DG. A arquitetura de interface do BA18D não possui este recurso de focalização automática.</div></div></td>
+      <td>—</td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Detecção oncológica precoce<span class="tt-icon">i</span><div class="tooltip">A triagem para marcadores tumorais no BA18D requer que o operador execute pesquisas manuais e cruzamentos específicos em sua biblioteca de etalons. Nos modelos BA18G e BA18DG, a detecção oncológica é amplamente automatizada pelo módulo HUNTER, programado para rastrear ativamente assinaturas de malignidade em múltiplas profundidades.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span> — via pesquisa manual de etalons</td>
+      <td><span class="chip chip-yes">Sim</span> — Módulo automático HUNTER</td>
+      <td><span class="chip chip-yes">Sim</span> — Módulo automático HUNTER</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise hematológica (sangue)<span class="tt-icon">i</span><div class="tooltip">O escaneamento voltado especificamente para as células sanguíneas, plaquetas e o plasma compõe a biblioteca de mapeamento dos três equipamentos. As matrizes analíticas de sangue e tecido hematopoiético são acessíveis de forma padronizada no BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Projeção de saúde futura (3–5 anos)<span class="tt-icon">i</span><div class="tooltip">A extrapolação preditiva que utiliza o histórico entrópico atual para simular o comportamento orgânico e projetar o cenário de saúde nos próximos três a cinco anos é um algoritmo clínico padronizado, estando disponível nas análises do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Doenças do passado (histórico)<span class="tt-icon">i</span><div class="tooltip">A ferramenta diagnóstica capacitada para captar e interpretar assinaturas residuais e cicatrizes energéticas, correlacionando-as ao histórico de doenças prévias do indivíduo, é um parâmetro estrutural abrangido pelos bancos de dados dos três sistemas: BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Fase do processo patológico<span class="tt-icon">i</span><div class="tooltip">O cálculo automático do nível de entropia direcionado para classificar a fase de atividade — desenvolvimento inicial, agudização ou remissão — de um processo patológico documentado é uma funcionalidade presente nas interfaces analíticas do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Prognóstico 1 ano / 5 anos<span class="tt-icon">i</span><div class="tooltip">Os módulos preditivos programados para gerar tabelas algorítmicas indicando prognósticos de curto e médio prazo (em períodos de 1 ano ou 5 anos) são recursos complementares incluídos na triagem clínica das plataformas BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Índices de DNA<span class="tt-icon">i</span><div class="tooltip">A categoria específica de etalons desenhada para monitorar e reportar discrepâncias vibracionais associadas aos "índices de DNA" forma uma biblioteca de investigação funcional disponível nos menus primários dos três sistemas avaliados: BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Predisposição genética<span class="tt-icon">i</span><div class="tooltip">A varredura focada em identificar e classificar tendências biológicas ou epigenéticas latentes, fornecendo um panorama sobre a predisposição genética a determinadas afecções, integra os blocos de avaliação clínica do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Avaliação preventiva<span class="tt-icon">i</span><div class="tooltip">O módulo consolidado que agrupa marcadores subclínicos, tendências patológicas e desvios vibracionais para fornecer um quadro geral de "Avaliação preventiva" é uma ferramenta padronizada nas rotinas de emissão de relatórios do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+
+    <!-- ═══ ANATOMIA E SISTEMAS ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Anatomia e Sistemas</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Anatomia da coluna vertebral / Espinal<span class="tt-icon">i</span><div class="tooltip">As matrizes referentes ao sistema espinhal podem ser acessadas diretamente nas listagens primárias dos modelos BA18D, BA18G e BA18DG. A varredura focada nas condições, anatomia e estrutura da coluna vertebral constitui um bloco de etalons padronizado nos três equipamentos.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Anatomia do ouvido e olho<span class="tt-icon">i</span><div class="tooltip">O mapeamento estrutural e anatômico detalhado para os órgãos da audição e visão é uma ferramenta de triagem comum às três plataformas. As bibliotecas do BA18D, BA18G e BA18DG incluem categorias específicas para a investigação destas estruturas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Anatomia cerebral / Lobo cerebral<span class="tt-icon">i</span><div class="tooltip">A avaliação da topografia cerebral integra o escopo de diagnóstico neurológico dos três equipamentos. O BA18D apresenta uma fragmentação explícita listando "lobo cerebral" de forma independente, enquanto o BA18G e BA18DG consolidam o mapeamento sob o índice anatômico cerebral geral.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Músculos e nervos<span class="tt-icon">i</span><div class="tooltip">A análise voltada para o tecido muscular e para a rede nervosa (incluindo nervos cranianos e periféricos) é suportada pelos três sistemas avaliados. As pastas correspondentes à musculatura e aos nervos figuram nas categorias principais do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Sistema cardíaco e condução<span class="tt-icon">i</span><div class="tooltip">A investigação das estruturas cardíacas combinada com a análise do sistema de condução elétrica do coração é uma matriz anatômica estabelecida nas bibliotecas dos três modelos, disponível para rastreio cardiovascular no BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Sistema respiratório / Seios / Digestivo<span class="tt-icon">i</span><div class="tooltip">O escaneamento segmentado abrangendo o trato respiratório, as cavidades sinusais e o sistema digestivo é um recurso funcional padronizado. As três plataformas, BA18D, BA18G e BA18DG, mantêm estas subdivisões anatômicas ativas em seus bancos de dados primários.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Linfa / Sistema linfático<span class="tt-icon">i</span><div class="tooltip">O monitoramento da rede linfática, essencial para a avaliação de drenagem e imunidade tecidual, compõe as opções de varredura dos três equipamentos. As matrizes do sistema linfático são acessíveis através das listagens integradas do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Pele (dermatologia)<span class="tt-icon">i</span><div class="tooltip">A avaliação estrutural e patológica voltada para o tecido tegumentar está contemplada no banco de dados investigativo dos três modelos. O BA18D lista a categoria de forma explícita e isolada, enquanto nos sistemas BA18G e BA18DG a pele é avaliada dentro das representações anatômicas e matrizes topográficas associadas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Doenças dentárias / Materiais dentários / Lista de dentes<span class="tt-icon">i</span><div class="tooltip">A arquitetura voltada para a odontologia integrativa, englobando a lista topográfica dos dentes, o mapeamento de doenças dentárias e a avaliação de ressonância de materiais odontológicos, é um módulo completo e presente nas três versões: BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Dermátomos<span class="tt-icon">i</span><div class="tooltip">O rastreio neurológico fundamentado nos dermátomos está consolidado nas bibliotecas do BA18D e BA18G. O BA18DG não possui esta categoria em seus grupos de etalons.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Pontos da ATM / TMJ<span class="tt-icon">i</span><div class="tooltip">O mapeamento direcionado para a articulação temporomandibular e seus pontos reflexos (ATM ou TMJ) integra as categorias de triagem estrutural das três plataformas. Estes parâmetros estão devidamente catalogados no BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Centros neuroendócrinos<span class="tt-icon">i</span><div class="tooltip">O diagnóstico sistêmico fundamentado no escaneamento cruzado dos centros neuroendócrinos é uma funcionalidade aprofundada restrita à biblioteca do modelo BA18D. As estruturas operacionais do BA18G e BA18DG não suportam esta matriz diagnóstica em seus menus de avaliação padronizada.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Doenças oculares / Ósseas / Musculares<span class="tt-icon">i</span><div class="tooltip">As pastas patológicas dedicadas especificamente à identificação de doenças oculares, desordens ósseas e afecções musculares estão presentes de forma abrangente nas três bibliotecas avaliadas. A triagem destas condições pode ser executada através das listas do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+
+    <!-- ═══ PATOLOGIAS ESPECÍFICAS ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Patologias Específicas</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Enfermidades crônicas / Espinais / Condições vertebrais<span class="tt-icon">i</span><div class="tooltip">O rastreio focado em enfermidades crônicas e condições estruturais da coluna vertebral é uma funcionalidade padronizada. As matrizes referentes às condições espinais podem ser localizadas diretamente nas listagens primárias de varredura dos modelos BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Lesão e trauma<span class="tt-icon">i</span><div class="tooltip">A avaliação de tecidos e sistemas impactados por lesões físicas ou traumas mecânicos está estruturada como um grupo de etalon independente. Esta categoria clínica integra as bibliotecas principais das três plataformas avaliadas, figurando no BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Sintomas extras / Sinais comuns e frequentes<span class="tt-icon">i</span><div class="tooltip">As pastas de triagem projetadas para consolidar manifestações sistêmicas, categorizadas como "sintomas extras" ou "sinais comuns", constituem um módulo de auxílio diagnóstico presente nas três versões. O recurso pode ser acessado de forma padronizada no BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Doenças autoimunes nosodes<span class="tt-icon">i</span><div class="tooltip">A indexação de espectronosódios (nosodes) voltados especificamente para o mapeamento e tratamento informacional de doenças autoimunes é uma matriz exclusiva da biblioteca do modelo BA18D. As estruturas operacionais dos softwares BA18G e BA18DG não oferecem esta fragmentação patológica.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Carcinoma / Neoplasias / Ensaios de câncer / Metástases<span class="tt-icon">i</span><div class="tooltip">A estratificação detalhada de quadros oncológicos, separando matrizes para carcinomas, metástases, formas sólidas e testes preditivos de malignidade, é uma característica intrínseca do banco de dados do BA18D. As versões BA18G e BA18DG agrupam rastreios patológicos genericamente em sua matriz de patomorfologia, sem oferecer estes subgrupos específicos.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Esclerose múltipla / Lúpus eritematoso / Artrite reumatoide<span class="tt-icon">i</span><div class="tooltip">O monitoramento direto de patologias autoimunes e degenerativas graves, com pastas isoladas para esclerose múltipla, lúpus eritematoso sistêmico e artrite reumatoide, integra unicamente a lista do BA18D. Os sistemas BA18G e BA18DG não discriminam estas doenças como etalons independentes em seus menus primários.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Diabetes mellitus / Aterosclerose<span class="tt-icon">i</span><div class="tooltip">A triagem clínica que disponibiliza blocos isolados para a avaliação da diabetes mellitus e da aterosclerose compõe o escopo de diagnóstico específico do modelo BA18D. As plataformas BA18G e BA18DG não alocam essas condições metabólicas e vasculares como categorias separadas em suas listagens alfabéticas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Nosodes (bacterianos, fúngicos, ginecológicos, mamários)<span class="tt-icon">i</span><div class="tooltip">A biblioteca de homeopatia ressonante fracionada em nosodes específicos por tecido ou agente é um recurso terapêutico exclusivo do software do BA18D. Os modelos BA18G e BA18DG não suportam essa classificação detalhada de nosodes.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Estômago e nosodes específicos<span class="tt-icon">i</span><div class="tooltip">O mapeamento gastrointestinal aprofundado, apoiado por uma pasta dedicada exclusivamente a nosodes gástricos e afecções do estômago, é restrito à arquitetura de dados do modelo BA18D. As interfaces do BA18G e BA18DG não contemplam este subgrupo de ressonância.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Doenças nosodegenerativas<span class="tt-icon">i</span><div class="tooltip">A categoria técnica denominada "Doenças nosodegenerativas", focada na avaliação cruzada de quadros degenerativos crônicos através de assinaturas nosódicas, está alocada apenas na base do BA18D. Os sistemas BA18G e BA18DG omitem esta classificação em suas bibliotecas patológicas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Classificação Internacional de Doenças (CID)<span class="tt-icon">i</span><div class="tooltip">A organização do rastreio patomorfológico guiada pela Classificação Internacional de Doenças (CID) é uma ferramenta administrativa e clínica presente apenas no modelo BA18D. O BA18G e o BA18DG utilizam nomenclaturas internas próprias, sem a vinculação direta a um grupo estruturado de CID.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Complicações possíveis<span class="tt-icon">i</span><div class="tooltip">O módulo preditivo focado no cálculo de prognósticos sistêmicos e na apresentação de listas contendo as "complicações possíveis" associadas ao quadro vibracional do paciente é um algoritmo exclusivo do BA18D. Os softwares BA18G e BA18DG não possuem matrizes dedicadas à exibição destas variáveis prospectivas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Ranges de laboratório instáveis<span class="tt-icon">i</span><div class="tooltip">A ferramenta de bioressonância desenhada para simular a flutuação e a instabilidade de marcadores bioquímicos, correlacionando as frequências com "ranges de laboratórios instáveis", é restrita ao banco analítico do BA18D. As versões BA18G e BA18DG não incorporam este modelo de triagem laboratorial virtual.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+
+    <!-- ═══ ANÁLISE BIOQUÍMICA ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Análise Bioquímica e Metabólica</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Homeostase bioquímica<span class="tt-icon">i</span><div class="tooltip">Este item está presente nos três modelos avaliados. No BA18D, o parâmetro figura de forma independente como o primeiro grupo da lista principal. No BA18G e BA18DG é classificado nas categorias alfabéticas superiores. Não há diferença estrutural na sua categorização primária entre as versões.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Vitaminas e minerais<span class="tt-icon">i</span><div class="tooltip">Os três equipamentos incluem avaliações focadas em vitaminas e minerais. O BA18D possui uma listagem pulverizada em diversas categorias, enquanto o BA18G e o BA18DG consolidam essas informações em tabelas únicas de "Vitamina" e tabelas específicas de "Minerais".</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Aminoácidos<span class="tt-icon">i</span><div class="tooltip">A tabela de aminoácidos é uma constante nos modelos BA18D, BA18G e BA18DG. No BA18D, além de um quadro geral, aminoácidos são inseridos em outros blocos de nutrientes. Nos BA18G e BA18DG, a estrutura foi simplificada com acesso centralizado por tabela padronizada.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Metais pesados e toxinas<span class="tt-icon">i</span><div class="tooltip">Todos os modelos executam análises toxicológicas gerais com a categoria "todas as toxinas". O BA18D fornece uma discriminação complementar, listando especificamente "metais tóxicos" e "metais pesados", conferindo um detalhamento superior em relação aos BA18G e BA18DG, que consolidam essas métricas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Microelementos / Oligoelementos<span class="tt-icon">i</span><div class="tooltip">A investigação por elementos traço é suportada pelos três equipamentos. O BA18D adota a nomenclatura "Oligoelementos", enquanto o BA18G e BA18DG utilizam a classificação "Microelementos" na lista de grupos.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Hormônios (feminino / masculino / esporte)<span class="tt-icon">i</span><div class="tooltip">A catalogação completa englobando hormônios femininos, masculinos e o banco específico de esportes está integrada apenas nos modelos BA18G e BA18DG. O modelo BA18D lista hormônios de separação biológica de forma independente, mas não possui a categoria direcionada de "hormônios esporte" em sua base.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Equilíbrio ácido-alcalino (pH)<span class="tt-icon">i</span><div class="tooltip">Este parâmetro de avaliação do terreno biológico está implementado no BA18D, BA18G e BA18DG. Pode ser localizado de forma explícita como "saldo ácido-alcalina" ou "equilíbrio ácido-alcalino" entre os recursos padronizados dos três dispositivos.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Anabolismo / Catabolismo<span class="tt-icon">i</span><div class="tooltip">O mapeamento específico e direto dos índices metabólicos de anabolismo e catabolismo é uma funcionalidade que pertence ao banco de dados do modelo BA18D. Estes parâmetros de avaliação não se encontram listados nas bibliotecas do BA18G e do BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Deficiências de micronutrientes<span class="tt-icon">i</span><div class="tooltip">A triagem direta referenciada textualmente como "Deficiências de micronutrientes" restringe-se às listagens do modelo BA18D. Os equipamentos BA18G e BA18DG não oferecem essa categoria específica, limitando a avaliação aos comparativos de suas tabelas gerais de suporte.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Carga de estresse tóxico<span class="tt-icon">i</span><div class="tooltip">A detecção da carga de estresse tóxico é um fator convergente entre os softwares BA18D, BA18G e BA18DG. Os sistemas mantêm o mesmo descritivo em suas bibliotecas para avaliar a presença de sobrecargas ambientais ou toxicológicas no organismo.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Determinação do grau de intoxicação e estado endócrino<span class="tt-icon">i</span><div class="tooltip">Este índice aprofundado, que correlaciona analiticamente o grau de toxidade aos prejuízos da rede endócrina, é fornecido exclusivamente pelo software associado ao BA18D. As versões BA18G e BA18DG não suportam esta matriz diagnóstica combinada.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Ciclos metabólicos (glicólise, glicogênio, desintoxicação)<span class="tt-icon">i</span><div class="tooltip">A auditoria minuciosa das vias bioquímicas, incluindo os ciclos independentes de glicólise, controle de glicogênio e rotas de desintoxicação metilada, integra o escopo funcional exclusivo do BA18D. Tais parâmetros intracelulares não foram alocados nas bibliotecas de investigação do BA18G e do BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Ácidos nucleicos / Ácidos gordos / Ésteres fosfato<span class="tt-icon">i</span><div class="tooltip">A rastreabilidade orientada de modo isolado para ésteres fosfato orgânicos, ácidos nucleicos e desdobramentos de ácidos graxos caracteriza o grau de detalhamento presente apenas no BA18D. As plataformas BA18G e BA18DG não separam as frequências destes compostos como matrizes primárias de avaliação.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Catalisadores e co-enzimas (enzimas)<span class="tt-icon">i</span><div class="tooltip">O monitoramento específico do comportamento dos catalisadores orgânicos (enzimas) e os parâmetros correspondentes às co-enzimas operantes em processos de regulação é uma característica limitada ao BA18D. As arquiteturas das versões BA18G e BA18DG optaram por não incluir estes grupos enzimáticos na indexação principal.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+
+    <!-- ═══ MICRORGANISMOS ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Investigação de Microrganismos e Parasitas</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Bactérias<span class="tt-icon">i</span><div class="tooltip">A pesquisa bacteriológica está presente nos três modelos avaliados. No BA18D, o parâmetro é pulverizado em múltiplas listas isoladas que categorizam as cepas. Nos modelos BA18G e BA18DG, a investigação é consolidada e acessada primariamente sob o grupo geral de "microrganismos e helmintos".</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Vírus<span class="tt-icon">i</span><div class="tooltip">A avaliação para cargas virais é uma funcionalidade disponível nos três equipamentos. O BA18D apresenta os vírus organizados em blocos separados e quadros independentes. As versões BA18G e BA18DG mantêm essas cepas agrupadas de maneira unificada na categoria geral de microrganismos.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Fungos e leveduras<span class="tt-icon">i</span><div class="tooltip">O rastreio de infecções fúngicas e leveduras é suportado pelas três plataformas. O BA18D oferece listas independentes e detalha ciclos específicos de fungos em pastas próprias. O BA18G e o BA18DG integram essa pesquisa diretamente ao seu banco de dados padrão de microrganismos.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Helmintos (parasitas)<span class="tt-icon">i</span><div class="tooltip">A investigação parasitológica voltada para helmintos (vermes) é um recurso fundamental comum aos modelos BA18D, BA18G e BA18DG. Em todos eles, o acesso a essas frequências é realizado majoritariamente através da categoria primária de microrganismos e helmintos.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Rickettsias e Toxoplasmas<span class="tt-icon">i</span><div class="tooltip">A triagem para estes patógenos intracelulares e parasitas está contemplada nas bibliotecas dos três equipamentos. O BA18D os apresenta de forma mais enxuta ao longo de sua listagem microbiológica, enquanto as plataformas BA18G e BA18DG os mantêm de forma mais padronizada dentro da matriz principal de microrganismos.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise de ultraestrutura microbiana<span class="tt-icon">i</span><div class="tooltip">O nível aprofundado de avaliação focado em detalhes da ultraestrutura dos patógenos é uma característica técnica implementada nas matrizes do BA18G e do BA18DG. O modelo BA18D não possui essa designação estrutural específica em seu índice de filtros principais.</div></div></td>
+      <td><span class="chip chip-no">Não</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Bioatividade da microflora / biocenoses<span class="tt-icon">i</span><div class="tooltip">A avaliação comportamental da flora residente e as biocenoses microbianas estão indexadas no BA18D e no BA18DG. O software do BA18G não apresenta esta categoria específica em seus grupos de etalons.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Microrganismos secundários<span class="tt-icon">i</span><div class="tooltip">A categoria direcionada especificamente para a pesquisa de "microrganismos secundários" está implementada nos bancos de dados do BA18D, BA18G e BA18DG. A funcionalidade é utilizada para auxiliar na identificação de coinfecções ou patógenos oportunistas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Herpes / Adenovírus / Enterovírus / Rotavírus<span class="tt-icon">i</span><div class="tooltip">O mapeamento com subcategorias explícitas e isoladas para famílias virais específicas, como herpes, adenovírus, enterovírus e rotavírus, é uma particularidade da biblioteca do BA18D. As versões BA18G e BA18DG não segmentam essas famílias virais em pastas independentes no menu principal.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">HIV / Agentes infecciosos específicos<span class="tt-icon">i</span><div class="tooltip">O detalhamento de quadros informativos para infecções severas e agentes específicos (incluindo notas ao HIV, leptospirose, brucelose, raiva e febres epidêmicas) é um filtro exclusivo do BA18D. Estes grupos separados não estão alocados de forma independente no BA18G e no BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Doenças por espécie (aves, bovinos, cão, gato, répteis, suínos)<span class="tt-icon">i</span><div class="tooltip">O modelo BA18D inclui tabelas de triagem patológica e microbiológica voltadas para uso veterinário e análise de doenças por espécie animal. Este banco de dados segmentado por espécies não compõe a estrutura de listas dos modelos BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Nosodes bacterianos, fúngicos e ginecológicos<span class="tt-icon">i</span><div class="tooltip">A disponibilização de pastas exclusivas contendo espectronosódios (nosodes) classificados por origem em potências homeopáticas é um recurso encontrado apenas no modelo BA18D. As plataformas BA18G e BA18DG não fragmentam os nosodes nestas categorias em seu índice primário.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+
+    <!-- ═══ MATRIZES EMOCIONAIS ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Matrizes Emocionais e Campo Energético</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise de matrizes emocionais<span class="tt-icon">i</span><div class="tooltip">A avaliação das matrizes emocionais é uma funcionalidade transversal presente nos três equipamentos. Tanto no BA18D quanto no BA18G e BA18DG, os parâmetros podem ser localizados na lista principal divididos em categorias como matriz emocional, matriz de conflitos e matriz de relação.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise do campo de energia sutil (Aura)<span class="tt-icon">i</span><div class="tooltip">O mapeamento estruturado do campo de energia sutil (Aura) como um grupo de etalon independente é um recurso presente explicitamente no banco de dados do modelo BA18D. O modelo BA18DG também suporta a análise áurica através de suas interfaces e ferramentas sistêmicas, enquanto o BA18G não inclui essa funcionalidade em sua arquitetura.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span> — Janela de Aura</td>
+      <td><span class="chip chip-no">Não</span></td>
+      <td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise dos Chakras (7 centros)<span class="tt-icon">i</span><div class="tooltip">A investigação vibracional focada nos sete centros de energia (do Sahasrara ao Muladhara) está implementada nos modelos BA18D e BA18DG, que listam os chakras de forma detalhada em seus bancos principais. O software do modelo BA18G não possui essas matrizes em sua biblioteca.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+      <td><span class="chip chip-no">Não</span></td>
+      <td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise de estresse emocional acumulado<span class="tt-icon">i</span><div class="tooltip">O monitoramento da carga de estresse emocional é um parâmetro analítico disponível nas três plataformas. Nos modelos BA18D, BA18G e BA18DG, essa avaliação é conduzida através do cruzamento das matrizes emocionais e de conflito já padronizadas em suas listagens.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Energia Yin-Yang dos órgãos-alvo<span class="tt-icon">i</span><div class="tooltip">A medição e o balanceamento das frequências correspondentes à polaridade energética Yin-Yang nos órgãos-alvo configuram uma ferramenta analítica exclusiva do modelo BA18D. As versões BA18G e BA18DG não indexam este tipo de avaliação energética oriental em suas bases de dados.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Bioenergética / Bloqueios energéticos<span class="tt-icon">i</span><div class="tooltip">O escaneamento dedicado à bioenergética e à identificação de bloqueios energéticos estruturais compõe a lista de investigação apenas do modelo BA18D. Estes índices específicos de avaliação não foram incluídos na catalogação dos sistemas BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Conflitos P-38<span class="tt-icon">i</span><div class="tooltip">A tabela analítica de "Conflitos P-38" é um recurso técnico comum às três plataformas avaliadas. A base de dados pode ser acessada com esta mesma nomenclatura nas listagens primárias dos softwares BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Estresse geopático e EMF<span class="tt-icon">i</span><div class="tooltip">A detecção de anomalias ligadas ao estresse geopático é suportada pelos três equipamentos. O BA18D apresenta um detalhamento extra, possuindo grupos isolados que avaliam também a sobrecarga por campos eletromagnéticos (EMF), conferindo uma amplitude maior em relação ao BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Impressão de foto energética (aura visual)<span class="tt-icon">i</span><div class="tooltip">A capacidade de gerar diagnósticos visuais associados à impressão fotográfica do campo energético (aura) é uma ferramenta vinculada às funções de Aura do modelo BA18D. As estruturas técnicas do BA18G e BA18DG não suportam esta correlação fotográfica em seus índices primários.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Balanço harmônico<span class="tt-icon">i</span><div class="tooltip">O "Balanço harmônico" é um etalon de triagem específico focado em parâmetros de ressonância estabilizadora, localizado exclusivamente na biblioteca do modelo BA18D. As plataformas BA18G e BA18DG omitem esta categoria de suas listas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Energia sobrecarregada<span class="tt-icon">i</span><div class="tooltip">O rastreio para tecidos e sistemas com níveis de "energia sobrecarregada" está disponível nas listagens diagnósticas dos modelos BA18D e BA18G, auxiliando na identificação de desgastes. O software do BA18DG não inclui essa categoria específica em seu banco de dados.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Auto processo interno / Processo místico<span class="tt-icon">i</span><div class="tooltip">As matrizes de triagem comportamental e analítica denominadas "Auto processo interno" e "Processo místico" são ferramentas padronizadas encontradas nas três versões. Elas estão alocadas em ordem alfabética na lista geral do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+
+    <!-- ═══ BANCOS TERAPÊUTICOS ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Bancos Terapêuticos — Alopatia, Fitoterapia, Homeopatia, Litoterapia</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Banco de Alopatia (medicamentos convencionais)<span class="tt-icon">i</span><div class="tooltip">A avaliação de compatibilidade vibracional para medicamentos convencionais (Alopatia) compõe o banco de dados principal dos três equipamentos. As frequências alopáticas podem ser acessadas diretamente nas listas primárias estruturadas nos modelos BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Banco de Fitoterapia (plantas medicinais)<span class="tt-icon">i</span><div class="tooltip">O mapeamento de frequências associadas a extratos botânicos e plantas medicinais é uma ferramenta de suporte terapêutico comum aos três sistemas. A categoria de Fitoterapia figura nas listagens de indexação padronizada do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Banco de Homeopatia<span class="tt-icon">i</span><div class="tooltip">O banco de dados que engloba remédios homeopáticos e suas respectivas potências está disponível de forma nativa nas três plataformas avaliadas. O grupo de Homeopatia pode ser selecionado nos menus diagnósticos do BA18D, BA18G e BA18DG para análise de ressonância.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Banco de Litoterapia (minerais e gemas)<span class="tt-icon">i</span><div class="tooltip">A terapia vibracional baseada nas frequências de pedras e minerais (Litoterapia) está incluída nos três equipamentos. O BA18D apresenta uma fragmentação maior, catalogando as listas sob "terapia de pedras" e "pedras preciosas", enquanto os BA18G e BA18DG as mantêm nas categorias consolidadas de litoterapia e gemas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Florais de Bach<span class="tt-icon">i</span><div class="tooltip">O rastreio de frequências voltadas para o reequilíbrio emocional através dos Florais de Bach é um recurso estruturado nos bancos do BA18D e do BA18DG (frequentemente indexado como "fluxos de Bach" neste último). O software associado ao BA18G não inclui esta categoria específica em sua listagem terapêutica.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Nutracêuticos e parafarmacêuticos<span class="tt-icon">i</span><div class="tooltip">A avaliação de suplementos nutricionais complexos e compostos parafarmacêuticos compõe os índices de teste e correção das três versões analisadas. Eles são encontrados nas categorias alfabéticas primárias dos modelos BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Organopreparações<span class="tt-icon">i</span><div class="tooltip">A indexação de frequências estruturais extraídas de órgãos saudáveis (organopreparações) está presente nas três bibliotecas. O BA18D fragmenta essa categoria em inúmeros subgrupos anatômicos, ao passo que o BA18G e o BA18DG agrupam as preparações sob uma única categoria alfabética inicial.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Cosmetologia terapêutica<span class="tt-icon">i</span><div class="tooltip">O uso de frequências aplicadas à dermatologia e à estética reparadora está padronizado nos três sistemas de avaliação. A matriz de cosmetologia terapêutica figura nos blocos principais de indexação do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Sais de Schüssler<span class="tt-icon">i</span><div class="tooltip">O suporte bioquímico vibracional fundamentado na aplicação de Sais de Schüssler é uma ferramenta exclusiva do banco de dados do modelo BA18D. As estruturas terapêuticas dos modelos BA18G e BA18DG não contemplam estas frequências minerais específicas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Receitas tradicionais / Fitocomplexos folk<span class="tt-icon">i</span><div class="tooltip">As categorias analíticas que listam abordagens de largo espectro baseadas em receitas folclóricas e fitocomplexos tradicionais estão catalogadas unicamente no software do BA18D. As plataformas BA18G e BA18DG omitem essas correlações regionais e tradicionais de seus bancos.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Miasmas<span class="tt-icon">i</span><div class="tooltip">A triagem de predisposições crônicas e marcas epigenéticas estruturadas sob o conceito homeopático de miasmas constitui uma ferramenta de diagnóstico e tratamento comum aos três equipamentos, sendo passível de seleção nas listas do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Medicação informativa<span class="tt-icon">i</span><div class="tooltip">O grupo de etalons direcionado para o uso de medicações baseadas estritamente em propriedades informativas e correções sutis é um recurso de análise e tratamento presente apenas no modelo BA18D. As bibliotecas do BA18G e BA18DG não possuem este descritivo padronizado.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Quelador de banda larga / Agentes sintomáticos<span class="tt-icon">i</span><div class="tooltip">A avaliação voltada para substâncias com propriedades quelantes amplas e agentes de supressão sintomática de banda larga está indexada nas listagens diagnósticas dos modelos BA18D e BA18G. O sistema operacional do BA18DG não aloca essas ferramentas genéricas em sua estrutura de busca.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Dr. Reckeweg / Dr. Penterkan / Dr. Nona / Pascoe<span class="tt-icon">i</span><div class="tooltip">As bibliotecas de testes direcionadas para o mapeamento de produtos e linhas comerciais específicas de homeopatia complexa (como Dr. Reckeweg, Pascoe e Dr. Nona) representam blocos exclusivos e vastos do modelo BA18D. O BA18G e o BA18DG não oferecem correlações com essas matrizes comerciais.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Aromaterapia (óleos essenciais / composições)<span class="tt-icon">i</span><div class="tooltip">A categoria que permite o cruzamento vibracional para a escolha e prescrição informacional de óleos essenciais e suas composições (Aromaterapia) é encontrada estritamente no índice de investigação do modelo BA18D. Os softwares do BA18G e BA18DG não dispõem desta lista integrativa.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Suplementos BAA / Alimentos funcionais extras<span class="tt-icon">i</span><div class="tooltip">O rastreio aprofundado direcionado a BAA (Aditivos Biologicamente Ativos) e alimentos funcionais complementares faz parte dos recursos analíticos do BA18D e do BA18G. A plataforma do BA18DG não apresenta grupos específicos dedicados a essas nomenclaturas suplementares.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+
+    <!-- ═══ NUTRIÇÃO ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Nutrição e Alimentos</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Banco de alimentos (recomendados / contraindicados)<span class="tt-icon">i</span><div class="tooltip">A matriz de avaliação que indica a compatibilidade e a ressonância de alimentos para o organismo está presente nos três sistemas. Ela pode ser acessada na categoria primária de alimentos (ou comida) nos modelos BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Detecção de intolerâncias / alergias alimentares<span class="tt-icon">i</span><div class="tooltip">O mapeamento focado na identificação de alérgenos sistêmicos, que abrange sensibilidades e intolerâncias alimentares, é um recurso de triagem padronizado. Esta biblioteca de investigação está disponível nas listagens principais do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Detecção de metais pesados e toxinas ambientais<span class="tt-icon">i</span><div class="tooltip">A varredura toxicológica está presente nos três equipamentos. O BA18D apresenta listagens mais fragmentadas, enquanto o BA18G e o BA18DG englobam essa triagem na categoria unificada e abrangente de "todas as toxinas".</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise de impacto de alimentos nos órgãos<span class="tt-icon">i</span><div class="tooltip">A avaliação específica do impacto vibracional de um determinado alimento sobre um órgão ou tecido alvo é suportada pelas três plataformas. Esta função é uma aplicação direta e operacional do módulo de Vegeto-test, sendo plenamente executável no BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span> — via Vegeto-test</td>
+      <td><span class="chip chip-yes">Sim</span> — via Vegeto-test</td>
+      <td><span class="chip chip-yes">Sim</span> — via Vegeto-test</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Eliminação da dieta por tipo de condição<span class="tt-icon">i</span><div class="tooltip">O cruzamento analítico que gera listas específicas de eliminação da dieta em relação a patologias, desequilíbrios teciduais e condições metabólicas é uma ferramenta avançada restrita ao software do BA18D. As arquiteturas dos modelos BA18G e BA18DG não suportam este agrupamento automatizado.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Aditivos alimentares / conservantes / melhoradores de sabor<span class="tt-icon">i</span><div class="tooltip">A investigação detalhada de estressores químicos focada em aditivos alimentares industriais, conservantes, corantes e melhoradores de sabor constitui um bloco de etalons exclusivo do BA18D. Os sistemas BA18G e BA18DG não possuem categorias específicas para o rastreio isolado destes compostos.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Frutas, hortícolas, carnes, laticínios, culturas<span class="tt-icon">i</span><div class="tooltip">A indexação fracionada e exaustiva dos alimentos por grandes grupos e subgrupos biológicos é uma característica do detalhamento da biblioteca do BA18D. As plataformas BA18G e BA18DG consolidam os itens nutricionais em uma categoria genérica, sem a subdivisão destas pastas na listagem principal.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Bebidas (carbonatadas, alcoólicas, chá e café)<span class="tt-icon">i</span><div class="tooltip">A avaliação segmentada da ressonância de líquidos e bebidas de consumo cotidiano, separando parâmetros para bebidas alcoólicas, carbonatadas, chás e cafés, está presente de forma exclusiva no catálogo de matrizes do BA18D. O BA18G e o BA18DG não listam estas classificações de forma independente.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Lectinas dietéticas<span class="tt-icon">i</span><div class="tooltip">A triagem vibracional específica para identificar intolerâncias e reatividades a lectinas dietéticas (proteínas que se ligam a carboidratos, presentes em muitos vegetais e leguminosas) é um parâmetro analítico aprofundado encontrado apenas no banco de dados do BA18D.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+
+    <!-- ═══ MÓDULOS EXCLUSIVOS E AVANÇADOS ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Módulos Exclusivos e Avançados</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Anti-Idade (Anti-Age table)<span class="tt-icon">i</span><div class="tooltip">A avaliação voltada para marcadores de longevidade e degeneração celular prematura (tabela anti-idade) é uma matriz de pesquisa funcional presente nos três equipamentos. As bibliotecas do BA18D, BA18G e BA18DG fornecem esta categoria de forma padronizada em seus índices, sendo que o BA18D adiciona parâmetros complementares como a "linha do tempo da idade".</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Bio-Específico / Bio-M-E / Bio-órgão / Célula-Com<span class="tt-icon">i</span><div class="tooltip">Os módulos avançados focados na interação celular, comunicação biológica e parâmetros bioespecíficos de tecidos e órgãos constituem um núcleo estrutural consolidado. Estas pastas de investigação profunda são acessíveis de forma integral nas listagens primárias do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Sarcode table<span class="tt-icon">i</span><div class="tooltip">A base de dados catalogada como "Sarcode table", que agrupa as frequências ressonantes de tecidos, glândulas e órgãos biológicos saudáveis para fins de comparação e estímulo reconstrutivo, é um grupo terapêutico integrado nas três plataformas avaliadas: BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Frequência Frex (Freq. Frequentes)<span class="tt-icon">i</span><div class="tooltip">A coletânea de padrões vibracionais de alta utilidade, agrupada sob a designação "Frex Freq" ou frequências frequentes, é uma biblioteca de suporte que facilita a seleção de etalons recorrentes. Este banco de dados compõe as matrizes dos modelos BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Processo cerebral / Profissão probabilidade<span class="tt-icon">i</span><div class="tooltip">O mapeamento analítico que correlaciona o processamento cognitivo ("processo cerebral") e a matriz de "probabilidade de profissão" (voltada para aptidões e sobrecargas ocupacionais) é uma ferramenta algorítmica disponível de forma padronizada nas três versões: BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Cepes vacinais / Vacinações<span class="tt-icon">i</span><div class="tooltip">A triagem específica para a identificação de resíduos informacionais, toxicidade cruzada ou compatibilidade associada a cepas de vacinas constitui um bloco de etalon exclusivo do modelo BA18D. As arquiteturas de software do BA18G e BA18DG não suportam a avaliação direcionada desta categoria patológica.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Contaminantes e poluição geopática<span class="tt-icon">i</span><div class="tooltip">Enquanto o BA18D dispõe de pastas explicitamente separadas para "contaminantes" e patógenos da "geo-poluição", o BA18G e o BA18DG cobrem estas frequências de forma abrangente através da matriz primária de estresse geopático.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Implantação (análise de implantes)<span class="tt-icon">i</span><div class="tooltip">A avaliação de ressonância focada na compatibilidade tecidual e na resposta imunológica secundária à colocação de implantes biológicos ou sintéticos é um parâmetro restrito ao banco de dados do BA18D. O BA18G e o BA18DG omitem esta listagem de seus menus avaliativos.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Ciclos metabólicos (Aspergillus, Mucor, Penicilino, tecido conjuntivo)<span class="tt-icon">i</span><div class="tooltip">A análise minuciosa que isola os ciclos metabólicos reprodutivos e patogênicos de fungos específicos, combinada à avaliação dos ciclos do tecido conjuntivo, é um módulo aprofundado encontrado apenas no BA18D. As plataformas BA18G e BA18DG não fragmentam a investigação microbiológica a este nível.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Lactobacilos e saprócitos intestinais<span class="tt-icon">i</span><div class="tooltip">A biblioteca voltada isoladamente para o monitoramento qualitativo da flora bacteriana intestinal benéfica, com etalons específicos para lactobacilos e saprófitas, é uma exclusividade do software BA18D. Os modelos BA18G e BA18DG não listam estas cepas benéficas em subgrupos independentes.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Fases de homotoxicose / Objetivo homotoxicológico<span class="tt-icon">i</span><div class="tooltip">O mapeamento estrutural baseado nas tabelas de Homotoxicologia de Reckeweg, que visa classificar o estágio exato de impregnação tóxica celular, é uma ferramenta de varredura sistêmica presente exclusivamente no modelo BA18D. Os softwares do BA18G e BA18DG não indexam o terreno biológico sob estes preceitos analíticos.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Age Resp. Quadro / Linha do Tempo da Idade<span class="tt-icon">i</span><div class="tooltip">Os marcadores temporais categorizados como quadros de resposta de idade e linhas do tempo de envelhecimento compõem um banco de etalons complementares na avaliação do modelo BA18D. As matrizes operacionais do BA18G e do BA18DG não possuem essas divisões analíticas específicas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Bioespecífico do desporto / Animais e insetos<span class="tt-icon">i</span><div class="tooltip">A investigação segmentada para parâmetros fisiológicos otimizados do desporto e para mapeamento de vetores biológicos ou reatividades focadas em insetos e animais é uma classificação disponível apenas no BA18D. Estas matrizes não integram as estruturas primárias do BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Compostos químicos / Estabilizadores e emulsionantes<span class="tt-icon">i</span><div class="tooltip">A triagem de agentes estressores com foco absoluto em compostos sintéticos da indústria química e alimentar, como estabilizadores e emulsionantes, constitui uma lista diagnóstica isolada na base de dados do modelo BA18D. As versões BA18G e BA18DG não incluem pastas detalhadas para estes grupos aditivos.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Kit de ensaio Cosmochema / Fiale-test<span class="tt-icon">i</span><div class="tooltip">As bibliotecas terapêuticas referentes a sistemas vibracionais estruturados como os kits de ensaio Cosmochema e ferramentas de Fiale-test são módulos de homeopatia complexa associados exclusivamente ao modelo BA18D. O BA18G e o BA18DG não oferecem compatibilidade sistêmica com estas bases de dados de ensaio.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Focar o Stim / Amplificadores de corantes<span class="tt-icon">i</span><div class="tooltip">As pastas voltadas para a análise de amplificadores de corantes sintéticos e matrizes de ajuste focal categorizadas como "Focar o Stim" são exclusividades da listagem algorítmica do BA18D. Tais recursos analíticos não foram implementados nos códigos do BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Gerbil, Hamster, Rato (análise animal pequeno porte)<span class="tt-icon">i</span><div class="tooltip">O banco de dados de triagem microbiológica e de alérgenos que mapeia especificamente o contato ou as frequências de pequenos roedores está disponível estritamente no modelo BA18D. As estruturas do BA18G e BA18DG não contemplam a análise veterinária ou reativa focada nestes pequenos animais.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+
+    <!-- ═══ FERRAMENTAS E MÓDULOS ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Ferramentas e Módulos de Análise</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise NLS (Non-Linear System)<span class="tt-icon">i</span><div class="tooltip">A tecnologia de bioressonância não linear é a base fundamental de funcionamento e captação de dados dos três equipamentos avaliados. O software primário de varredura e interpretação de frequências opera como o núcleo analítico no BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise de Entropia espectral<span class="tt-icon">i</span><div class="tooltip">A ferramenta matemática utilizada para avaliar o grau de desordem (entropia espectral) dos tecidos biológicos está incorporada aos três sistemas. Ela permite quantificar visual e numericamente o nível de estresse patológico nas interfaces do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise Comparativa (antes/depois)<span class="tt-icon">i</span><div class="tooltip">O módulo analítico que permite sobrepor gráficos e resultados para avaliar a evolução ou involução do quadro (comparando o estado antes e depois do tratamento vibracional) é um recurso padronizado, acessível nos menus de controle do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Investigação automática de microestrutura<span class="tt-icon">i</span><div class="tooltip">A capacidade de o sistema aprofundar automaticamente a varredura para níveis de microestrutura ao detectar anomalias severas é uma evolução algorítmica presente nos modelos BA18G e BA18DG. O modelo BA18D exige que essa seleção de tecidos aprofundados seja realizada manualmente pelo operador clínico.</div></div></td>
+      <td><span class="chip chip-no">Não</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Varredura tridimensional automática (3D scanning)<span class="tt-icon">i</span><div class="tooltip">O mapeamento tridimensional em espiral, que proporciona uma varredura contínua e aprofundada da estrutura tridimensional dos órgãos em tempo real, é uma característica da arquitetura dos modelos BA18G e BA18DG. O modelo BA18D não possui esse recurso de rastreio automatizado em 3D, operando com varreduras baseadas em representações mais estáticas.</div></div></td>
+      <td><span class="chip chip-no">Não</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Smart-filter (filtro inteligente de resultados)<span class="tt-icon">i</span><div class="tooltip">O sistema algorítmico de filtro inteligente, desenvolvido para classificar, limpar redundâncias e destacar as frequências patológicas mais relevantes encontradas durante o rastreio, integra as ferramentas nativas de análise de resultados do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Modelo Virtual (avatar 3D anatômico)<span class="tt-icon">i</span><div class="tooltip">A representação visual do corpo humano por meio de modelos anatômicos virtuais, facilitando a localização espacial dos órgãos e sistemas teciduais durante a varredura, é uma interface gráfica presente nos três softwares. O BA18D, o BA18G e o BA18DG utilizam essas ilustrações topográficas em seus menus primários de investigação.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Relatórios de desequilíbrios<span class="tt-icon">i</span><div class="tooltip">A compilação estruturada e a emissão de laudos que listam as frequências divergentes, os índices de entropia e os desvios da homeostase é uma funcionalidade administrativa e de documentação clínica inerente aos sistemas BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Impressão de relatórios em PDF<span class="tt-icon">i</span><div class="tooltip">A ferramenta de exportação e organização gráfica que permite salvar, formatar e imprimir os resultados diagnósticos e terapêuticos diretamente em formato PDF está disponível nas interfaces de saída e configurações de impressão dos três equipamentos, BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Índice de susceptibilidade<span class="tt-icon">i</span><div class="tooltip">A tabela analítica de susceptibilidade, desenhada para prever a probabilidade de desenvolvimento de condições adversas baseada no espectro atual de ressonância do organismo, é uma matriz de triagem presente nas bibliotecas do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Reservas de adaptação<span class="tt-icon">i</span><div class="tooltip">O monitoramento do nível das reservas de adaptação biológica, que indica a capacidade sistêmica de resposta e resiliência do indivíduo frente a agentes estressores, é um parâmetro analítico integrado aos módulos de diagnóstico do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Sintonização cerebral (Brain Tune)<span class="tt-icon">i</span><div class="tooltip">A matriz vibracional voltada para o ajuste ou sintonia cerebral, focada no reequilíbrio das frequências neurológicas sutis e na otimização do processamento cognitivo, está catalogada nos bancos de dados de todos os três modelos avaliados, figurando no BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Processos cerebrais e desordem cerebral<span class="tt-icon">i</span><div class="tooltip">As categorias de etalons projetadas para o escaneamento direcionado de distúrbios neurológicos e para o acompanhamento contínuo dos processos cerebrais são estruturas de pesquisa patológica padronizadas nas listagens do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Exaustão física / Recursos sintomáticos<span class="tt-icon">i</span><div class="tooltip">Os marcadores de avaliação para classificar o grau de exaustão orgânica e as tabelas correspondentes que sugerem recursos sintomáticos ou manifestações extras de fadiga tecidual compõem os índices fundamentais de triagem sistêmica presentes no BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise Multivariativa da Homeostase<span class="tt-icon">i</span><div class="tooltip">O módulo de avaliação sistêmica denominado "Análise Multivariativa da Homeostase", que executa um cruzamento multifatorial complexo de dados bioquímicos, estruturais e patológicos, é um recurso exclusivo da biblioteca de varredura do modelo BA18D. Esta matriz combinada específica não foi incluída nas atualizações de lista do BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Dica de autoavaliação<span class="tt-icon">i</span><div class="tooltip">A ferramenta catalogada de forma isolada como "Dica de autoavaliação", que fornece parâmetros de controle e marcadores de auto-regulação ao operador do sistema, é uma matriz de etalon funcional encontrada nas bibliotecas dos sistemas BA18D e BA18G. O modelo BA18DG não lista esta categoria em seu banco de dados primário.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+
+    <!-- ═══ METATERAPIA ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Módulos Terapêuticos — Metaterapia</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Metaterapia Construtiva<span class="tt-icon">i</span><div class="tooltip">A aplicação da Metaterapia com finalidade construtiva (focada no fortalecimento energético e tecidual) é um módulo terapêutico padrão, disponível de forma nativa nos três equipamentos (BA18D, BA18G e BA18DG). Esta função permite o envio de frequências estabilizadoras diretamente aos órgãos e células avaliados.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Metaterapia Destrutiva<span class="tt-icon">i</span><div class="tooltip">O recurso de Metaterapia destrutiva, projetado especificamente para a desestabilização vibracional de microrganismos patogênicos e parasitas, integra as ferramentas de tratamento de todos os três modelos, podendo ser ativado nas interfaces do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Metaterapia Automática<span class="tt-icon">i</span><div class="tooltip">A função de Metaterapia Automática, que permite ao software executar sessões sequenciais e contínuas de tratamento sem a necessidade de intervenção manual do operador a cada ciclo, é uma evolução de sistema presente nos modelos BA18G e BA18DG. O modelo BA18D requer comandos manuais e acompanhamento ativo para cada etapa do processo terapêutico.</div></div></td>
+      <td><span class="chip chip-no">Não</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Produção de medicamentos vibracionais (Reprint)<span class="tt-icon">i</span><div class="tooltip">A câmara de ressonância acoplada aos dispositivos para a inversão e transferência de frequências terapêuticas para matrizes físicas (como água, álcool, açúcar ou parafina) está presente nos três sistemas. O recurso de "Reprint" opera com a mesma eficiência funcional no BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Vegeto-test — análise de compatibilidade<span class="tt-icon">i</span><div class="tooltip">A ferramenta de Vegeto-test voltada para a análise de compatibilidade energética entre o organismo e substâncias externas (como suplementos, alimentos e alopáticos) é um módulo integrante dos três modelos avaliados, permitindo prever o grau de eficácia ou a potencial toxicidade de um composto antes de sua utilização.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Vegeto-test — captura de frequências<span class="tt-icon">i</span><div class="tooltip">A funcionalidade que possibilita a leitura e a digitalização de frequências originadas de amostras físicas inseridas no copo de ressonância do equipamento é suportada de maneira integral pelas três plataformas (BA18D, BA18G e BA18DG), viabilizando a ampliação personalizada da base de dados.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Vegeto-test — medicamentos vibracionais<span class="tt-icon">i</span><div class="tooltip">O Vegeto-test focado especificamente na seleção de medicamentos vibracionais pré-cadastrados nas bibliotecas internas do software (como complexos de homeopatia e fitoterapia) é um recurso estabelecido e funcional tanto no BA18D quanto nas versões BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Terapia de pedras (Litoterapia terapêutica)<span class="tt-icon">i</span><div class="tooltip">As frequências correspondentes ao uso terapêutico de pedras e cristais (Litoterapia) compõem as opções de emissão vibracional dos três sistemas avaliados. Elas podem ser acessadas e utilizadas como suporte nos protocolos energéticos do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Regena-terapia / Injeel<span class="tt-icon">i</span><div class="tooltip">As matrizes de frequências baseadas nos complexos homeopáticos Injeel e nas diretrizes da Regena-terapia estão disponíveis de forma abrangente nas bibliotecas terapêuticas das plataformas BA18D, BA18G e BA18DG, auxiliando nos processos de desintoxicação e drenagem.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Terapia de frequências (Hilda Clark)<span class="tt-icon">i</span><div class="tooltip">A indexação de frequências parasitárias e patogênicas alinhadas ao mapeamento desenvolvido pela Dra. Hulda Clark integra o rol de opções terapêuticas dos três modelos. Este banco de dados auxilia na segmentação e no combate vibracional a microrganismos invasores no BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Fisioterapia (suporte terapêutico)<span class="tt-icon">i</span><div class="tooltip">O banco de frequências voltado para o suporte fisioterapêutico, focado em desequilíbrios articulares, musculoesqueléticos e na reabilitação informacional de tecidos lesados, é uma matriz de apoio padronizada nos sistemas BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Função de reestruturação orgânica<span class="tt-icon">i</span><div class="tooltip">O protocolo direcionado para estimular a reestruturação e a recuperação informacional de parâmetros saudáveis no nível celular e orgânico constitui um índice de tratamento consolidado, sendo suportado nativamente pelas matrizes de metaterapia do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+
+    <!-- ═══ DIAGNÓSTICO VISUAL ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Diagnóstico Visual — Rosto, Língua e Íris</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise de Rosto (Fisiognomia)<span class="tt-icon">i</span><div class="tooltip">O mapeamento e a avaliação de desequilíbrios sistêmicos baseados na fisiognomia e nos microssistemas do rosto constituem uma funcionalidade exclusiva do modelo BA18D, frequentemente associada aos seus módulos complementares de medicina tradicional oriental. As arquiteturas dos softwares BA18G e BA18DG não suportam esta matriz de diagnóstico facial em suas bibliotecas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise de Língua (Semiologia)<span class="tt-icon">i</span><div class="tooltip">A integração de parâmetros de semiologia da língua para correlacionar alterações visuais com distúrbios de órgãos e sistemas internos é uma ferramenta analítica restrita ao banco de dados do modelo BA18D. As plataformas BA18G e BA18DG não oferecem esta categoria específica de triagem orgânica em seus índices primários.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise de Íris / Iridologia (direita e esquerda)<span class="tt-icon">i</span><div class="tooltip">A investigação baseada nos preceitos da iridologia, com mapeamento e quadros independentes para a avaliação reflexológica da íris direita e da íris esquerda, é um recurso diagnóstico consolidado nos três equipamentos. As matrizes topográficas oculares podem ser acessadas e avaliadas diretamente nas listagens padronizadas do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+
+    <!-- ═══ MÓDULOS INTEGRATIVOS ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Módulos Integrativos e Holísticos</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Informações Zodiacais (astrologia)<span class="tt-icon">i</span><div class="tooltip">O rastreio de predisposições e influências energéticas baseadas em informações zodiacais e correlações astrológicas é um módulo complementar integrado exclusivamente ao banco de dados do modelo BA18D. As estruturas analíticas do BA18G e do BA18DG não oferecem suporte a esta categoria de triagem em seus menus principais.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Informações Ayurvédicas (doshas)<span class="tt-icon">i</span><div class="tooltip">A avaliação do perfil biotipológico segundo os preceitos da medicina Ayurvédica, contemplando o mapeamento energético dos doshas, é uma funcionalidade restrita à biblioteca holística do BA18D. Os softwares correspondentes aos modelos BA18G e BA18DG não indexam estes parâmetros orientais em suas listagens.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">MTC / Acupuntura / Meridianos<span class="tt-icon">i</span><div class="tooltip">A integração com as bases da Medicina Tradicional Chinesa (MTC), permitindo o mapeamento dos pontos de acupuntura e a análise de fluxo na rede de meridianos, é uma base funcional comum aos três equipamentos. Estas matrizes podem ser acessadas de forma padronizada nas interfaces do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Banco de alérgenos<span class="tt-icon">i</span><div class="tooltip">A investigação de reatividade através de um banco de etalons dedicado exclusivamente a alérgenos (incluindo sobrecargas alimentares, químicas e ambientais) é um recurso de triagem padronizado e plenamente acessível nas bibliotecas primárias do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Medicina holística<span class="tt-icon">i</span><div class="tooltip">A categoria analítica classificada como "Medicina holística", focada em fornecer abordagens integrativas amplas para a reestruturação sistêmica e avaliação do terreno biológico, compõe o índice de opções diagnósticas e terapêuticas dos sistemas BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Efeito de yoga / drogas<span class="tt-icon">i</span><div class="tooltip">O monitoramento das oscilações energéticas correlacionadas à prática contínua de yoga, bem como a avaliação dos impactos e resíduos vibracionais de drogas (farmacológicas ou de uso contínuo), está presente nas listagens de investigação comportamental e metabólica do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Gemoterapia<span class="tt-icon">i</span><div class="tooltip">A indexação de frequências focadas na gemoterapia (utilização de propriedades vibracionais associadas a gemas e tecidos botânicos embrionários) é um suporte integrativo suportado pelas três plataformas. As matrizes correspondentes podem ser selecionadas durante os protocolos no BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Continentes / Cor e tonalidades<span class="tt-icon">i</span><div class="tooltip">O mapeamento de estressores ou compatibilidades baseadas em parâmetros geográficos (Continentes), associado à aplicação de cromoterapia através da emissão de cores primárias e suas tonalidades, é uma ferramenta técnica presente apenas na arquitetura do BA18D. As bibliotecas do BA18G e BA18DG não englobam estas divisões vibracionais.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Especiarias e ervas aromáticas<span class="tt-icon">i</span><div class="tooltip">A biblioteca categorizada de forma isolada para analisar a ressonância e a compatibilidade de especiarias e ervas aromáticas compõe o escopo de triagem fitoterápica nutricional exclusiva do modelo BA18D. As plataformas BA18G e BA18DG não separam este subgrupo específico em suas listagens padronizadas.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-no">Não</span></td><td><span class="chip chip-no">Não</span></td>
+    </tr>
+
+    <!-- ═══ RECURSOS AVANÇADOS ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Recursos Avançados e Diferenciais</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Atualização de software / banco de dados<span class="tt-icon">i</span><div class="tooltip">O processo de atualização do sistema operacional e a inclusão de novas matrizes no banco de dados ocorrem de forma manual nas três plataformas. As versões BA18D, BA18G e BA18DG não dispõem de ferramentas de atualização automática autônoma via rede.</div></div></td>
+      <td>Manual</td><td>Manual</td><td>Manual</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Suporte técnico<span class="tt-icon">i</span><div class="tooltip">A assistência especializada para a resolução de problemas sistêmicos, auxílio na instalação e orientação de configuração é um serviço garantido para as três arquiteturas. O suporte técnico abrange de maneira integral as plataformas BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td><td><span class="chip chip-yes">Sim</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Material didático<span class="tt-icon">i</span><div class="tooltip">A documentação instrutiva, englobando manuais de operação, cartilhas e guias práticos de uso, é fornecida de forma nativa na aquisição dos três modelos. O material didático base acompanha integralmente o BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Incluso</span></td><td><span class="chip chip-yes">Incluso</span></td><td><span class="chip chip-yes">Incluso</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Cursos<span class="tt-icon">i</span><div class="tooltip">O acesso a programas de capacitação e treinamento operacional para o aprofundamento metodológico na tecnologia NLS é um recurso estruturado e disponível para as três plataformas. Os operadores do BA18D, BA18G e BA18DG podem aderir a estes módulos educacionais para aprimorar o uso da ferramenta.</div></div></td>
+      <td><span class="chip chip-yes">Disponível</span></td><td><span class="chip chip-yes">Disponível</span></td><td><span class="chip chip-yes">Disponível</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Certificações<span class="tt-icon">i</span><div class="tooltip">A emissão de certificados técnicos atestando a proficiência e a conclusão das etapas de capacitação na operação dos equipamentos é uma modalidade disponível e atrelada aos treinamentos. O recurso abrange os utilizadores do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Disponível</span></td><td><span class="chip chip-yes">Disponível</span></td><td><span class="chip chip-yes">Disponível</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Mentorias<span class="tt-icon">i</span><div class="tooltip">O acompanhamento profissional contínuo, direcionado para a discussão de protocolos, interpretação avançada de gráficos e orientação estrutural, é um serviço complementar disponível para os três equipamentos. As mentorias podem ser agendadas pelos usuários do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Disponível</span></td><td><span class="chip chip-yes">Disponível</span></td><td><span class="chip chip-yes">Disponível</span></td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Análise Remota via DNA (BlackBox)<span class="tt-icon">i</span><div class="tooltip">A capacidade de realizar escaneamentos e emissão de metaterapia à distância, utilizando amostras físicas de DNA (como cabelo ou unhas) alocadas em uma câmara de ressonância externa (BlackBox), é uma funcionalidade suportada tecnicamente pelos três modelos. A operação deste módulo exige a aquisição da câmara como um acessório opcional físico para atuar em conjunto com o software do BA18D, BA18G e BA18DG.</div></div></td>
+      <td><span class="chip chip-yes">Sim</span> — acessório opcional</td>
+      <td><span class="chip chip-yes">Sim</span> — acessório opcional</td>
+      <td><span class="chip chip-yes">Sim</span> — acessório opcional</td>
+    </tr>
+
+    <!-- ═══ PERFIL ═══ -->
+    <tr class="section-row"><td colspan="4">⬡ Perfil de Uso Recomendado</td></tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Público-alvo ideal<span class="tt-icon">i</span><div class="tooltip">O BA18D, com sua extensa biblioteca de etalons focados em medicina oriental e terapias vibracionais, atende prioritariamente a terapeutas integrativos e holísticos. O BA18G, por apresentar uma estrutura voltada para a varredura histológica e patológica tridimensional, é direcionado para profissionais da saúde clínica, como médicos e nutricionistas. O BA18DG mescla funcionalidades analíticas de rastreio com módulos integrativos, compondo a ferramenta recomendada para profissionais atuantes na saúde integrativa.</div></div></td>
+      <td>Terapeutas integrativos e holísticos</td>
+      <td>Profissionais da saúde, médicos, nutricionistas</td>
+      <td>Terapeutas e profissionais da saúde integrativa</td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Nível de complexidade operacional<span class="tt-icon">i</span><div class="tooltip">A exigência técnica e analítica para a operação das plataformas é classificada como avançada para os três modelos avaliados. Tanto o BA18D quanto o BA18G e o BA18DG requerem capacitação teórica e prática intensiva para a navegação adequada em suas interfaces sistêmicas, interpretação clínica dos gráficos de entropia e aplicação assertiva dos recursos de metaterapia.</div></div></td>
+      <td>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="display:flex;gap:3px;">
+            <div style="width:14px;height:14px;border-radius:3px;background:var(--nls18);opacity:1"></div>
+            <div style="width:14px;height:14px;border-radius:3px;background:var(--nls18);opacity:1"></div>
+            <div style="width:14px;height:14px;border-radius:3px;background:var(--nls18);opacity:0.2"></div>
+          </div>
+          <span style="font-size:13px;color:var(--text-secondary)">Avançado</span>
+        </div>
+      </td>
+      <td>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="display:flex;gap:3px;">
+            <div style="width:14px;height:14px;border-radius:3px;background:var(--hunter);opacity:1"></div>
+            <div style="width:14px;height:14px;border-radius:3px;background:var(--hunter);opacity:1"></div>
+            <div style="width:14px;height:14px;border-radius:3px;background:var(--hunter);opacity:0.2"></div>
+          </div>
+          <span style="font-size:13px;color:var(--text-secondary)">Avançado</span>
+        </div>
+      </td>
+      <td>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="display:flex;gap:3px;">
+            <div style="width:14px;height:14px;border-radius:3px;background:var(--meta);opacity:1"></div>
+            <div style="width:14px;height:14px;border-radius:3px;background:var(--meta);opacity:1"></div>
+            <div style="width:14px;height:14px;border-radius:3px;background:var(--meta);opacity:0.2"></div>
+          </div>
+          <span style="font-size:13px;color:var(--text-secondary)">Avançado</span>
+        </div>
+      </td>
+    </tr>
+    <tr class="data-row">
+      <td><div class="tt-wrap">Custo-benefício<span class="tt-icon">i</span><div class="tooltip">O BA18D apresenta uma classificação excelente, destacando-se pela vasta abrangência de seu banco de etalons sistêmicos e analíticos. O BA18G recebe a classificação ótima, justificando-se pela inclusão de algoritmos avançados de varredura tridimensional e rastreio de microestruturas. O BA18DG é classificado como bom, por oferecer uma arquitetura de software híbrida que integra parte dos recursos de ambas as linhas de diagnóstico.</div></div></td>
+      <td style="color:var(--nls18);font-weight:600;font-size:15px;">★★★★★ Excelente</td>
+      <td style="color:var(--hunter);font-weight:600;font-size:15px;">★★★★☆ Ótimo</td>
+      <td style="color:var(--meta);font-weight:600;font-size:15px;">★★★☆☆ Bom</td>
+    </tr>
+
+  </tbody>
+  </table>
+  </div>
+  </div><!-- end table-scroll-wrapper -->
+
+  <div class="footer-note">
+    Informações baseadas nas especificações técnicas do fabricante oficial Asiatics<br>
+    ✦ Equipamentos para uso em saúde integrativa e bioressonância · Não substituem diagnóstico médico convencional<br>
+    Asiatics · Copyright 2013–<span id="ano"></span>
+  </div>
+
+</div>
+
+<script>
+  // Ano dinâmico
+  document.getElementById('ano').textContent = new Date().getFullYear();
+
+  // Tooltip toggle no mobile (toque)
+  document.querySelectorAll('.tt-wrap').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      var isActive = el.classList.contains('active');
+      // fecha todos
+      document.querySelectorAll('.tt-wrap.active').forEach(function(a) { a.classList.remove('active'); });
+      if (!isActive) el.classList.add('active');
+      e.stopPropagation();
+    });
+  });
+  document.addEventListener('click', function() {
+    document.querySelectorAll('.tt-wrap.active').forEach(function(a) { a.classList.remove('active'); });
+  });
+
+  // Flip tooltip para cima se estiver perto do fim da tela
+  document.querySelectorAll('.tt-wrap').forEach(function(el) {
+    el.addEventListener('mouseenter', function() {
+      var tooltip = el.querySelector('.tooltip');
+      if (!tooltip) return;
+      tooltip.classList.remove('up');
+      var rect = tooltip.getBoundingClientRect();
+      if (rect.bottom > window.innerHeight - 20) {
+        tooltip.classList.add('up');
+      }
+    });
+  });
+</script>
+</body>
+</html>
